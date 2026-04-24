@@ -1,0 +1,225 @@
+/* =========================================================
+   MILLIONAIRE MIND INTENSIVE — Foundations
+   Colors + Typography tokens for the MMI brand system.
+   ========================================================= */
+
+/* ---------- FONT FACES ---------- */
+@font-face {
+  font-family: "Trajan Pro";
+  src: url("fonts/TrajanPro-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Trajan Pro";
+  src: url("fonts/TrajanPro-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Google Font fallbacks (closest match) for body copy / UI.
+   Brand guide calls for Gotham HTS + Open Sans — Gotham is licensed,
+   so we substitute Montserrat (closest geometric sans) + Open Sans. */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap");
+
+:root {
+  /* ---------- BRAND PALETTE ---------- */
+
+  /* Primary gold — from Millionaire Mind wordmark */
+  --mmi-gold-50:  #fbf3d8;
+  --mmi-gold-100: #f4e1a3;
+  --mmi-gold-200: #eacb6c;
+  --mmi-gold-300: #dbb04a;   /* callout headlines */
+  --mmi-gold-400: #c99a2b;   /* primary gold */
+  --mmi-gold-500: #b8841d;   /* pressed / deeper */
+  --mmi-gold-600: #8a5f12;
+  --mmi-gold-700: #5c3e08;
+
+  /* Core neutrals — ink + paper */
+  --mmi-ink-900: #0a0a0a;    /* true black, logo mark */
+  --mmi-ink-800: #121212;
+  --mmi-ink-700: #1c1c1c;    /* card / quote pill */
+  --mmi-ink-600: #2a2a2a;
+  --mmi-ink-500: #4a4a4a;
+  --mmi-ink-300: #8a8a8a;
+  --mmi-ink-100: #e5e5e5;
+  --mmi-paper:   #f6f2e9;    /* warm off-white */
+  --mmi-white:   #ffffff;
+
+  /* Seminar green — from campaign imagery (stage wash, backdrops) */
+  --mmi-green-900: #0a1f14;
+  --mmi-green-800: #0f2f1c;
+  --mmi-green-700: #153d26;
+  --mmi-green-600: #1f5a36;
+  --mmi-green-500: #2c7a47;  /* primary seminar green */
+  --mmi-green-400: #4aa066;
+  --mmi-green-300: #7bc48e;
+  --mmi-green-100: #d5ebdb;
+
+  /* Success Resources blue — partner brand */
+  --sr-blue-700:  #0f2c8a;
+  --sr-blue-500:  #1d3ebf;   /* SR wordmark */
+  --sr-blue-300:  #6b7fd8;
+
+  /* ---------- SEMANTIC TOKENS ---------- */
+  --fg-1:        var(--mmi-ink-900);     /* primary foreground */
+  --fg-2:        var(--mmi-ink-500);     /* secondary text */
+  --fg-3:        var(--mmi-ink-300);     /* muted */
+  --fg-on-dark:  var(--mmi-white);
+  --fg-accent:   var(--mmi-gold-400);    /* headline gold */
+  --fg-accent-bright: var(--mmi-gold-300);
+
+  --bg-1:        var(--mmi-paper);       /* base canvas */
+  --bg-2:        var(--mmi-white);       /* card surface (light) */
+  --bg-dark-1:   var(--mmi-green-800);   /* dark seminar canvas */
+  --bg-dark-2:   var(--mmi-ink-900);     /* deep quote / pill bg */
+
+  --border-1:    rgba(10,10,10,0.12);
+  --border-on-dark: rgba(255,255,255,0.14);
+
+  /* Seminar green radial wash — signature backdrop */
+  --bg-stage-wash: radial-gradient(
+    ellipse 120% 80% at 50% 40%,
+    var(--mmi-green-500) 0%,
+    var(--mmi-green-700) 35%,
+    var(--mmi-green-900) 75%,
+    var(--mmi-ink-900) 100%
+  );
+
+  /* Gold foil gradient — for logo-like headlines */
+  --fg-gold-foil: linear-gradient(
+    180deg,
+    #f4e1a3 0%,
+    #dbb04a 40%,
+    #c99a2b 55%,
+    #8a5f12 100%
+  );
+
+  /* ---------- FONT FAMILIES ---------- */
+  --font-display: "Trajan Pro", "Cormorant Garamond", "Times New Roman", serif;
+  --font-body:    "Open Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-ui:      "Montserrat", "Open Sans", sans-serif; /* Gotham substitute */
+
+  /* ---------- TYPE SCALE ---------- */
+  --fs-display-xl: clamp(3.5rem, 6vw, 5.5rem);  /* 56–88px */
+  --fs-display:    clamp(2.5rem, 4vw, 4rem);    /* 40–64px */
+  --fs-h1:         2.375rem;   /* 38px — brand guide h1 */
+  --fs-h2:         2.1875rem;  /* 35px */
+  --fs-h3:         1.5rem;     /* 24px */
+  --fs-h4:         1.125rem;   /* 18px */
+  --fs-subhead:    1.375rem;   /* 22px */
+  --fs-body:       1rem;       /* 16px */
+  --fs-small:      0.875rem;   /* 14px */
+  --fs-caption:    0.75rem;    /* 12px */
+
+  --lh-tight: 1.05;
+  --lh-snug:  1.2;
+  --lh-body:  1.5;
+  --lh-loose: 1.65;
+
+  --tracking-display: 0.02em;
+  --tracking-eyebrow: 0.22em;  /* wide spacing for ALLCAPS eyebrows */
+  --tracking-body:    0;
+
+  /* ---------- SPACING / RADIUS / SHADOW ---------- */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --s-9: 96px;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+
+  --shadow-soft: 0 2px 8px rgba(10,10,10,0.08), 0 8px 24px rgba(10,10,10,0.06);
+  --shadow-card: 0 10px 30px rgba(10,10,10,0.14);
+  --shadow-glow-gold: 0 0 40px rgba(201,154,43,0.25);
+  --shadow-stage: 0 30px 80px rgba(0,0,0,0.5);
+
+  /* ---------- MOTION ---------- */
+  --ease-brand: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-fast:   140ms;
+  --dur-base:   240ms;
+  --dur-slow:   480ms;
+}
+
+/* =========================================================
+   SEMANTIC TAG STYLES
+   ========================================================= */
+
+.mmi-eyebrow {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--fs-small);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--fg-accent);
+}
+
+.mmi-display-xl,
+.mmi-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-display);
+  text-transform: uppercase;
+}
+.mmi-display-xl { font-size: var(--fs-display-xl); }
+.mmi-display    { font-size: var(--fs-display); }
+
+.mmi-h1 { font-family: var(--font-ui); font-weight: 300; font-size: var(--fs-h1); line-height: var(--lh-snug); }
+.mmi-h2 { font-family: var(--font-ui); font-weight: 300; font-size: var(--fs-h2); line-height: var(--lh-snug); }
+.mmi-h3 { font-family: var(--font-ui); font-weight: 500; font-size: var(--fs-h3); line-height: var(--lh-snug); }
+.mmi-h4 { font-family: var(--font-body); font-weight: 400; font-size: var(--fs-h4); line-height: var(--lh-body); }
+
+.mmi-subhead {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--fs-subhead);
+  line-height: var(--lh-snug);
+}
+
+.mmi-p, p.mmi {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--fg-1);
+}
+
+.mmi-testimonial {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: var(--fs-h4);
+  line-height: var(--lh-loose);
+  color: var(--fg-2);
+}
+
+/* Signature "headline in gold, support in white" pattern */
+.mmi-headline-gold {
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: var(--fg-accent-bright);
+  line-height: var(--lh-snug);
+}
+.mmi-headline-gold--foil {
+  background: var(--fg-gold-foil);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+.mmi-support-white {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--fg-on-dark);
+  line-height: var(--lh-body);
+}
