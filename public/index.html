@@ -850,6 +850,44 @@
     .exp-card:hover{transform:none;background:rgba(255,255,255,0.025)}
     .cta:hover{transform:none}
   }
+  /* ─── COOKIE CONSENT BANNER (FIX 2) ─── */
+  .cookie-banner{
+    position:fixed;bottom:0;left:0;right:0;z-index:999;
+    background:rgba(10,10,10,0.97);
+    border-top:1px solid rgba(219,176,74,0.25);
+    padding:18px 32px;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:24px;flex-wrap:wrap;
+    backdrop-filter:blur(12px);
+    transform:translateY(0);
+    transition:transform 400ms ease;
+  }
+  .cookie-banner.hidden{transform:translateY(110%)}
+  .cookie-text{
+    font-family:var(--font-body);font-size:13px;line-height:1.6;
+    color:rgba(255,255,255,0.65);flex:1;min-width:240px;
+  }
+  .cookie-text a{color:var(--mmi-gold-200);text-decoration:underline}
+  .cookie-actions{display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap}
+  .cookie-btn{
+    padding:9px 20px;border-radius:var(--radius-pill);
+    font-family:var(--font-ui);font-weight:600;font-size:10px;
+    letter-spacing:0.22em;text-transform:uppercase;cursor:pointer;
+    transition:all 180ms;border:none;
+  }
+  .cookie-btn.accept{background:var(--mmi-gold-400);color:var(--mmi-ink-900)}
+  .cookie-btn.accept:hover{background:var(--mmi-gold-300)}
+  .cookie-btn.decline{
+    background:transparent;color:rgba(255,255,255,0.5);
+    border:1px solid rgba(255,255,255,0.15);
+  }
+  .cookie-btn.decline:hover{border-color:rgba(255,255,255,0.35);color:rgba(255,255,255,0.8)}
+  @media(max-width:760px){
+    .cookie-banner{padding:14px 18px;gap:14px}
+    .cookie-text{font-size:12px}
+    .cookie-btn{font-size:9px;padding:8px 14px}
+    body{padding-bottom:140px}
+  }
 </style>
 </head>
 <body>
@@ -902,12 +940,17 @@
         </div>
       </div>
 
+      <!-- FIX 4: 3-day time objection addressed -->
+      <p style="font-family:var(--font-body);font-size:13px;line-height:1.65;color:rgba(255,255,255,0.42);margin-bottom:28px;">
+        Designed for business owners and professionals who can't afford to stop — the structure is intensive but manageable around a working life. Hundreds of entrepreneurs attend every event.
+      </p>
+
       <div class="hero-cta-row">
         <a class="cta" href="#pricing">Secure My €29 Seat</a>
         <a class="cta ghost" href="#pattern">What You'll Experience</a>
       </div>
       <div class="guarantee">
-        ✦ <span>Takes less than <b>60 seconds</b> to secure your seat</span>
+        ✦ <span>Takes less than <b>60 seconds</b> to secure your seat · <b>30-day money-back guarantee</b></span>
       </div>
     </div>
 
@@ -1307,9 +1350,46 @@
     <div class="stakes-body">
       <p>You can keep thinking about it. Keep waiting for the right time. Keep telling yourself you'll figure it out later.</p>
       <p>But the patterns that shaped your results so far will keep shaping them — until something changes. Another year of the same decisions. The same hesitation. The same financial ceiling.</p>
+      <p>The people who see the biggest shifts at MMI are those who act in their 40s — when there's still time to put what changes into compound effect. Not later. Now.</p>
     </div>
     <div class="stakes-divider"></div>
     <p class="stakes-punch">At some point, the real cost<br/>isn't the event. It's staying where you are.</p>
+  </div>
+</section>
+
+<!-- ═══════════ WHO ATTENDS ═══════════ -->
+<section style="padding:56px 40px;background:var(--mmi-ink-900);border-top:1px solid rgba(255,255,255,0.05);">
+  <div class="section-inner">
+    <div style="text-align:center;margin-bottom:32px;">
+      <div class="eyebrow">Who's in the room</div>
+      <h2 class="section-title" style="font-size:clamp(22px,2.6vw,34px);margin-bottom:10px;">People who already have <em>momentum</em> — and know<br/>something is still holding them back.</h2>
+    </div>
+    <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:12px;max-width:820px;margin:0 auto;">
+      <div style="padding:14px 22px;border:1px solid rgba(219,176,74,0.22);border-radius:var(--radius-pill);background:rgba(219,176,74,0.04);text-align:center;">
+        <div style="font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:0.04em;text-transform:uppercase;color:#fff;">Business Owners</div>
+        <div style="font-family:var(--font-ui);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:5px;">SME founders &amp; directors</div>
+      </div>
+      <div style="padding:14px 22px;border:1px solid rgba(219,176,74,0.22);border-radius:var(--radius-pill);background:rgba(219,176,74,0.04);text-align:center;">
+        <div style="font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:0.04em;text-transform:uppercase;color:#fff;">Entrepreneurs</div>
+        <div style="font-family:var(--font-ui);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:5px;">Early-stage &amp; scaling</div>
+      </div>
+      <div style="padding:14px 22px;border:1px solid rgba(219,176,74,0.22);border-radius:var(--radius-pill);background:rgba(219,176,74,0.04);text-align:center;">
+        <div style="font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:0.04em;text-transform:uppercase;color:#fff;">Executives</div>
+        <div style="font-family:var(--font-ui);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:5px;">Senior professionals &amp; managers</div>
+      </div>
+      <div style="padding:14px 22px;border:1px solid rgba(219,176,74,0.22);border-radius:var(--radius-pill);background:rgba(219,176,74,0.04);text-align:center;">
+        <div style="font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:0.04em;text-transform:uppercase;color:#fff;">Investors</div>
+        <div style="font-family:var(--font-ui);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:5px;">Property, stocks &amp; business</div>
+      </div>
+      <div style="padding:14px 22px;border:1px solid rgba(219,176,74,0.22);border-radius:var(--radius-pill);background:rgba(219,176,74,0.04);text-align:center;">
+        <div style="font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:0.04em;text-transform:uppercase;color:#fff;">Freelancers</div>
+        <div style="font-family:var(--font-ui);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:5px;">Self-employed &amp; consultants</div>
+      </div>
+      <div style="padding:14px 22px;border:1px solid rgba(219,176,74,0.22);border-radius:var(--radius-pill);background:rgba(219,176,74,0.04);text-align:center;">
+        <div style="font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:0.04em;text-transform:uppercase;color:#fff;">Career Professionals</div>
+        <div style="font-family:var(--font-ui);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:5px;">Ambitious &amp; growth-oriented</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1471,7 +1551,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-q">Is there a refund policy?<span>+</span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>We believe in the experience we deliver. Full details are available at checkout, but most people don't ask for refunds — they come back for more.</p></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>Yes — a full 30-day money-back guarantee. Attend Day 1. If you don't feel it was worth every cent, email <a href="mailto:support@successresources.com" style="color:var(--mmi-gold-200);text-decoration:underline;">support@successresources.com</a> within 30 days and we'll refund you completely. No questions. No hassle.</p><p>Most people don't ask for refunds. They come back for the next event.</p></div></div>
       </div>
     </div>
   </div>
@@ -1491,12 +1571,12 @@
 <footer>
   <img class="footer-logo" src="assets/logos/mmi-logo-gold.png" alt="MMI"/>
   <nav>
-    <a href="#">Contact Us</a>
-    <a href="#">Privacy Policy</a>
-    <a href="#">Terms &amp; Conditions</a>
-    <a href="#">Cookies Policy</a>
+    <a href="https://www.millionairemindworld.com/sr">Contact Us</a>
+    <a href="https://successresources.com/privacy-policy/">Privacy Policy</a>
+    <a href="https://successresources.com/terms-conditions/">Terms &amp; Conditions</a>
+    <a href="https://successresources.com/cookies-policy/">Cookies Policy</a>
   </nav>
-  <p class="copy">Copyright © 2025 Success Resources · All Rights Reserved<br/>
+  <p class="copy">Copyright © 2026 Success Resources · All Rights Reserved<br/>
   Millionaire Mind Intensive® is a registered trademark of Peak Potentials Training Inc.</p>
 </footer>
 
@@ -1562,6 +1642,36 @@
     document.querySelectorAll('.day-content').forEach((c,i)=>c.classList.toggle('active', i===idx));
   }
   window.switchDay = switchDay;
+</script>
+
+<!-- ═══════════ COOKIE CONSENT BANNER (FIX 2) ═══════════ -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent">
+  <p class="cookie-text">
+    We use cookies to personalise content, run analytics, and serve video (Vimeo). By clicking <strong>Accept</strong> you consent to our use of cookies in accordance with our
+    <a href="https://successresources.com/cookies-policy/" target="_blank" rel="noopener">Cookies Policy</a> and
+    <a href="https://successresources.com/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>.
+  </p>
+  <div class="cookie-actions">
+    <button class="cookie-btn decline" id="cookieDecline">Decline</button>
+    <button class="cookie-btn accept" id="cookieAccept">Accept All</button>
+  </div>
+</div>
+
+<script>
+  // ─── Cookie consent logic ───
+  (function(){
+    var banner = document.getElementById('cookieBanner');
+    var consent = localStorage.getItem('mmi_cookie_consent');
+    if(consent){ banner.classList.add('hidden'); return; }
+    document.getElementById('cookieAccept').addEventListener('click', function(){
+      localStorage.setItem('mmi_cookie_consent','accepted');
+      banner.classList.add('hidden');
+    });
+    document.getElementById('cookieDecline').addEventListener('click', function(){
+      localStorage.setItem('mmi_cookie_consent','declined');
+      banner.classList.add('hidden');
+    });
+  })();
 </script>
 
 </body>
