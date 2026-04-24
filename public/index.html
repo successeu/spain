@@ -378,6 +378,7 @@
     content:'';position:absolute;inset:0;z-index:1;
     background:linear-gradient(180deg,rgba(10,10,10,0.18) 0%,rgba(10,10,10,0.55) 100%);
     transition:opacity 300ms var(--ease-brand);
+    pointer-events:none; /* must not intercept clicks once video is playing */
   }
   .video-facade .vf-play{
     position:absolute;top:50%;left:50%;z-index:2;
@@ -1543,6 +1544,8 @@
   // ─── CLICK-TO-PLAY VIDEO FACADE ───
   function loadVideo(el, videoId){
     el.innerHTML = '<iframe src="https://player.vimeo.com/video/' + videoId + '?autoplay=1&muted=0&controls=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
+    el.onclick = null;        // prevent click-to-restart once playing
+    el.style.cursor = 'default';
   }
   window.loadVideo = loadVideo;
   // Keyboard support: Enter/Space on focused facade
