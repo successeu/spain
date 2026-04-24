@@ -931,16 +931,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .hero-card{ display:none !important }
     .hero-3day-note{ display:none !important }
 
-    /* Show mobile eyebrow */
+    /* Show mobile eyebrow — centered */
     .hero-eyebrow-mobile{
-      display:inline-block !important;
-      margin-bottom:14px !important;
+      display:block !important;
+      text-align:center !important;
+      margin-bottom:16px !important;
       font-size:10px !important;
     }
 
     /* Big stacked headline */
     .hero-title{
-      font-size:clamp(46px,13vw,58px) !important;
+      font-size:clamp(50px,14vw,62px) !important;
       line-height:1.0 !important;
       letter-spacing:0.01em !important;
       margin-bottom:16px !important;
@@ -1023,7 +1024,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-size:13px !important;
       font-weight:600 !important;
       color:var(--mmi-gold-200) !important;
-      letter-spacing:0.04em !important;
+      letter-spacing:0.06em !important;
+      text-transform:uppercase !important;
       order:1 !important;
     }
     .hero-meta-label{
@@ -1032,6 +1034,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       color:rgba(255,255,255,0.4) !important;
       order:2 !important;
       text-transform:uppercase !important;
+    }
+    /* Gold "60 seconds" in guarantee */
+    .guarantee-highlight{
+      color:var(--mmi-gold-200) !important;
+      font-weight:600 !important;
     }
   }
 
@@ -1128,7 +1135,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a class="cta ghost" href="#pattern">What You'll Experience</a>
       </div>
       <div class="guarantee">
-        ✦ <span>Takes less than <b>60 seconds</b> to secure your seat</span>
+        <svg class="guarantee-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;flex-shrink:0;opacity:0.6"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+        <span>Takes less than <span class="guarantee-highlight">60 seconds</span> to secure your seat</span>
       </div>
 
       <div class="hero-meta">
