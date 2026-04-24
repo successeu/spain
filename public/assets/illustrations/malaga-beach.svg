@@ -1,0 +1,288 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    
+    <linearGradient id="mSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a1d14"></stop>
+      <stop offset="45%" stop-color="#1a3a28"></stop>
+      <stop offset="75%" stop-color="#6b4d22"></stop>
+      <stop offset="95%" stop-color="#d4a84a"></stop>
+      <stop offset="100%" stop-color="#e8c668"></stop>
+    </linearGradient>
+    
+    <linearGradient id="mSea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d4a84a" stop-opacity="0.4"></stop>
+      <stop offset="8%" stop-color="#5a8670" stop-opacity="0.7"></stop>
+      <stop offset="40%" stop-color="#2c7a47"></stop>
+      <stop offset="100%" stop-color="#0f3220"></stop>
+    </linearGradient>
+    
+    <linearGradient id="mMountFar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a2e1f" stop-opacity="0.75"></stop>
+      <stop offset="100%" stop-color="#2a4a32" stop-opacity="0.5"></stop>
+    </linearGradient>
+    <linearGradient id="mMountMid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f2418"></stop>
+      <stop offset="100%" stop-color="#1a3524"></stop>
+    </linearGradient>
+    
+    <radialGradient id="mGlint" cx="0.78" cy="0.38" r="0.45">
+      <stop offset="0%" stop-color="#f5d48a" stop-opacity="0.6"></stop>
+      <stop offset="30%" stop-color="#dbb04a" stop-opacity="0.25"></stop>
+      <stop offset="100%" stop-color="#dbb04a" stop-opacity="0"></stop>
+    </radialGradient>
+    
+    <linearGradient id="mSand" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8a6a3c"></stop>
+      <stop offset="50%" stop-color="#6b5028"></stop>
+      <stop offset="100%" stop-color="#3a2e18"></stop>
+    </linearGradient>
+    
+    <linearGradient id="mFoliage" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a3a24"></stop>
+      <stop offset="100%" stop-color="#0a1d14"></stop>
+    </linearGradient>
+
+    <filter id="mGrain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="2.5" numOctaves="1" seed="4"></feTurbulence>
+      <feColorMatrix values="0 0 0 0 0.08  0 0 0 0 0.06  0 0 0 0 0.03  0 0 0 0.08 0"></feColorMatrix>
+      <feComposite in2="SourceGraphic" operator="in"></feComposite>
+    </filter>
+  </defs>
+
+  
+  <rect width="800" height="520" fill="url(#mSky)"></rect>
+
+  
+  <path d="M0 360 L60 330 L110 345 L160 310 L210 335 L260 295 L320 320 L370 285 L420 305 L470 280 L520 295 L580 270 L640 290 L700 275 L760 290 L800 280 L800 430 L0 430 Z" fill="url(#mMountFar)"></path>
+
+  
+  <path d="M0 430 L40 400 L90 420 L140 390 L190 410 L240 385 L300 405 L360 380 L420 395 L480 370 L540 385 L600 365 L660 378 L720 360 L780 372 L800 365 L800 520 L0 520 Z" fill="url(#mMountMid)"></path>
+
+  
+  <g stroke="#dbb04a" stroke-width="0.5" opacity="0.15" fill="none">
+    <path d="M140 390 L190 410 L240 385"></path>
+    <path d="M360 380 L420 395 L480 370"></path>
+    <path d="M600 365 L660 378 L720 360"></path>
+  </g>
+
+  
+  <rect y="430" width="800" height="300" fill="url(#mSea)"></rect>
+  <rect y="430" width="800" height="300" fill="url(#mGlint)"></rect>
+
+  
+  <line x1="0" y1="430" x2="800" y2="430" stroke="#dbb04a" stroke-width="0.8" opacity="0.5"></line>
+
+  
+  <g stroke="#f5d48a" stroke-width="0.6" opacity="0.35">
+    <line x1="420" y1="460" x2="580" y2="460"></line>
+    <line x1="500" y1="475" x2="640" y2="475"></line>
+    <line x1="440" y1="490" x2="620" y2="490"></line>
+    <line x1="480" y1="505" x2="700" y2="505"></line>
+    <line x1="520" y1="520" x2="680" y2="520"></line>
+    <line x1="460" y1="535" x2="650" y2="535"></line>
+    <line x1="500" y1="555" x2="700" y2="555"></line>
+    <line x1="440" y1="575" x2="620" y2="575"></line>
+    <line x1="500" y1="600" x2="700" y2="600"></line>
+    <line x1="540" y1="625" x2="680" y2="625"></line>
+  </g>
+  <g stroke="#dbb04a" stroke-width="0.5" opacity="0.2">
+    <line x1="80" y1="470" x2="220" y2="470"></line>
+    <line x1="120" y1="500" x2="260" y2="500"></line>
+    <line x1="60" y1="530" x2="240" y2="530"></line>
+    <line x1="120" y1="565" x2="320" y2="565"></line>
+    <line x1="80" y1="600" x2="280" y2="600"></line>
+    <line x1="140" y1="640" x2="380" y2="640"></line>
+    <line x1="60" y1="680" x2="320" y2="680"></line>
+  </g>
+
+  
+  <g opacity="0.78">
+    <g transform="translate(680,530)">
+      <path d="M-14 0 L14 0 L10 6 L-10 6 Z" fill="#1a3524" stroke="#dbb04a" stroke-width="0.8"></path>
+      <line x1="0" y1="0" x2="0" y2="-18" stroke="#dbb04a" stroke-width="0.8"></line>
+    </g>
+    <g transform="translate(600,590)">
+      <path d="M-10 0 L10 0 L8 5 L-8 5 Z" fill="#1a3524" stroke="#dbb04a" stroke-width="0.7"></path>
+      <line x1="0" y1="0" x2="0" y2="-14" stroke="#dbb04a" stroke-width="0.7"></line>
+    </g>
+  </g>
+
+  
+  <path d="M0 720 Q200 700 420 720 Q600 735 800 715 L800 760 L0 760 Z" fill="#4a3820" opacity="0.85"></path>
+  <path d="M0 720 Q200 700 420 720 Q600 735 800 715" stroke="#dbb04a" stroke-width="0.8" fill="none" opacity="0.4"></path>
+
+  
+  <path d="M0 740 L800 730 L800 1000 L0 1000 Z" fill="url(#mSand)"></path>
+
+  
+  <g opacity="0.88">
+    
+    <g stroke="#c99a2b" stroke-width="0.7" fill="#5a4020">
+      <ellipse cx="200" cy="790" rx="22" ry="8"></ellipse>
+      <ellipse cx="248" cy="788" rx="22" ry="8"></ellipse>
+      <ellipse cx="296" cy="790" rx="22" ry="8"></ellipse>
+      <ellipse cx="344" cy="788" rx="22" ry="8"></ellipse>
+      <ellipse cx="392" cy="790" rx="22" ry="8"></ellipse>
+      <ellipse cx="440" cy="788" rx="22" ry="8"></ellipse>
+    </g>
+    
+    <g stroke="#3a2a14" stroke-width="0.5" opacity="0.7">
+      <line x1="182" y1="787" x2="200" y2="775"></line>
+      <line x1="218" y1="787" x2="200" y2="775"></line>
+      <line x1="230" y1="785" x2="248" y2="773"></line>
+      <line x1="266" y1="785" x2="248" y2="773"></line>
+      <line x1="278" y1="787" x2="296" y2="775"></line>
+      <line x1="314" y1="787" x2="296" y2="775"></line>
+      <line x1="326" y1="785" x2="344" y2="773"></line>
+      <line x1="362" y1="785" x2="344" y2="773"></line>
+      <line x1="374" y1="787" x2="392" y2="775"></line>
+      <line x1="410" y1="787" x2="392" y2="775"></line>
+      <line x1="422" y1="785" x2="440" y2="773"></line>
+      <line x1="458" y1="785" x2="440" y2="773"></line>
+    </g>
+    
+    <g fill="#2a3a44" opacity="0.55">
+      <rect x="186" y="798" width="28" height="3"></rect>
+      <rect x="234" y="796" width="28" height="3"></rect>
+      <rect x="282" y="798" width="28" height="3"></rect>
+      <rect x="330" y="796" width="28" height="3"></rect>
+      <rect x="378" y="798" width="28" height="3"></rect>
+      <rect x="426" y="796" width="28" height="3"></rect>
+    </g>
+  </g>
+
+  
+  <g fill="#2a1e10" opacity="0.7">
+    <circle cx="490" cy="810" r="2"></circle><rect x="488" y="812" width="4" height="8"></rect>
+    <circle cx="510" cy="815" r="2"></circle><rect x="508" y="817" width="4" height="8"></rect>
+    <circle cx="535" cy="812" r="2"></circle><rect x="533" y="814" width="4" height="8"></rect>
+    <circle cx="560" cy="820" r="2"></circle><rect x="558" y="822" width="4" height="8"></rect>
+    <circle cx="590" cy="815" r="2"></circle><rect x="588" y="817" width="4" height="8"></rect>
+    <circle cx="620" cy="822" r="2"></circle><rect x="618" y="824" width="4" height="8"></rect>
+    <circle cx="655" cy="818" r="2"></circle><rect x="653" y="820" width="4" height="8"></rect>
+    <circle cx="685" cy="824" r="2"></circle><rect x="683" y="826" width="4" height="8"></rect>
+    <circle cx="720" cy="820" r="2"></circle><rect x="718" y="822" width="4" height="8"></rect>
+  </g>
+
+  
+  <g opacity="0.85">
+    <g transform="translate(530,800)"><path d="M-10 0 Q0 -14 10 0 Z" fill="#c74b3d"></path><line x1="0" y1="0" x2="0" y2="14" stroke="#2a1e10" stroke-width="0.8"></line></g>
+    <g transform="translate(595,805)"><path d="M-10 0 Q0 -14 10 0 Z" fill="#dbb04a"></path><line x1="0" y1="0" x2="0" y2="14" stroke="#2a1e10" stroke-width="0.8"></line></g>
+    <g transform="translate(665,810)"><path d="M-10 0 Q0 -14 10 0 Z" fill="#4a7bc7"></path><line x1="0" y1="0" x2="0" y2="14" stroke="#2a1e10" stroke-width="0.8"></line></g>
+    <g transform="translate(735,800)"><path d="M-10 0 Q0 -14 10 0 Z" fill="#5a8b5a"></path><line x1="0" y1="0" x2="0" y2="14" stroke="#2a1e10" stroke-width="0.8"></line></g>
+  </g>
+
+  
+  <g opacity="0.92">
+    <g transform="translate(490,860)">
+      <path d="M-32 0 L32 0 L22 10 L-22 10 Z" fill="#2a4a32" stroke="#dbb04a" stroke-width="0.8"></path>
+    </g>
+    <g transform="translate(620,875)">
+      <path d="M-30 0 L30 0 L20 10 L-20 10 Z" fill="#4a3a20" stroke="#dbb04a" stroke-width="0.8"></path>
+    </g>
+    <g transform="translate(720,890)">
+      <path d="M-26 0 L26 0 L18 9 L-18 9 Z" fill="#3a2a18" stroke="#dbb04a" stroke-width="0.7"></path>
+    </g>
+  </g>
+
+  
+  <path d="M0 450 Q40 445 70 455 L95 475 Q110 490 125 530 L140 580 L130 640 L110 710 L80 745 L40 770 L0 790 Z" fill="#2a1e10" stroke="#dbb04a" stroke-width="0.6" stroke-opacity="0.3"></path>
+  <path d="M70 520 Q95 530 110 555 L125 600 L115 650 L85 695 L55 720 L20 735" fill="none" stroke="#dbb04a" stroke-width="0.4" opacity="0.25"></path>
+
+  
+  <g fill="#2a1e10" stroke="#dbb04a" stroke-width="0.5" stroke-opacity="0.3">
+    <path d="M100 730 Q130 720 165 735 L170 755 L95 755 Z"></path>
+    <path d="M170 755 L210 748 L215 765 L168 768 Z" opacity="0.85"></path>
+  </g>
+
+  
+  <g fill="url(#mFoliage)" stroke="#1a3a24" stroke-width="0.5">
+    
+    <path d="M0 820 Q30 805 60 820 Q90 812 120 825 Q100 840 80 835 Q50 845 30 835 Q10 840 0 835 Z"></path>
+    <path d="M0 870 Q40 855 80 870 Q120 862 160 875 Q130 895 90 888 Q50 898 20 890 Q5 895 0 890 Z"></path>
+  </g>
+
+  
+  <g stroke="#dbb04a" stroke-width="1.2" fill="none" opacity="0.75">
+    <g transform="translate(-10,520) rotate(-15)">
+      <path d="M0 0 Q40 -10 90 -5 Q140 0 180 15"></path>
+      <path d="M0 0 Q35 5 80 15 Q130 30 170 50"></path>
+      <path d="M0 0 Q45 -25 100 -30 Q150 -30 200 -20"></path>
+    </g>
+    <g transform="translate(0,600)">
+      <path d="M0 0 Q30 -15 65 -10 Q100 -5 140 10"></path>
+      <path d="M0 0 Q35 10 75 25 Q115 40 160 55"></path>
+    </g>
+  </g>
+
+  
+  <g>
+    
+    <path d="M310 1000 L310 840 Q308 820 312 800 Q314 780 310 760 Q306 740 312 720 L318 700" stroke="#dbb04a" stroke-width="3.5" fill="none" opacity="0.9"></path>
+    <path d="M312 1000 L312 840 Q310 820 314 800 Q316 780 312 760 Q308 740 314 720 L320 700" stroke="#1a0d05" stroke-width="2" fill="none" opacity="0.6"></path>
+    
+    <g stroke="#1a0d05" stroke-width="0.8" opacity="0.55">
+      <line x1="306" y1="860" x2="316" y2="860"></line>
+      <line x1="306" y1="880" x2="316" y2="880"></line>
+      <line x1="306" y1="900" x2="316" y2="900"></line>
+      <line x1="305" y1="920" x2="315" y2="920"></line>
+      <line x1="305" y1="940" x2="316" y2="940"></line>
+      <line x1="306" y1="960" x2="316" y2="960"></line>
+      <line x1="307" y1="980" x2="317" y2="980"></line>
+    </g>
+
+    
+    <g stroke="#dbb04a" stroke-width="1.4" fill="none" opacity="0.82">
+      <path d="M320 700 Q285 680 255 685 Q220 690 190 710"></path>
+      <path d="M320 700 Q350 680 385 685 Q420 690 450 710"></path>
+      <path d="M320 700 Q295 670 275 650 Q255 625 245 595"></path>
+      <path d="M320 700 Q345 670 365 650 Q385 625 395 595"></path>
+      <path d="M320 700 Q310 660 308 625 Q308 600 312 575"></path>
+      <path d="M320 700 Q345 680 380 670 Q420 660 460 665"></path>
+      <path d="M320 700 Q300 685 265 680 Q225 675 195 685"></path>
+      <path d="M320 700 Q330 720 355 735 Q390 752 420 755"></path>
+      <path d="M320 700 Q300 720 275 735 Q235 752 210 755"></path>
+    </g>
+    
+    <g stroke="#dbb04a" stroke-width="0.6" opacity="0.5">
+      <path d="M255 685 L245 675 M255 685 L250 695 M220 690 L210 682 M220 690 L215 700"></path>
+      <path d="M385 685 L395 675 M385 685 L390 695 M420 690 L430 682 M420 690 L425 700"></path>
+      <path d="M275 650 L268 642 M275 650 L282 658 M255 625 L248 618"></path>
+      <path d="M365 650 L372 642 M365 650 L358 658 M385 625 L392 618"></path>
+    </g>
+  </g>
+
+  
+  <g>
+    <path d="M800 1000 L800 870 Q795 850 800 830" stroke="#dbb04a" stroke-width="3" fill="none" opacity="0.8"></path>
+    <g stroke="#dbb04a" stroke-width="1.2" fill="none" opacity="0.72">
+      <path d="M800 830 Q770 820 745 830 Q720 840 705 860"></path>
+      <path d="M800 830 Q780 810 770 790 Q762 770 764 750"></path>
+      <path d="M800 830 Q795 810 795 790 Q798 770 802 750"></path>
+    </g>
+  </g>
+
+  
+  <g fill="url(#mFoliage)" stroke="#1a3a24" stroke-width="0.5">
+    <path d="M640 950 Q700 930 760 950 Q800 940 800 960 L800 1000 L640 1000 Z"></path>
+    <path d="M680 920 Q720 905 760 920 Q780 912 800 920 L800 950 L640 955 Q660 940 680 920 Z"></path>
+  </g>
+
+  
+  <rect width="800" height="1000" filter="url(#mGrain)" opacity="0.6"></rect>
+
+  
+  <linearGradient id="mBottomFade" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#0a0a0a" stop-opacity="0"></stop>
+    <stop offset="65%" stop-color="#0a0a0a" stop-opacity="0.15"></stop>
+    <stop offset="100%" stop-color="#0a0a0a" stop-opacity="0.75"></stop>
+  </linearGradient>
+  <rect width="800" height="1000" fill="url(#mBottomFade)"></rect>
+
+  
+  <linearGradient id="mTopFade" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#0a0a0a" stop-opacity="0.35"></stop>
+    <stop offset="30%" stop-color="#0a0a0a" stop-opacity="0"></stop>
+  </linearGradient>
+  <rect width="800" height="300" fill="url(#mTopFade)"></rect>
+</svg>
