@@ -196,12 +196,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .hero-v3-logo-img{
     width:100%;
-    max-width:400px;
+    max-width:480px;
     height:auto;
     display:block;
     filter:brightness(0) invert(1);
     opacity:0.9;
   }
+  .hero-v3-logo-img-mobile{ display:none; }
 
   /* RIGHT column removed — image is now the background */
   .hero-v3-right{display:none;}
@@ -234,7 +235,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .hero-v3-micro{text-align:center;}
     .hero-v3-right{display:none;}
     .hero-v3-logos{margin-top:24px;}
-    .hero-v3-logo-img{max-width:100%;}
+    .hero-v3-logo-img{display:none;}
+    .hero-v3-logo-img-mobile{display:block;width:100%;max-width:100%;height:auto;filter:brightness(0) invert(1);opacity:0.9;}
   }
 
     /* ─── VIDEO REEL ─── */
@@ -877,7 +879,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a class="hero-v3-cta" href="#pricing">Join the 3-Day Live Experience &rarr; &euro;29</a>
       <span class="hero-v3-micro">Takes less than 60 seconds &middot; Early access pricing available</span>
       <div class="hero-v3-logos">
-        <img class="hero-v3-logo-img" src="assets/logos/All-Media.svg" alt="As featured in Forbes, CNN, CNBC, FOX NEWS, The New York Times" loading="lazy"/>
+        <img class="hero-v3-logo-img" src="assets/logos/All-Media-desktop.svg" alt="As featured in Forbes, CNN, CNBC, FOX NEWS, The New York Times" loading="lazy"/>
+        <img class="hero-v3-logo-img-mobile" src="assets/logos/All-Media.svg" alt="As featured in Forbes, CNN, CNBC, FOX NEWS, The New York Times" loading="lazy"/>
       </div>
     </div>
 
