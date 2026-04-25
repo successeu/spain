@@ -13,6 +13,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <title>Millionaire Mind Intensive — Malaga, Spain · 22–24 May 2026</title>
 <meta name="description" content="A 3-day live experience with T. Harv Eker's signature work, guided in Malaga by certified lead trainer Mac Attram. Change the patterns shaping your financial results."/>
 <link rel="stylesheet" href="assets/colors_and_type.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet"/>
 <link rel="icon" href="assets/logos/mmi-logo-gold.png"/>
 
 <style>
@@ -122,20 +123,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .nav-cta:hover{background:var(--mmi-gold-300)}
 
   /* ─── INFO BAR (desktop only) ─── */
+  /* Info bar — floating bordered box, positioned top-center over hero */
   .hero-info-bar{
-    background:rgba(8,8,8,0.96);
-    border-bottom:1px solid rgba(219,176,74,0.18);
+    position:absolute;
+    top:104px; /* clears fixed nav (80px) + gap */
+    left:0;right:0;
+    z-index:10;
     padding:0 40px;
-    position:relative;
-    z-index:50;
+    background:transparent;
+    pointer-events:none;
   }
   .hib-inner{
-    max-width:760px;margin:0 auto;
+    max-width:640px;margin:0 auto;
     display:flex;align-items:stretch;
+    border:1px solid rgba(219,176,74,0.28);
+    background:rgba(6,6,6,0.88);
+    backdrop-filter:blur(10px);
+    pointer-events:auto;
   }
   .hib-item{
     display:flex;align-items:center;gap:14px;
-    padding:16px 44px;flex:1;justify-content:center;
+    padding:14px 32px;flex:1;justify-content:center;
   }
   .hib-icon{color:var(--mmi-gold-300);flex-shrink:0}
   .hib-icon svg{width:26px;height:26px;display:block}
@@ -143,7 +151,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .hib-label{
     font-family:var(--font-ui);font-size:9px;font-weight:500;
     letter-spacing:0.36em;text-transform:uppercase;
-    color:rgba(255,255,255,0.4);
+    color:rgba(255,255,255,0.45);
   }
   .hib-value{
     font-family:var(--font-ui);font-size:14px;font-weight:500;
@@ -156,12 +164,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     position:relative;
     min-height:100vh;
     display:flex;align-items:stretch;
+    padding-top:80px; /* account for fixed nav */
     background:var(--mmi-ink-900);
     overflow:hidden;
   }
   .hero::before{
     content:'';position:absolute;inset:0;
-    background:url(assets/hero/mmi-crowd-hero.jpg) no-repeat center/cover;
+    background:url(assets/hero/mmi-crowd-hero.png) no-repeat center/cover;
     background-position:30% center;
     opacity:1;
     pointer-events:none;
@@ -191,6 +200,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .hero-desktop-overlay{
     position:absolute;inset:0;z-index:2;
     pointer-events:none;
+    display:flex;flex-direction:column;
   }
   .hero-desktop-overlay > *{pointer-events:auto}
 
@@ -200,7 +210,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     right:0;top:0;bottom:0;
     width:52%;
     display:flex;flex-direction:column;justify-content:center;
-    padding:40px 60px 160px 32px;
+    padding:60px 60px 160px 32px;
   }
   .hero-desktop-eyebrow{
     font-family:var(--font-ui);font-weight:500;
@@ -253,9 +263,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     bottom:80px;left:44px;
   }
   .hero-sig-name{
-    font-family:var(--font-display);font-style:italic;font-weight:400;
-    font-size:40px;line-height:1;letter-spacing:0.02em;
-    color:rgba(255,255,255,0.82);
+    font-family:'Dancing Script','Brush Script MT',cursive;font-weight:700;
+    font-size:44px;line-height:1;letter-spacing:0.01em;
+    color:rgba(255,255,255,0.85);
   }
   .hero-sig-label{
     font-family:var(--font-ui);font-weight:500;font-size:9px;
@@ -837,7 +847,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .trainer-row{grid-template-columns:1fr}
     .pricing-grid{grid-template-columns:1fr;max-width:520px}
     .venue-grid{grid-template-columns:1fr;gap:40px}
-    .nav-meta .nav-date{display:none}
+    /* nav-date stays visible on desktop */
     section{padding:96px 32px}
     .final{padding:120px 32px}
   }
@@ -1243,7 +1253,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </a>
   <div class="nav-meta">
-    <div class="nav-date">22–24 May 2026 · <b>Malaga, Spain</b></div>
+    <div class="nav-date">22–24 MAY 2026 · <b>MALAGA, SPAIN</b></div>
     <a class="nav-cta" href="#pricing">Secure Seat</a>
     <button class="nav-hamburger" aria-label="Menu" onclick="this.classList.toggle('open')">
       <span></span><span></span><span></span>
@@ -1251,40 +1261,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </nav>
 
-<!-- ═══════════ EVENT INFO BAR (desktop only) ═══════════ -->
-<div class="hero-info-bar">
-  <div class="hib-inner">
-    <div class="hib-item">
-      <span class="hib-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>
-      </span>
-      <div class="hib-texts">
-        <span class="hib-label">Dates</span>
-        <span class="hib-value">22–24 May 2026</span>
-      </div>
-    </div>
-    <div class="hib-divider"></div>
-    <div class="hib-item">
-      <span class="hib-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-      </span>
-      <div class="hib-texts">
-        <span class="hib-label">Venue</span>
-        <span class="hib-value">Barceló Málaga</span>
-      </div>
-    </div>
-    <div class="hib-divider"></div>
-    <div class="hib-item">
-      <span class="hib-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M6.3 6.3a8 8 0 0 0 0 11.4M17.7 6.3a8 8 0 0 1 0 11.4M3.5 3.5a12 12 0 0 0 0 17M20.5 3.5a12 12 0 0 1 0 17"/></svg>
-      </span>
-      <div class="hib-texts">
-        <span class="hib-label">Format</span>
-        <span class="hib-value">Live · 3 Days</span>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 <!-- ═══════════ HERO ═══════════ -->
 <header class="hero" id="top">
@@ -1293,11 +1270,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- ── DESKTOP OVERLAY (hidden on mobile) ── -->
   <div class="hero-desktop-overlay">
 
+    <!-- Info bar — floating box top center -->
+    <div class="hero-info-bar">
+      <div class="hib-inner">
+        <div class="hib-item">
+          <span class="hib-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>
+          </span>
+          <div class="hib-texts">
+            <span class="hib-label">Dates</span>
+            <span class="hib-value">22–24 May 2026</span>
+          </div>
+        </div>
+        <div class="hib-divider"></div>
+        <div class="hib-item">
+          <span class="hib-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </span>
+          <div class="hib-texts">
+            <span class="hib-label">Venue</span>
+            <span class="hib-value">Barceló Málaga</span>
+          </div>
+        </div>
+        <div class="hib-divider"></div>
+        <div class="hib-item">
+          <span class="hib-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M6.3 6.3a8 8 0 0 0 0 11.4M17.7 6.3a8 8 0 0 1 0 11.4M3.5 3.5a12 12 0 0 0 0 17M20.5 3.5a12 12 0 0 1 0 17"/></svg>
+          </span>
+          <div class="hib-texts">
+            <span class="hib-label">Format</span>
+            <span class="hib-value">Live · 3 Days</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Right-side content -->
     <div class="hero-desktop-right">
       <div class="hero-desktop-eyebrow">Your Next Financial Level</div>
       <h1 class="hero-desktop-title">
-        <span class="dt-gold">Won't come<br/>from</span> doing<br/>more of<br/>the same.
+        Won't come<br/><span class="dt-gold">From</span> doing<br/>more of<br/>the same.
       </h1>
       <p class="hero-desktop-sub">
         A 3-day live experience designed to show you what's actually limiting your financial progress — and how to operate differently. <b>Built on T. Harv Eker's work. Guided live in Malaga by certified trainer Mac Attram.</b>
@@ -1305,7 +1317,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a class="hero-desktop-cta" href="#pricing">Secure My €29 Seat</a>
       <div class="hero-desktop-guarantee">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
-        <span>Takes less than <b>60 seconds</b> to secure your seat</span>
+        <span>Takes less than <span class="guarantee-highlight">60 seconds</span> to secure your seat</span>
       </div>
     </div>
 
