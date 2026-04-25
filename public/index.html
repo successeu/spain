@@ -536,32 +536,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .endorse-role{font-family:var(--font-body);font-size:11px;color:rgba(255,255,255,0.4);margin-top:5px;letter-spacing:0.08em;text-transform:uppercase}
 
   /* ─── TRAINERS HEADING — sits above the bg image ─── */
-  .trainers-heading-outer{
-    background:var(--mmi-ink-900);
-    text-align:center;
-    padding:56px 24px 32px;
-  }
-
   /* ─── TRAINERS V2 — full-bleed dark stage layout ─── */
   .trainers{
     position:relative;
     overflow:hidden;
-    margin-top:0; /* flush with heading */
     background:
-      linear-gradient(180deg,var(--mmi-ink-900) 0%,transparent 15%,transparent 85%,var(--mmi-ink-900) 100%),
-      url('assets/hero/trainers-bg.jpg') center/cover no-repeat;
+      url('assets/hero/trainers-bg.jpg') center top/cover no-repeat;
     background-color:#0a0805;
   }
-  /* Dark overlay — keep text readable */
+  /* Gradient overlay: dark top for heading readability,
+     light middle to show background image,
+     dark bottom fade-out */
   .trainers::before{
     content:'';position:absolute;inset:0;
     background:
-      radial-gradient(ellipse 60% 80% at 50% 50%,rgba(0,0,0,0.35) 0%,rgba(0,0,0,0.72) 100%);
+      linear-gradient(180deg,
+        rgba(0,0,0,0.88) 0%,
+        rgba(0,0,0,0.55) 25%,
+        rgba(0,0,0,0.35) 50%,
+        rgba(0,0,0,0.55) 75%,
+        rgba(0,0,0,0.88) 100%
+      );
     pointer-events:none;
   }
   .trainers .section-inner{position:relative;z-index:2;}
 
-  /* .trainers-head removed — heading is now above section */
+  /* Heading inside section — on top of background image */
+  .trainers-head{
+    text-align:center;
+    padding:64px 24px 48px;
+  }
   .trainers-title{
     font-family:var(--font-display);
     font-size:clamp(36px,5vw,64px);
@@ -1486,15 +1490,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- ═══════════ TRAINERS HEADING ═══════════ -->
-<div class="trainers-heading-outer">
-  <h2 class="trainers-title">Who's Guiding<span>Your Breakthrough</span></h2>
-  <p class="trainers-subtitle">World-class trainers. Proven results.</p>
-</div>
-
 <!-- ═══════════ TRAINERS ═══════════ -->
 <section class="trainers">
   <div class="section-inner">
+
+    <!-- Heading — sits on top of background image -->
+    <div class="trainers-head">
+      <h2 class="trainers-title">Who's Guiding<span>Your Breakthrough</span></h2>
+      <p class="trainers-subtitle">World-class trainers. Proven results.</p>
+    </div>
 
     <!-- Two-panel grid -->
     <div class="trainer-grid">
