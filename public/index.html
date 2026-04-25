@@ -700,11 +700,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   /* Mobile */
   @media(max-width:760px){
-    .trainer-grid{grid-template-columns:1fr;gap:40px;}
+    .trainer-grid{grid-template-columns:1fr;gap:32px;}
+    .trainers{padding-top:32px !important;}  /* less space above portrait */
     .trainer-divider{display:none;}
     /* Mobile: portrait above text, stacked */
-    .trp{grid-template-columns:1fr;gap:16px;}
-    .trp-portrait{grid-row:auto;width:160px;margin:0 auto;}
+    .trp{grid-template-columns:1fr;gap:12px;padding-top:0;}
+    .trp-portrait{grid-row:auto;width:320px;margin:0 auto;}
     .trp-name{font-size:28px;}
     .trp-stats{flex-wrap:wrap;}
     .trp-stat{flex:1 1 calc(50% - 1px);}
