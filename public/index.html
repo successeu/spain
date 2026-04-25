@@ -683,6 +683,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .testi-stack{gap:20px}
     .endorse-grid{grid-template-columns:1fr}
     .trainer-row{grid-template-columns:1fr}
+    /* Tablet: side-by-side portrait + text */
     .trainer{grid-template-columns:140px 1fr;gap:20px;padding:28px 24px;}
     .trainer-portrait{width:140px;height:168px;}
     .trainer-name{font-size:24px;}
@@ -690,19 +691,42 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .pricing-grid{grid-template-columns:1fr;max-width:520px}
     .venue-grid{grid-template-columns:1fr;gap:40px}
     /* nav-date stays visible on desktop */
-    /* Trainer — fully stacked on small mobile */
-    .trainer{
-      grid-template-columns:1fr;
-      padding:28px 20px;
-      text-align:center;
-      justify-items:center;
-    }
-    .trainer-portrait{width:120px;height:144px;margin-bottom:0;}
-    .trainer-content{text-align:left;width:100%;}
-    .trainer-role{text-align:center;}
-    .trainer-name{font-size:22px;text-align:center;}
     section{padding:96px 32px}
     .final{padding:120px 32px}
+  }
+
+  /* ─── TRAINER MOBILE FIX ─── */
+  @media(max-width:760px){
+    .trainer{
+      grid-template-columns:1fr !important;
+      padding:24px 20px !important;
+      text-align:center;
+      justify-items:center;
+      gap:18px;
+    }
+    .trainer-portrait{
+      width:100px !important;
+      height:120px !important;
+      margin:0 auto;
+    }
+    .trainer-content{
+      text-align:left !important;
+      width:100%;
+      min-width:0;
+    }
+    .trainer-role{text-align:center;}
+    .trainer-name{
+      font-size:20px !important;
+      text-align:center;
+      margin-bottom:12px;
+    }
+    .trainer-body{
+      font-size:13px !important;
+      line-height:1.7;
+      word-break:break-word;
+      overflow-wrap:break-word;
+    }
+    .trainer-body p+p{margin-top:10px;}
   }
 
   
