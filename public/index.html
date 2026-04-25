@@ -564,28 +564,54 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   /* ─── PRICING ─── */
   .pricing{background:var(--mmi-ink-900);background-image:radial-gradient(ellipse 60% 50% at 50% 0%, rgba(44,122,71,0.14) 0%, transparent 60%);}
-  .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:960px;margin:48px auto 0;}
-  .tier{position:relative;padding:36px 32px 32px;background:linear-gradient(180deg,rgba(255,255,255,0.025) 0%,rgba(255,255,255,0.006) 100%);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-md);display:flex;flex-direction:column;}
-  .tier.featured{border-color:rgba(219,176,74,0.45);background:linear-gradient(180deg,rgba(219,176,74,0.05) 0%,rgba(15,47,28,0.32) 100%);box-shadow:0 20px 60px rgba(0,0,0,0.45);}
+  /* 60/40 split — Standard is primary */
+  .pricing-grid{display:grid;grid-template-columns:3fr 2fr;gap:24px;max-width:1000px;margin:48px auto 0;align-items:start;}
+
+  /* ── Base card ── */
+  .tier{position:relative;padding:36px 32px 32px;border-radius:var(--radius-md);display:flex;flex-direction:column;}
   .tier-ribbon{position:absolute;top:-11px;left:50%;transform:translateX(-50%);padding:5px 16px;background:var(--mmi-gold-400);color:var(--mmi-ink-900);border-radius:var(--radius-pill);font-family:var(--font-ui);font-weight:600;font-size:9px;letter-spacing:0.3em;text-transform:uppercase;white-space:nowrap;}
-  .tier-kicker{font-family:var(--font-ui);font-weight:500;font-size:9px;letter-spacing:0.4em;text-transform:uppercase;color:var(--mmi-gold-300);margin-bottom:8px;}
-  .tier-name{font-family:var(--font-display);font-weight:700;font-size:28px;line-height:1;letter-spacing:0.02em;text-transform:uppercase;color:#fff;margin-bottom:16px;}
-  .tier-desc{font-family:var(--font-body);font-size:13px;line-height:1.65;font-weight:400;color:rgba(255,255,255,0.55);margin-bottom:26px;text-wrap:pretty;}
-  .tier-price-row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px;}
-  .tier-price-was{font-family:var(--font-ui);font-size:15px;font-weight:400;text-decoration:line-through;color:rgba(255,255,255,0.3);}
-  .tier-price-now{font-family:var(--font-display);font-weight:700;font-size:56px;line-height:1;color:var(--mmi-gold-200);letter-spacing:0.01em;}
-  .tier-save{display:inline-block;padding:4px 10px;margin-bottom:24px;background:transparent;color:var(--mmi-gold-200);border:1px solid rgba(219,176,74,0.3);border-radius:var(--radius-xs);font-family:var(--font-ui);font-size:9px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;}
-  .tier ul{list-style:none;margin-bottom:28px;flex:1}
-  .tier li{display:flex;gap:12px;padding:11px 0;font-family:var(--font-body);font-size:13px;line-height:1.55;font-weight:400;color:rgba(255,255,255,0.72);border-bottom:1px solid rgba(255,255,255,0.04);}
-  .tier li:last-child{border-bottom:none}
-  .tier li::before{content:'';flex-shrink:0;width:14px;height:14px;margin-top:3px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='%23dbb04a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' d='M3 8.5l3 3 7-7'/></svg>") no-repeat center/contain;}
-  .tier li.bonus{color:var(--mmi-gold-200)}
-  .tier li.bonus::before{background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><polygon fill='%23dbb04a' points='8,1 10.2,5.9 15.5,6.5 11.5,10 12.5,15.2 8,12.5 3.5,15.2 4.5,10 0.5,6.5 5.8,5.9'/></svg>") no-repeat center/contain;}
-  .tier-cta{display:block;width:100%;text-align:center;padding:14px;background:var(--mmi-gold-400);color:var(--mmi-ink-900);font-family:var(--font-ui);font-weight:600;font-size:11px;letter-spacing:0.26em;text-transform:uppercase;border-radius:var(--radius-pill);transition:all 200ms;}
-  .tier-cta:hover{background:var(--mmi-gold-300);box-shadow:var(--shadow-glow-gold)}
-  .tier:not(.featured) .tier-cta{background:transparent;color:rgba(255,255,255,0.9);border:1px solid rgba(255,255,255,0.2);}
-  .tier:not(.featured) .tier-cta:hover{background:var(--mmi-gold-400);color:var(--mmi-ink-900);border-color:var(--mmi-gold-400);}
-  .tier-note{margin-top:12px;text-align:center;font-family:var(--font-ui);font-size:9px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.35);}
+
+  /* ── STANDARD — white card, dark text (primary) ── */
+  .tier.primary{
+    background:#fff;
+    border:2px solid #D4AF37;
+    box-shadow:0 24px 64px rgba(0,0,0,0.5);
+  }
+  .tier.primary .tier-kicker{font-family:var(--font-ui);font-weight:600;font-size:9px;letter-spacing:0.4em;text-transform:uppercase;color:#888;margin-bottom:8px;}
+  .tier.primary .tier-name{font-family:var(--font-display);font-weight:700;font-size:28px;line-height:1;letter-spacing:0.02em;text-transform:uppercase;color:#111;margin-bottom:8px;}
+  .tier.primary .tier-desc{font-family:var(--font-body);font-size:14px;line-height:1.6;color:#555;margin-bottom:22px;}
+  .tier.primary .tier-price-was{font-family:var(--font-ui);font-size:16px;font-weight:400;text-decoration:line-through;color:#aaa;}
+  .tier.primary .tier-price-now{font-family:var(--font-display);font-weight:700;font-size:60px;line-height:1;color:#111;letter-spacing:0.01em;}
+  .tier.primary .tier-save{display:inline-block;padding:4px 10px;margin-bottom:24px;background:#f9f3e3;color:#8a5f12;border:1px solid rgba(212,175,55,0.4);border-radius:var(--radius-xs);font-family:var(--font-ui);font-size:9px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;}
+  .tier.primary ul{list-style:none;margin-bottom:28px;flex:1;}
+  .tier.primary li{display:flex;gap:12px;padding:10px 0;font-family:var(--font-body);font-size:14px;line-height:1.5;color:#333;border-bottom:1px solid rgba(0,0,0,0.06);}
+  .tier.primary li:last-child{border-bottom:none;}
+  .tier.primary li::before{content:'';flex-shrink:0;width:14px;height:14px;margin-top:3px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='%23D4AF37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' d='M3 8.5l3 3 7-7'/></svg>") no-repeat center/contain;}
+  .tier.primary .tier-price-row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px;}
+  .tier.primary .tier-cta{display:block;width:100%;text-align:center;padding:16px;background:#D4AF37;color:#000;font-family:var(--font-ui);font-weight:700;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;border-radius:var(--radius-pill);transition:all 200ms;text-decoration:none;}
+  .tier.primary .tier-cta:hover{background:#c9a028;box-shadow:0 8px 24px rgba(212,175,55,0.4);}
+  .tier.primary .tier-note{margin-top:12px;text-align:center;font-family:var(--font-ui);font-size:9px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:#999;}
+
+  /* ── VIP — gold-tinted dark card (secondary) ── */
+  .tier.featured{
+    border:1px solid rgba(219,176,74,0.45);
+    background:linear-gradient(180deg,rgba(219,176,74,0.07) 0%,rgba(15,47,28,0.35) 100%);
+    box-shadow:0 16px 48px rgba(0,0,0,0.4);
+  }
+  .tier.featured .tier-kicker{font-family:var(--font-ui);font-weight:500;font-size:9px;letter-spacing:0.4em;text-transform:uppercase;color:var(--mmi-gold-300);margin-bottom:8px;}
+  .tier.featured .tier-name{font-family:var(--font-display);font-weight:700;font-size:24px;line-height:1;letter-spacing:0.02em;text-transform:uppercase;color:#fff;margin-bottom:8px;}
+  .tier.featured .tier-desc{font-family:var(--font-body);font-size:13px;line-height:1.65;color:rgba(255,255,255,0.55);margin-bottom:22px;}
+  .tier.featured .tier-price-was{font-family:var(--font-ui);font-size:14px;text-decoration:line-through;color:rgba(255,255,255,0.3);}
+  .tier.featured .tier-price-now{font-family:var(--font-display);font-weight:700;font-size:48px;line-height:1;color:var(--mmi-gold-200);}
+  .tier.featured .tier-save{display:inline-block;padding:4px 10px;margin-bottom:24px;color:var(--mmi-gold-200);border:1px solid rgba(219,176,74,0.3);border-radius:var(--radius-xs);font-family:var(--font-ui);font-size:9px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;}
+  .tier.featured ul{list-style:none;margin-bottom:28px;flex:1;}
+  .tier.featured li{display:flex;gap:12px;padding:10px 0;font-family:var(--font-body);font-size:13px;line-height:1.5;color:rgba(255,255,255,0.75);border-bottom:1px solid rgba(255,255,255,0.05);}
+  .tier.featured li:last-child{border-bottom:none;}
+  .tier.featured li::before{content:'';flex-shrink:0;width:14px;height:14px;margin-top:3px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='%23dbb04a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' d='M3 8.5l3 3 7-7'/></svg>") no-repeat center/contain;}
+  .tier.featured .tier-price-row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px;}
+  .tier.featured .tier-cta{display:block;width:100%;text-align:center;padding:14px;background:transparent;color:var(--mmi-gold-200);border:1px solid rgba(219,176,74,0.5);font-family:var(--font-ui);font-weight:600;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;border-radius:var(--radius-pill);transition:all 200ms;text-decoration:none;}
+  .tier.featured .tier-cta:hover{background:var(--mmi-gold-400);color:var(--mmi-ink-900);border-color:var(--mmi-gold-400);}
+  .tier.featured .tier-note{margin-top:12px;text-align:center;font-family:var(--font-ui);font-size:9px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.35);}
 
   /* ─── VENUE ─── */
   .venue{background:var(--mmi-paper);color:var(--mmi-ink-900)}
@@ -689,6 +715,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .trainer-name{font-size:24px;}
     .trainer-body{font-size:13px;}
     .pricing-grid{grid-template-columns:1fr;max-width:520px}
+    .tier.primary{order:1;}
+    .tier.featured{order:2;}
     .venue-grid{grid-template-columns:1fr;gap:40px}
     /* nav-date stays visible on desktop */
     section{padding:96px 32px}
@@ -1277,58 +1305,56 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="section-inner">
     <div class="section-head">
       <div class="eyebrow">This is where it begins</div>
-      <h2 class="section-title">Choose your <em>seat.</em></h2>
-      <p class="lead" style="max-width:560px;margin:0 auto;text-align:center">Both passes include the full 3-day live experience. VIP goes deeper — closer seats, the full workbook, and priority access.</p>
+      <h2 class="section-title">Choose Your <em>Seat</em></h2>
+      <p class="lead" style="max-width:520px;margin:0 auto;text-align:center">Both options include the full 3-day live experience. Choose how deep you want to go.</p>
     </div>
 
     <div class="pricing-grid">
-      <div class="tier">
-        <div class="tier-kicker">Standard</div>
-        <div class="tier-name">3-Day Live Pass</div>
-        <p class="tier-desc">Full 3-day live experience to get you in the room and doing the work.</p>
+
+      <!-- STANDARD — 60% primary card -->
+      <div class="tier primary">
+        <div class="tier-ribbon">MOST POPULAR</div>
+        <div class="tier-kicker">Standard Pass</div>
+        <div class="tier-name">3-Day Live Experience</div>
+        <p class="tier-desc">Everything you need to shift the patterns shaping your financial results.</p>
         <div class="tier-price-row">
           <span class="tier-price-was">€395</span>
           <span class="tier-price-now">€29</span>
         </div>
         <span class="tier-save">Save €366 · Early Access</span>
         <ul>
-          <li>Standard Admission · full 3-day experience</li>
-          <li>Millionaire Mind Intensive Lite Workbook</li>
-          <li>"The Secret Psychology of Wealth" content pack <br/>(8+ hrs audio · 3 hrs video)</li>
-          <li>"Success Belief" worksheet</li>
-          <li>Secrets of the Millionaire Mind eBook</li>
-          <li class="bonus">Pre-Training &amp; Intention Sheet</li>
-          <li class="bonus">Private Community Group</li>
-          <li class="bonus">Weekly Review &amp; Relearn class (Tuesdays)</li>
+          <li>Full 3-day live experience</li>
+          <li>MMI Lite Workbook</li>
+          <li>"Secret Psychology of Wealth" content pack</li>
+          <li>Private community access</li>
+          <li>Weekly review sessions</li>
         </ul>
         <a class="tier-cta" href="https://buy.stripe.com/eVq8wP65TfoEd5VcTn3No2B" target="_blank" rel="noopener">Secure My €29 Seat</a>
-        <div class="tier-note">Early Access pricing available</div>
+        <div class="tier-note">60-second checkout · Early access pricing</div>
       </div>
 
+      <!-- VIP — 40% secondary card -->
       <div class="tier featured">
         <div class="tier-ribbon">Priority Experience</div>
-        <div class="tier-kicker">VIP</div>
-        <div class="tier-name">3-Day VIP Pass</div>
-        <p class="tier-desc">For those who want to move faster, get closer, and go deeper into the work.</p>
+        <div class="tier-kicker">VIP Experience</div>
+        <div class="tier-name">VIP Experience</div>
+        <p class="tier-desc">For deeper transformation &amp; priority access.</p>
         <div class="tier-price-row">
           <span class="tier-price-was">€1,295</span>
           <span class="tier-price-now">€156</span>
         </div>
-        <span class="tier-save">Save €1,139 · Priority</span>
+        <span class="tier-save">Save €1,139</span>
         <ul>
-          <li>VIP Admission · full 3-day experience</li>
-          <li>Millionaire Mind Intensive <b>Full</b> Workbook</li>
-          <li>Priority Check-In &amp; front-row seating</li>
-          <li>Speed Networking Session</li>
-          <li>"The Secret Psychology of Wealth" content pack <br/>(8+ hrs audio · 3 hrs video)</li>
-          <li>Secrets of the Millionaire Mind eBook</li>
-          <li class="bonus">Pre-Training &amp; Intention Sheet</li>
-          <li class="bonus">Private Community Group</li>
-          <li class="bonus">Weekly Review &amp; Relearn class (Tuesdays)</li>
+          <li>Everything in Standard</li>
+          <li>Full Workbook</li>
+          <li>Front-row seating</li>
+          <li>Priority check-in</li>
+          <li>Speed networking session</li>
         </ul>
-        <a class="tier-cta" href="https://successr.thrivecart.com/spain-may-vip-cart/">Secure My VIP Seat</a>
+        <a class="tier-cta" href="https://successr.thrivecart.com/spain-may-vip-cart/" target="_blank" rel="noopener">Upgrade to VIP Experience</a>
         <div class="tier-note">Fewer seats at this level</div>
       </div>
+
     </div>
   </div>
 </section>
