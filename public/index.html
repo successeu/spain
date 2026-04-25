@@ -121,29 +121,58 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .nav-cta:hover{background:var(--mmi-gold-300)}
 
+  /* ─── INFO BAR (desktop only) ─── */
+  .hero-info-bar{
+    background:rgba(8,8,8,0.96);
+    border-bottom:1px solid rgba(219,176,74,0.18);
+    padding:0 40px;
+    position:relative;
+    z-index:50;
+  }
+  .hib-inner{
+    max-width:760px;margin:0 auto;
+    display:flex;align-items:stretch;
+  }
+  .hib-item{
+    display:flex;align-items:center;gap:14px;
+    padding:16px 44px;flex:1;justify-content:center;
+  }
+  .hib-icon{color:var(--mmi-gold-300);flex-shrink:0}
+  .hib-icon svg{width:26px;height:26px;display:block}
+  .hib-texts{display:flex;flex-direction:column;gap:3px}
+  .hib-label{
+    font-family:var(--font-ui);font-size:9px;font-weight:500;
+    letter-spacing:0.36em;text-transform:uppercase;
+    color:rgba(255,255,255,0.4);
+  }
+  .hib-value{
+    font-family:var(--font-ui);font-size:14px;font-weight:500;
+    color:#fff;letter-spacing:0.02em;
+  }
+  .hib-divider{width:1px;background:rgba(219,176,74,0.18);flex-shrink:0}
+
   /* ─── HERO ─── */
   .hero{
     position:relative;
-    min-height:92vh;
-    padding:128px 40px 72px;
-    display:flex;align-items:center;
+    min-height:100vh;
+    display:flex;align-items:stretch;
     background:var(--mmi-ink-900);
     overflow:hidden;
   }
   .hero::before{
     content:'';position:absolute;inset:0;
     background:url(assets/hero/mmi-crowd-hero.png) no-repeat center/cover;
-    background-position:center 35%;
-    opacity:0.85;
+    background-position:30% center;
+    opacity:1;
     pointer-events:none;
     z-index:0;
   }
+  /* Desktop: dark gradient stronger on RIGHT where text lives */
   .hero::after{
     content:'';position:absolute;inset:0;
     background:
-      radial-gradient(ellipse 80% 60% at 50% 30%, rgba(44,122,71,0.22) 0%, transparent 55%),
-      linear-gradient(90deg, rgba(10,10,10,0.72) 0%, rgba(10,10,10,0.35) 45%, rgba(10,10,10,0.1) 100%),
-      linear-gradient(180deg, rgba(10,10,10,0.4) 0%, transparent 18%, transparent 70%, var(--mmi-ink-900) 100%);
+      linear-gradient(90deg, rgba(10,10,10,0.15) 0%, rgba(10,10,10,0.35) 38%, rgba(10,10,10,0.82) 58%, rgba(10,10,10,0.94) 100%),
+      linear-gradient(180deg, rgba(10,10,10,0.3) 0%, transparent 12%, transparent 72%, rgba(10,10,10,0.7) 100%);
     pointer-events:none;
     z-index:1;
   }
@@ -151,16 +180,127 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     position:absolute;inset:0;
     background:url(assets/motifs/zen-brush-light.png) no-repeat right center/contain;
     background-size:820px 820px;background-position:calc(100% + 80px) 50%;
-    opacity:0.12;
+    opacity:0.08;
     filter:brightness(1.4) sepia(0.3) saturate(1.4) hue-rotate(-10deg);
     pointer-events:none;
     z-index:1;
     mix-blend-mode:screen;
   }
+
+  /* ─── DESKTOP HERO OVERLAY ─── */
+  .hero-desktop-overlay{
+    position:absolute;inset:0;z-index:2;
+    pointer-events:none;
+  }
+  .hero-desktop-overlay > *{pointer-events:auto}
+
+  /* Right-side content panel */
+  .hero-desktop-right{
+    position:absolute;
+    right:0;top:0;bottom:0;
+    width:52%;
+    display:flex;flex-direction:column;justify-content:center;
+    padding:40px 60px 160px 32px;
+  }
+  .hero-desktop-eyebrow{
+    font-family:var(--font-ui);font-weight:500;
+    font-size:10px;letter-spacing:0.44em;text-transform:uppercase;
+    color:var(--mmi-gold-300);
+    display:flex;align-items:center;gap:14px;
+    margin-bottom:20px;
+  }
+  .hero-desktop-eyebrow::before,.hero-desktop-eyebrow::after{
+    content:'';flex:1;max-width:28px;height:1px;
+    background:rgba(219,176,74,0.5);
+  }
+  .hero-desktop-title{
+    font-family:var(--font-display);font-weight:700;
+    font-size:clamp(48px,5.2vw,74px);
+    line-height:1.0;letter-spacing:0.01em;text-transform:uppercase;
+    color:#fff;margin-bottom:20px;text-wrap:balance;
+  }
+  .hero-desktop-title .dt-gold{color:var(--mmi-gold-200)}
+  .hero-desktop-sub{
+    font-family:var(--font-body);font-size:15px;line-height:1.75;font-weight:400;
+    color:rgba(255,255,255,0.7);
+    max-width:480px;margin-bottom:28px;text-wrap:pretty;
+  }
+  .hero-desktop-sub b{color:rgba(255,255,255,0.9);font-weight:500}
+  .hero-desktop-cta{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:15px 36px;background:var(--mmi-gold-400);color:var(--mmi-ink-900);
+    font-family:var(--font-ui);font-weight:600;font-size:11px;
+    letter-spacing:0.26em;text-transform:uppercase;
+    border-radius:var(--radius-pill);
+    transition:all 240ms var(--ease-brand);
+    max-width:340px;justify-content:center;
+    margin-bottom:14px;
+  }
+  .hero-desktop-cta::after{content:'→';font-size:14px;transition:transform 240ms}
+  .hero-desktop-cta:hover{background:var(--mmi-gold-300);transform:translateY(-1px);box-shadow:var(--shadow-glow-gold)}
+  .hero-desktop-cta:hover::after{transform:translateX(4px)}
+  .hero-desktop-guarantee{
+    display:flex;align-items:center;gap:8px;
+    font-family:var(--font-body);font-size:12px;font-weight:400;
+    color:rgba(255,255,255,0.45);
+  }
+  .hero-desktop-guarantee svg{opacity:0.55;flex-shrink:0}
+  .hero-desktop-guarantee b{color:var(--mmi-gold-200);font-weight:600}
+
+  /* T. Harv Eker signature — bottom left */
+  .hero-signature{
+    position:absolute;
+    bottom:80px;left:44px;
+  }
+  .hero-sig-name{
+    font-family:var(--font-display);font-style:italic;font-weight:400;
+    font-size:40px;line-height:1;letter-spacing:0.02em;
+    color:rgba(255,255,255,0.82);
+  }
+  .hero-sig-label{
+    font-family:var(--font-ui);font-weight:500;font-size:9px;
+    letter-spacing:0.42em;text-transform:uppercase;
+    color:var(--mmi-gold-300);margin-top:9px;
+  }
+
+  /* Benefit pillars — bottom bar */
+  .hero-pillars{
+    position:absolute;
+    bottom:0;left:0;right:0;
+    display:grid;grid-template-columns:1fr 1fr 1fr;
+    border-top:1px solid rgba(219,176,74,0.14);
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(10px);
+  }
+  .hero-pillar{
+    display:flex;align-items:center;gap:16px;
+    padding:18px 28px;
+    border-right:1px solid rgba(219,176,74,0.1);
+  }
+  .hero-pillar:last-child{border-right:none}
+  .pillar-icon{
+    width:42px;height:42px;border-radius:50%;flex-shrink:0;
+    border:1px solid rgba(219,176,74,0.35);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--mmi-gold-300);
+  }
+  .pillar-icon svg{width:18px;height:18px;display:block}
+  .pillar-title{
+    font-family:var(--font-ui);font-size:11px;font-weight:700;
+    letter-spacing:0.14em;text-transform:uppercase;
+    color:#fff;margin-bottom:3px;
+  }
+  .pillar-desc{
+    font-family:var(--font-body);font-size:12px;
+    color:rgba(255,255,255,0.5);
+  }
+
+  /* OLD hero inner — kept for mobile, hidden on desktop */
   .hero-inner{
     position:relative;z-index:2;
     max-width:1180px;margin:0 auto;width:100%;
-    display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:center;
+    display:none; /* hidden desktop — shown mobile */
+    grid-template-columns:1.2fr 1fr;gap:64px;align-items:center;
   }
 
   .hero-left{max-width:600px}
@@ -897,6 +1037,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .hero::after{ display:none !important }
     .hero-zen{ display:none !important }
 
+    /* Show old hero-inner on mobile, hide desktop overlay + info bar */
+    .hero-inner{ display:block !important }
+    .hero-desktop-overlay{ display:none !important }
+    .hero-info-bar{ display:none !important }
+
     /* Full-bleed image on mobile */
     .hero-mobile-img{
       display:block;
@@ -1106,9 +1251,103 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </nav>
 
+<!-- ═══════════ EVENT INFO BAR (desktop only) ═══════════ -->
+<div class="hero-info-bar">
+  <div class="hib-inner">
+    <div class="hib-item">
+      <span class="hib-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>
+      </span>
+      <div class="hib-texts">
+        <span class="hib-label">Dates</span>
+        <span class="hib-value">22–24 May 2026</span>
+      </div>
+    </div>
+    <div class="hib-divider"></div>
+    <div class="hib-item">
+      <span class="hib-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      </span>
+      <div class="hib-texts">
+        <span class="hib-label">Venue</span>
+        <span class="hib-value">Barceló Málaga</span>
+      </div>
+    </div>
+    <div class="hib-divider"></div>
+    <div class="hib-item">
+      <span class="hib-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M6.3 6.3a8 8 0 0 0 0 11.4M17.7 6.3a8 8 0 0 1 0 11.4M3.5 3.5a12 12 0 0 0 0 17M20.5 3.5a12 12 0 0 1 0 17"/></svg>
+      </span>
+      <div class="hib-texts">
+        <span class="hib-label">Format</span>
+        <span class="hib-value">Live · 3 Days</span>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ═══════════ HERO ═══════════ -->
 <header class="hero" id="top">
   <div class="hero-zen"></div>
+
+  <!-- ── DESKTOP OVERLAY (hidden on mobile) ── -->
+  <div class="hero-desktop-overlay">
+
+    <!-- Right-side content -->
+    <div class="hero-desktop-right">
+      <div class="hero-desktop-eyebrow">Your Next Financial Level</div>
+      <h1 class="hero-desktop-title">
+        <span class="dt-gold">Won't come<br/>from</span> doing<br/>more of<br/>the same.
+      </h1>
+      <p class="hero-desktop-sub">
+        A 3-day live experience designed to show you what's actually limiting your financial progress — and how to operate differently. <b>Built on T. Harv Eker's work. Guided live in Malaga by certified trainer Mac Attram.</b>
+      </p>
+      <a class="hero-desktop-cta" href="#pricing">Secure My €29 Seat</a>
+      <div class="hero-desktop-guarantee">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+        <span>Takes less than <b>60 seconds</b> to secure your seat</span>
+      </div>
+    </div>
+
+    <!-- T. Harv Eker signature — bottom left -->
+    <div class="hero-signature">
+      <div class="hero-sig-name">T. Harv Eker</div>
+      <div class="hero-sig-label">Signature Program</div>
+    </div>
+
+    <!-- Benefit pillars — bottom bar -->
+    <div class="hero-pillars">
+      <div class="hero-pillar">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/><circle cx="19" cy="9" r="2.5"/><path d="M19 11.5c1.7.3 3 1.7 3 3.5"/></svg>
+        </div>
+        <div>
+          <div class="pillar-title">Transform Your Mindset</div>
+          <div class="pillar-desc">Break through limiting beliefs</div>
+        </div>
+      </div>
+      <div class="hero-pillar">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <div>
+          <div class="pillar-title">Master Your Financial Game</div>
+          <div class="pillar-desc">Build strategies that create freedom</div>
+        </div>
+      </div>
+      <div class="hero-pillar">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l4-4 4 4 4-4 4 4"/><path d="M3 9v10a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V9"/><path d="M9 21v-6h6v6"/></svg>
+        </div>
+        <div>
+          <div class="pillar-title">Live the Life You Deserve</div>
+          <div class="pillar-desc">More impact, more income, more freedom</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ── END DESKTOP OVERLAY ── -->
+
   <!-- Mobile-only full-bleed image (hidden on desktop) -->
   <div class="hero-mobile-img">
     <img src="assets/hero/mmi-crowd-hero-mobile.png" alt="Millionaire Mind Intensive event"/>
