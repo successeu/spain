@@ -124,26 +124,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   /* ─── HERO ─── */
   .hero{
     position:relative;
-    min-height:92vh;
-    padding:128px 40px 72px;
+    min-height:100vh;
+    padding:112px 40px 34px;
     display:flex;align-items:center;
     background:var(--mmi-ink-900);
     overflow:hidden;
   }
   .hero::before{
     content:'';position:absolute;inset:0;
-    background:url(assets/hero/mmi-crowd-hero.png) no-repeat center/cover;
-    background-position:center 35%;
-    opacity:0.85;
+    background:url(assets/hero/51f0eb3b-7381-45c2-96e5-6908fe124b93.png) no-repeat center/cover;
+    background-position:left center;
+    opacity:0.86;
     pointer-events:none;
     z-index:0;
   }
   .hero::after{
     content:'';position:absolute;inset:0;
     background:
-      radial-gradient(ellipse 80% 60% at 50% 30%, rgba(44,122,71,0.22) 0%, transparent 55%),
-      linear-gradient(90deg, rgba(10,10,10,0.72) 0%, rgba(10,10,10,0.35) 45%, rgba(10,10,10,0.1) 100%),
-      linear-gradient(180deg, rgba(10,10,10,0.4) 0%, transparent 18%, transparent 70%, var(--mmi-ink-900) 100%);
+      radial-gradient(circle at 9% 18%, rgba(219,176,74,0.36) 0%, transparent 34%),
+      linear-gradient(90deg, rgba(10,10,10,0.1) 0%, rgba(10,10,10,0.28) 44%, rgba(10,10,10,0.82) 57%, rgba(10,10,10,0.96) 100%),
+      linear-gradient(180deg, rgba(10,10,10,0.62) 0%, transparent 19%, transparent 68%, rgba(10,10,10,0.92) 100%);
     pointer-events:none;
     z-index:1;
   }
@@ -159,11 +159,60 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .hero-inner{
     position:relative;z-index:2;
-    max-width:1180px;margin:0 auto;width:100%;
-    display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:center;
+    max-width:1360px;margin:0 auto;width:100%;
+    display:flex;flex-direction:column;gap:24px;align-items:stretch;
+  }
+  .hero-main{
+    display:grid;
+    grid-template-columns:56% 44%;
+    align-items:center;
+    min-height:520px;
+  }
+  .hero-spacer{min-height:420px}
+
+  .hero-left{
+    max-width:640px;
+    margin-left:auto;
+    padding-right:20px;
+  }
+  .hero-meta{
+    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;
+    width:min(860px,100%);
+    margin:0 auto;
+    border:1px solid rgba(255,255,255,0.13);
+    border-radius:0;
+    background:rgba(8,8,8,0.5);
+    backdrop-filter:blur(10px);
+    overflow:hidden;
+  }
+  .hero-meta-item{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:18px 22px;
+    border-right:1px solid rgba(255,255,255,0.16);
+  }
+  .hero-meta-item:last-child{border-right:none}
+  .hero-meta-icon{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:32px;height:32px;
+    color:var(--mmi-gold-300);
+    flex-shrink:0;
+  }
+  .hero-meta-icon svg{width:22px;height:22px}
+  .hero-meta-text{display:flex;flex-direction:column;gap:4px}
+  .hero-meta-label{
+    font-family:var(--font-ui);font-size:9px;font-weight:600;
+    letter-spacing:0.28em;text-transform:uppercase;
+    color:var(--mmi-gold-300);
+  }
+  .hero-meta-value{
+    font-family:var(--font-ui);font-size:18px;font-weight:500;
+    color:rgba(255,255,255,0.94);letter-spacing:0.01em;
   }
 
-  .hero-left{max-width:600px}
   .pretitle{
     display:inline-flex;align-items:center;gap:10px;
     padding:6px 14px 6px 7px;margin-bottom:28px;
@@ -184,39 +233,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   .hero-title{
     font-family:var(--font-display);font-weight:700;
-    font-size:clamp(38px,4.6vw,62px);
-    line-height:1.02;letter-spacing:0.01em;text-transform:uppercase;
+    font-size:clamp(62px,6vw,102px);
+    line-height:0.96;letter-spacing:0.006em;text-transform:uppercase;
     color:#fff;margin-bottom:24px;text-wrap:balance;
+    text-shadow:0 20px 36px rgba(0,0,0,0.55);
   }
   .hero-title .row-sm{
     display:block;font-family:var(--font-display);font-weight:400;
-    font-size:clamp(14px,1.4vw,18px);letter-spacing:0.42em;
-    color:rgba(255,255,255,0.5);
-    margin-bottom:18px;
+    font-size:clamp(14px,1.15vw,18px);letter-spacing:0.42em;
+    color:var(--mmi-gold-200);
+    margin-bottom:16px;
   }
-  .hero-title .row-gold{color:var(--mmi-gold-200)}
+  .hero-title .row-gold{
+    color:var(--mmi-gold-200);
+    display:block;
+  }
+  .hero-title .row-white{
+    color:#f2f2f2;
+    display:block;
+  }
+  .hero-title .row-white-inline{color:#f2f2f2}
 
   .hero-sub{
-    font-family:var(--font-body);font-size:15px;line-height:1.75;font-weight:400;
-    color:rgba(255,255,255,0.65);
-    max-width:500px;margin-bottom:36px;
-  }
-
-  .hero-meta{
-    display:grid;grid-template-columns:repeat(3,auto);gap:22px 44px;
-    padding:22px 0;margin-bottom:32px;
-    border-top:1px solid rgba(255,255,255,0.08);
-    border-bottom:1px solid rgba(255,255,255,0.08);
-  }
-  .hero-meta-item{display:flex;flex-direction:column;gap:5px}
-  .hero-meta-label{
-    font-family:var(--font-ui);font-size:9px;font-weight:500;
-    letter-spacing:0.32em;text-transform:uppercase;
-    color:rgba(255,255,255,0.4);
-  }
-  .hero-meta-value{
-    font-family:var(--font-ui);font-size:13px;font-weight:500;
-    color:rgba(255,255,255,0.92);letter-spacing:0.02em;
+    font-family:var(--font-body);font-size:15px;line-height:1.72;font-weight:400;
+    color:rgba(255,255,255,0.75);
+    max-width:620px;margin-bottom:30px;
   }
   .hero-meta-value b{color:var(--mmi-gold-200);font-weight:600}
 
@@ -227,98 +268,67 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     display:flex;align-items:center;gap:8px;
   }
   .guarantee b{color:var(--mmi-gold-200);font-weight:600}
+  .guarantee-highlight{color:var(--mmi-gold-200);font-weight:600}
 
-  /* ── Hero card (pricing / countdown) ── */
-  .hero-card{
-    position:relative;
-    background:linear-gradient(180deg,rgba(15,47,28,0.72) 0%,rgba(10,31,20,0.86) 100%);
-    border:1px solid rgba(219,176,74,0.18);
-    border-radius:var(--radius-md);
-    padding:28px 28px 26px;
-    box-shadow:0 24px 60px rgba(0,0,0,0.45);
-    backdrop-filter:blur(10px);
+  .hero-signature{
+    position:absolute;
+    left:38px;
+    bottom:74px;
+    z-index:2;
+    font-family:var(--font-display);
+    color:rgba(219,176,74,0.88);
+    display:flex;
+    flex-direction:column;
+    line-height:1;
+    gap:6px;
   }
-  .hero-card::before{
-    content:'';position:absolute;inset:0;border-radius:var(--radius-md);
-    background:linear-gradient(135deg,rgba(219,176,74,0.08) 0%,transparent 45%);
-    pointer-events:none;
+  .hero-signature .sig-script{
+    font-size:52px;
+    font-style:italic;
+    font-weight:400;
+    opacity:0.9;
   }
-  .card-badge{
-    display:inline-block;padding:4px 11px;margin-bottom:20px;
-    background:transparent;color:var(--mmi-gold-200);
-    border:1px solid rgba(219,176,74,0.35);
-    border-radius:var(--radius-pill);
-    font-family:var(--font-ui);font-weight:600;font-size:9px;
-    letter-spacing:0.32em;text-transform:uppercase;
-  }
-  .card-city{
-    font-family:var(--font-display);font-weight:700;
-    font-size:34px;line-height:1;text-transform:uppercase;
-    color:#fff;letter-spacing:0.02em;margin-bottom:8px;
-  }
-  .card-region{
-    font-family:var(--font-ui);font-size:10px;font-weight:500;
-    letter-spacing:0.32em;text-transform:uppercase;
-    color:rgba(255,255,255,0.4);margin-bottom:26px;
+  .hero-signature .sig-sub{
+    font-size:18px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    opacity:0.8;
   }
 
-  .countdown{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:4px;
-    padding:16px 0 18px;margin-bottom:26px;
-    border-top:1px solid rgba(255,255,255,0.06);
-    border-bottom:1px solid rgba(255,255,255,0.06);
+  .hero-pillars{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    border-top:1px solid rgba(255,255,255,0.12);
+    background:rgba(3,3,3,0.72);
   }
-  .cd-block{text-align:center}
-  .cd-num{
-    font-family:var(--font-display);font-weight:700;
-    font-size:28px;line-height:1;color:var(--mmi-gold-200);display:block;
-    letter-spacing:0.02em;
+  .hero-pillar{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:18px 22px;
+    border-right:1px solid rgba(255,255,255,0.1);
   }
-  .cd-label{
-    font-family:var(--font-ui);font-size:8px;font-weight:500;
-    letter-spacing:0.32em;text-transform:uppercase;
-    color:rgba(255,255,255,0.4);margin-top:8px;display:block;
+  .hero-pillar:last-child{border-right:none}
+  .hero-pillar-icon{
+    width:38px;height:38px;border-radius:999px;
+    border:1px solid rgba(219,176,74,0.45);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--mmi-gold-300);flex-shrink:0;
   }
-
-  .card-price{
-    display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px;
+  .hero-pillar-icon svg{width:18px;height:18px}
+  .hero-pillar-title{
+    font-family:var(--font-ui);
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,0.92);
+    margin-bottom:4px;
   }
-  .card-price-was{
-    font-family:var(--font-ui);font-size:14px;font-weight:400;
-    text-decoration:line-through;color:rgba(255,255,255,0.3);
-  }
-  .card-price-now{
-    font-family:var(--font-display);font-weight:700;
-    font-size:48px;line-height:1;color:var(--mmi-gold-200);letter-spacing:0.01em;
-  }
-  .card-price-save{
-    display:inline-block;margin-left:2px;padding:3px 9px;
-    background:transparent;color:var(--mmi-gold-200);
-    border:1px solid rgba(219,176,74,0.3);
-    border-radius:var(--radius-xs);
-    font-family:var(--font-ui);font-size:9px;font-weight:600;
-    letter-spacing:0.24em;text-transform:uppercase;
-  }
-  .card-price-label{
-    font-family:var(--font-ui);font-size:10px;font-weight:500;
-    letter-spacing:0.32em;text-transform:uppercase;
-    color:rgba(255,255,255,0.4);margin-bottom:22px;
-  }
-
-  .card-cta{
-    display:block;width:100%;text-align:center;
-    padding:14px;background:var(--mmi-gold-400);color:var(--mmi-ink-900);
-    font-family:var(--font-ui);font-weight:600;font-size:11px;
-    letter-spacing:0.26em;text-transform:uppercase;
-    border-radius:var(--radius-pill);
-    transition:all 200ms;
-  }
-  .card-cta:hover{background:var(--mmi-gold-300);box-shadow:var(--shadow-glow-gold)}
-  .card-note{
-    margin-top:14px;text-align:center;
-    font-family:var(--font-ui);font-size:9px;font-weight:500;
-    letter-spacing:0.3em;text-transform:uppercase;
-    color:rgba(255,255,255,0.35);
+  .hero-pillar-sub{
+    font-family:var(--font-body);
+    font-size:15px;
+    color:rgba(255,255,255,0.55);
   }
 
   /* ─── VIDEO REEL ─── */
@@ -683,8 +693,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   /* ═══════════ RESPONSIVE ═══════════ */
   @media(max-width:1024px){
-    .hero-inner{grid-template-columns:1fr;gap:48px}
-    .hero-card{max-width:520px;margin:0 auto;width:100%}
+    .hero-inner{gap:30px}
+    .hero-main{grid-template-columns:52% 48%;min-height:460px}
+    .hero-spacer{min-height:340px}
+    .hero-left{max-width:100%;margin-left:0}
+    .hero-title{font-size:clamp(42px,7vw,68px)}
+    .hero-meta{width:100%}
+    .hero-meta-item{padding:16px}
+    .hero-meta-value{font-size:15px}
+    .hero-signature{left:20px;bottom:82px}
+    .hero-signature .sig-script{font-size:36px}
+    .hero-signature .sig-sub{font-size:12px}
+    .hero-pillar{padding:15px 14px}
+    .hero-pillar-title{font-size:10px}
+    .hero-pillar-sub{font-size:13px}
     .pattern-grid{grid-template-columns:1fr;gap:48px}
     .exp-grid{grid-template-columns:1fr;gap:16px}
     .testi-row,.testi-row.reverse{grid-template-columns:1fr;gap:0}
@@ -710,7 +732,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .nav-logo-sub{font-size:7px;letter-spacing:0.28em}
     .nav-cta{padding:8px 14px;font-size:9px;letter-spacing:0.26em}
     .hero{padding:92px 20px 40px;min-height:auto}
-    .hero::before{opacity:0.1;background-position:center;background-size:560px 560px}
+    .hero::before{opacity:0.22;background-position:center;background-size:cover}
     .pretitle{padding:5px 12px 5px 7px;margin-bottom:22px}
     .pretitle span{font-size:9px;letter-spacing:0.26em}
     .hero-title{font-size:clamp(30px,8.2vw,44px);line-height:1.04}
@@ -722,19 +744,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .hero-cta-row{flex-direction:column;gap:10px;align-items:stretch}
     .cta{justify-content:center;width:100%;padding:13px 20px;font-size:10px;letter-spacing:0.24em}
     .guarantee{font-size:10px;justify-content:center;text-align:center;letter-spacing:0.02em}
-    .hero-card{padding:24px 20px}
-    .card-badge{font-size:8px;letter-spacing:0.28em;margin-bottom:16px;padding:3px 9px}
-    .card-city{font-size:26px}
-    .card-region{font-size:9px;margin-bottom:20px;letter-spacing:0.3em}
-    .countdown{gap:2px;padding:12px 0 14px;margin-bottom:20px}
-    .cd-num{font-size:22px}
-    .cd-label{font-size:7px;letter-spacing:0.26em;margin-top:6px}
-    .card-price-now{font-size:40px}
-    .card-price-was{font-size:12px}
-    .card-price-save{font-size:8px;letter-spacing:0.22em;padding:2px 7px}
-    .card-price-label{font-size:9px;letter-spacing:0.28em;margin-bottom:20px}
-    .card-cta{padding:13px;font-size:10px;letter-spacing:0.24em}
-    .card-note{font-size:8px;letter-spacing:0.26em;margin-top:12px}
+    .hero-signature,.hero-pillars{display:none}
     section{padding:68px 20px}
     .section-head{margin-bottom:42px;max-width:100%}
     .section-title{font-size:clamp(22px,6.2vw,32px);line-height:1.1}
@@ -847,9 +857,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .hero-title{font-size:34px}
     .hero-title .row-sm{font-size:16px}
     .hero-meta{grid-template-columns:1fr 1fr;gap:14px}
-    .card-city{font-size:28px}
-    .cd-num{font-size:24px}
-    .card-price-now{font-size:44px}
     .venue-visual-text .city{font-size:38px}
   }
 
@@ -876,9 +883,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   /* ─── MOBILE EYEBROW (desktop: hidden) ─── */
   .hero-eyebrow-mobile{ display:none !important }
 
-  /* ─── HERO META ICONS (desktop: hidden) ─── */
-  .hero-meta-icon{ display:none }
-  .hero-meta-text{ display:contents }
+  /* ─── HERO META ICONS ─── */
 
   /* ═══════════ MOBILE HERO OVERRIDES (≤760px) ═══════════ */
   @media(max-width:760px){
@@ -922,13 +927,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       padding:20px 20px 36px !important;
       position:relative;z-index:2;
     }
+    .hero-main{display:block !important;min-height:auto !important}
+    .hero-spacer{display:none !important}
     .hero-left{ max-width:100% !important }
 
     /* Hide desktop-only elements */
     .pretitle{ display:none !important }
     .hero-title .row-sm{ display:none !important }
     .cta.ghost{ display:none !important }
-    .hero-card{ display:none !important }
+    .hero-signature,.hero-pillars{ display:none !important }
     .hero-3day-note{ display:none !important }
 
     /* Show mobile eyebrow — centered */
@@ -1109,94 +1116,98 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ═══════════ HERO ═══════════ -->
 <header class="hero" id="top">
   <div class="hero-zen"></div>
+  <div class="hero-signature" aria-hidden="true">
+    <span class="sig-script">T. Harv Eker</span>
+    <span class="sig-sub">Signature Program</span>
+  </div>
   <!-- Mobile-only full-bleed image (hidden on desktop) -->
   <div class="hero-mobile-img">
-    <img src="assets/hero/mmi-crowd-hero-mobile.png" alt="Millionaire Mind Intensive event"/>
+    <img src="assets/hero/mmi-crowd-hero.png" alt="Millionaire Mind Intensive event"/>
   </div>
   <div class="hero-inner">
-    <div class="hero-left">
-      <div class="pretitle">
-        <span class="pretitle-flag" aria-hidden="true"></span>
-        <span>T. Harv Eker's Signature Event · Spain 2026</span>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="hero-meta-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>
+        </span>
+        <span class="hero-meta-text">
+          <span class="hero-meta-label">Dates</span>
+          <span class="hero-meta-value"><b>22–24 May 2026</b></span>
+        </span>
       </div>
-      <!-- Mobile-only eyebrow (hidden on desktop) -->
-      <div class="hero-eyebrow-mobile eyebrow">Signature Program</div>
-      <h1 class="hero-title">
-        <span class="row-sm">Your next financial level</span>
-        <span class="row-gold">Won't come from</span>
-        doing more of<br/>the same.
-      </h1>
-      <p class="hero-sub">
-        A 3-day live experience designed to show you what's actually limiting your financial progress — and how to operate differently.
-      </p>
-
-      <div class="hero-cta-row">
-        <a class="cta" href="#pricing">Secure My €29 Seat</a>
-        <a class="cta ghost" href="#pattern">What You'll Experience</a>
+      <div class="hero-meta-item">
+        <span class="hero-meta-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        </span>
+        <span class="hero-meta-text">
+          <span class="hero-meta-label">Venue</span>
+          <span class="hero-meta-value">Barceló Málaga</span>
+        </span>
       </div>
-      <div class="guarantee">
-        <svg class="guarantee-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;flex-shrink:0;opacity:0.6"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
-        <span>Takes less than <span class="guarantee-highlight">60 seconds</span> to secure your seat</span>
+      <div class="hero-meta-item">
+        <span class="hero-meta-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12,7 12,12 15,15"/></svg>
+        </span>
+        <span class="hero-meta-text">
+          <span class="hero-meta-label">Format</span>
+          <span class="hero-meta-value">Live • 3 Days</span>
+        </span>
       </div>
-
-      <div class="hero-meta">
-        <div class="hero-meta-item">
-          <span class="hero-meta-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>
-          </span>
-          <span class="hero-meta-text">
-            <span class="hero-meta-value"><b>22–24 May 2026</b></span>
-            <span class="hero-meta-label">Dates</span>
-          </span>
-        </div>
-        <div class="hero-meta-item">
-          <span class="hero-meta-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-          </span>
-          <span class="hero-meta-text">
-            <span class="hero-meta-value">Barceló Málaga</span>
-            <span class="hero-meta-label">Venue</span>
-          </span>
-        </div>
-        <div class="hero-meta-item">
-          <span class="hero-meta-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12,7 12,12 15,15"/></svg>
-          </span>
-          <span class="hero-meta-text">
-            <span class="hero-meta-value">Live · 3 Days</span>
-            <span class="hero-meta-label">Format</span>
-          </span>
-        </div>
-      </div>
-
-      <!-- FIX 4: 3-day time objection addressed -->
-      <p class="hero-3day-note" style="font-family:var(--font-body);font-size:13px;line-height:1.65;color:rgba(255,255,255,0.42);margin-bottom:0;margin-top:16px;">
-        Designed for business owners and professionals who can't afford to stop — the structure is intensive but manageable around a working life. Hundreds of entrepreneurs attend every event.
-      </p>
     </div>
+    <div class="hero-main">
+      <div class="hero-spacer" aria-hidden="true"></div>
+      <div class="hero-left">
+        <!-- Mobile-only eyebrow (hidden on desktop) -->
+        <div class="hero-eyebrow-mobile eyebrow">Signature program</div>
+        <h1 class="hero-title">
+          <span class="row-sm">Your next financial level</span>
+          <span class="row-gold">Won't come</span>
+          <span class="row-gold">from <span class="row-white-inline">doing</span></span>
+          <span class="row-white">more of</span>
+          <span class="row-white">the same.</span>
+        </h1>
+        <p class="hero-sub">
+          A 3-day live experience designed to show you what's actually limiting your financial progress — and how to operate differently. Built on T. Harv Eker's work. Guided live in Malaga by certified trainer Mac Attram.
+        </p>
 
-    <aside class="hero-card">
-      <span class="card-badge">Early Access · Spain</span>
-      <div class="card-city">Malaga</div>
-      <div class="card-region">Andalusia, Spain</div>
-
-      <div class="countdown" id="countdown">
-        <div class="cd-block"><span class="cd-num" id="cd-days">00</span><span class="cd-label">Days</span></div>
-        <div class="cd-block"><span class="cd-num" id="cd-hours">00</span><span class="cd-label">Hours</span></div>
-        <div class="cd-block"><span class="cd-num" id="cd-mins">00</span><span class="cd-label">Mins</span></div>
-        <div class="cd-block"><span class="cd-num" id="cd-secs">00</span><span class="cd-label">Secs</span></div>
+        <div class="hero-cta-row">
+          <a class="cta" href="#pricing">Secure My €29 Seat</a>
+        </div>
+        <div class="guarantee">
+          <svg class="guarantee-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;flex-shrink:0;opacity:0.6"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+          <span>Takes less than <span class="guarantee-highlight">60 seconds</span> to secure your seat</span>
+        </div>
       </div>
-
-      <div class="card-price">
-        <span class="card-price-was">€395</span>
-        <span class="card-price-now">€29</span>
-        <span class="card-price-save">Save €366</span>
+    </div>
+    <div class="hero-pillars">
+      <div class="hero-pillar">
+        <span class="hero-pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 20h18"/><rect x="6" y="10" width="3" height="7"/><rect x="11" y="7" width="3" height="10"/><rect x="16" y="4" width="3" height="13"/></svg>
+        </span>
+        <span>
+          <div class="hero-pillar-title">Transform your mindset</div>
+          <div class="hero-pillar-sub">Break through limiting beliefs</div>
+        </span>
       </div>
-      <div class="card-price-label">Standard Early Access</div>
-
-      <a class="card-cta" href="#pricing">Secure My Seat →</a>
-      <div class="card-note">Early Access price ends soon</div>
-    </aside>
+      <div class="hero-pillar">
+        <span class="hero-pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 20h16"/><path d="M7 17V9"/><path d="M12 17V5"/><path d="M17 17v-6"/></svg>
+        </span>
+        <span>
+          <div class="hero-pillar-title">Master your financial game</div>
+          <div class="hero-pillar-sub">Build strategies that create freedom</div>
+        </span>
+      </div>
+      <div class="hero-pillar">
+        <span class="hero-pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h16l-2 7H6z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+        </span>
+        <span>
+          <div class="hero-pillar-title">Live the life you deserve</div>
+          <div class="hero-pillar-sub">More impact, more income, more freedom</div>
+        </span>
+      </div>
+    </div>
   </div>
 </header>
 
