@@ -679,6 +679,123 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .tier.featured .tier-cta:hover{background:var(--mmi-gold-400);color:var(--mmi-ink-900);border-color:var(--mmi-gold-400);}
   .tier.featured .tier-note{margin-top:12px;text-align:center;font-family:var(--font-ui);font-size:9px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.35);}
 
+  /* ─── URGENCY BAND ─── */
+  .urgency-band{
+    background:linear-gradient(135deg,rgba(10,10,10,0.97) 0%,rgba(20,16,8,0.99) 100%);
+    border-top:1px solid rgba(212,175,55,0.2);
+    border-bottom:1px solid rgba(212,175,55,0.2);
+    padding:56px 40px;
+    text-align:center;
+  }
+  .urgency-inner{
+    max-width:640px;
+    margin:0 auto;
+  }
+  .urgency-label{
+    font-family:var(--font-ui);
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:0.32em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,0.45);
+    margin-bottom:28px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:16px;
+  }
+  .urgency-label::before,.urgency-label::after{
+    content:'';
+    width:40px;height:1px;
+    background:linear-gradient(90deg,transparent,rgba(212,175,55,0.4));
+  }
+  .urgency-label::after{
+    background:linear-gradient(90deg,rgba(212,175,55,0.4),transparent);
+  }
+  /* countdown row */
+  .urgency-cd{
+    display:inline-flex;
+    align-items:flex-start;
+    gap:0;
+    margin-bottom:28px;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(212,175,55,0.15);
+    border-radius:12px;
+    padding:24px 36px;
+  }
+  .uc-block{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    min-width:96px;
+  }
+  .uc-num{
+    font-family:var(--font-display);
+    font-size:72px;
+    font-weight:700;
+    line-height:1;
+    color:#fff;
+    letter-spacing:-0.02em;
+    font-variant-numeric:tabular-nums;
+  }
+  .uc-unit{
+    font-family:var(--font-ui);
+    font-size:10px;
+    font-weight:500;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,0.3);
+    margin-top:8px;
+  }
+  .uc-sep{
+    font-family:var(--font-display);
+    font-size:56px;
+    font-weight:300;
+    color:#D4AF37;
+    opacity:0.5;
+    line-height:1;
+    padding:0 2px;
+    align-self:flex-start;
+    margin-top:10px;
+  }
+  .urgency-sub{
+    font-family:var(--font-body);
+    font-size:15px;
+    color:rgba(255,255,255,0.5);
+    margin-bottom:28px;
+    letter-spacing:0.01em;
+  }
+  .urgency-cta{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:18px 40px;
+    background:#D4AF37;
+    color:#000;
+    font-family:var(--font-ui);
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    border-radius:8px;
+    text-decoration:none;
+    transition:all 220ms;
+  }
+  .urgency-cta:hover{
+    background:#e8c44a;
+    transform:translateY(-2px);
+    box-shadow:0 12px 32px rgba(212,175,55,0.35);
+  }
+  /* Mobile: scale down numbers */
+  @media(max-width:760px){
+    .urgency-band{padding:44px 20px;}
+    .urgency-cd{padding:18px 16px;gap:0;}
+    .uc-block{min-width:72px;}
+    .uc-num{font-size:48px;}
+    .uc-sep{font-size:36px;margin-top:8px;}
+    .urgency-cta{width:100%;justify-content:center;font-size:13px;padding:16px 24px;}
+  }
+
   /* ─── VENUE ─── */
   .venue{background:var(--mmi-paper);color:var(--mmi-ink-900)}
   .venue .section-title{color:var(--mmi-ink-900)}
@@ -1392,6 +1509,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<!-- ═══════════ URGENCY BAND ═══════════ -->
+<section class="urgency-band">
+  <div class="urgency-inner">
+    <div class="urgency-label">Early access pricing ends in</div>
+    <div class="urgency-cd">
+      <div class="uc-block">
+        <span class="uc-num" id="ea-days">--</span>
+        <span class="uc-unit">Days</span>
+      </div>
+      <div class="uc-sep">:</div>
+      <div class="uc-block">
+        <span class="uc-num" id="ea-hours">--</span>
+        <span class="uc-unit">Hours</span>
+      </div>
+      <div class="uc-sep">:</div>
+      <div class="uc-block">
+        <span class="uc-num" id="ea-mins">--</span>
+        <span class="uc-unit">Minutes</span>
+      </div>
+    </div>
+    <p class="urgency-sub">Secure your seat now before the price increases.</p>
+    <a class="urgency-cta" href="https://buy.stripe.com/eVq8wP65TfoEd5VcTn3No2B" target="_blank" rel="noopener">
+      Join the 3-Day Live Experience &rarr; &euro;29
+    </a>
+  </div>
+</section>
+
 <!-- ═══════════ PRICING ═══════════ -->
 <section class="pricing" id="pricing">
   <div class="section-inner">
@@ -1598,6 +1742,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     document.getElementById('cd-hours').textContent = pad(hours);
     document.getElementById('cd-mins').textContent  = pad(mins);
     document.getElementById('cd-secs').textContent  = pad(secs);
+    // Urgency band countdown (Days + Hours + Minutes only)
+    var eaD=document.getElementById('ea-days');
+    var eaH=document.getElementById('ea-hours');
+    var eaM=document.getElementById('ea-mins');
+    if(eaD) eaD.textContent=pad(days);
+    if(eaH) eaH.textContent=pad(hours);
+    if(eaM) eaM.textContent=pad(mins);
   }
   tick(); setInterval(tick, 1000);
 
