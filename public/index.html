@@ -816,8 +816,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .sticky-bar{display:flex;}
   }
 </style>
-<!-- Stripe Buy Button -->
-<script async src="https://js.stripe.com/v3/buy-button.js"></script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -835,7 +833,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </a>
   <div class="nav-date">22–24 MAY 2026 · <b>MALAGA, SPAIN</b></div>
   <div class="nav-meta">
-    <a class="nav-cta" href="#pricing" onclick="openStripePopup(event)">Secure Seat</a>
+    <a class="nav-cta" href="https://buy.stripe.com/eVq8wP65TfoEd5VcTn3No2B" target="_blank" rel="noopener">Secure Seat</a>
     <button class="nav-hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -855,7 +853,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h1 class="hero-v3-h1">Your Next<br/><span style="color:#D4AF37;">Financial Level</span></h1>
       <h2 class="hero-v3-h2">Requires a different way of thinking, deciding, and acting.</h2>
       <p class="hero-v3-body">Because more effort isn't the answer — and deep down, you already know it. This is the experience trusted by millions worldwide to uncover the patterns shaping your financial results and change them at the root.</p>
-      <a class="hero-v3-cta" href="#pricing" onclick="openStripePopup(event)">Join the 3-Day Live Experience &rarr; &euro;29</a>
+      <a class="hero-v3-cta" href="https://buy.stripe.com/eVq8wP65TfoEd5VcTn3No2B" target="_blank" rel="noopener">Join the 3-Day Live Experience &rarr; &euro;29</a>
       <span class="hero-v3-micro">Takes less than 60 seconds &middot; Early access pricing available</span>
       <div class="hero-v3-logos">
         <img class="hero-v3-logo-img" src="assets/logos/All-Media-desktop.svg" alt="As featured in Forbes, CNN, CNBC, FOX NEWS, The New York Times" loading="lazy"/>
@@ -1303,7 +1301,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li class="bonus">Private Community Group</li>
           <li class="bonus">Weekly Review &amp; Relearn class (Tuesdays)</li>
         </ul>
-        <a class="tier-cta" href="https://buy.stripe.com/eVq8wP65TfoEd5VcTn3No2B" onclick="openStripePopup(event)">Secure My €29 Seat</a>
+        <a class="tier-cta" href="https://buy.stripe.com/eVq8wP65TfoEd5VcTn3No2B" target="_blank" rel="noopener">Secure My €29 Seat</a>
         <div class="tier-note">Early Access pricing available</div>
       </div>
 
@@ -1464,7 +1462,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="sticky-price-now">€29 <span style="font-size:13px;color:rgba(255,255,255,0.35);text-decoration:line-through;">€395</span></div>
     <div class="sticky-price-label">60-second checkout · Limited seats</div>
   </div>
-  <a class="sticky-cta" href="https://buy.stripe.com/eVq8wP65TfoEd5VcTn3No2B" onclick="openStripePopup(event)">Secure My Seat →</a>
+  <a class="sticky-cta" href="https://buy.stripe.com/eVq8wP65TfoEd5VcTn3No2B" target="_blank" rel="noopener">Secure My Seat →</a>
 </div>
 
 <script>
@@ -1552,45 +1550,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   })();
 </script>
 
-<!-- ═══ STRIPE CHECKOUT MODAL ═══ -->
-<!-- Full-screen overlay — shown when any standard ticket button is clicked -->
-<div id="stripeModalOverlay" style="display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,0.75);align-items:center;justify-content:center;">
-  <!-- Close button -->
-  <button onclick="closeStripeModal()" style="position:fixed;top:20px;right:24px;background:none;border:none;color:#fff;font-size:32px;cursor:pointer;z-index:10001;line-height:1;">&times;</button>
-  <!-- Stripe buy button renders here -->
-  <div id="stripeModalInner" style="background:#fff;border-radius:12px;padding:32px 24px;max-width:480px;width:90%;max-height:90vh;overflow-y:auto;position:relative;">
-    <stripe-buy-button
-      id="stripePopupBtn"
-      buy-button-id="buy_btn_1TPidGGY6RiRFzHXxDavnL0k"
-      publishable-key="pk_live_eAEnXts7quS2xtcOY4RHBG8A">
-    </stripe-buy-button>
-  </div>
-</div>
 
-<script>
-  // ─── Stripe modal open/close ───
-  function openStripePopup(e) {
-    if (e) e.preventDefault();
-    var overlay = document.getElementById('stripeModalOverlay');
-    overlay.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-  }
-  function closeStripeModal() {
-    var overlay = document.getElementById('stripeModalOverlay');
-    overlay.style.display = 'none';
-    document.body.style.overflow = '';
-  }
-  // Close on overlay background click
-  document.getElementById('stripeModalOverlay').addEventListener('click', function(e) {
-    if (e.target === this) closeStripeModal();
-  });
-  // Close on Escape key
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeStripeModal();
-  });
-  window.openStripePopup = openStripePopup;
-  window.closeStripeModal = closeStripeModal;
-</script>
 
 </body>
 </html>
