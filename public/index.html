@@ -535,6 +535,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .endorse-person{font-family:var(--font-ui);font-weight:600;font-size:13px;color:var(--mmi-gold-200);letter-spacing:0.06em}
   .endorse-role{font-family:var(--font-body);font-size:11px;color:rgba(255,255,255,0.4);margin-top:5px;letter-spacing:0.08em;text-transform:uppercase}
 
+  /* ─── TRAINERS HEADING — sits above the bg image ─── */
+  .trainers-heading-outer{
+    background:var(--mmi-ink-900);
+    text-align:center;
+    padding:64px 24px 48px;
+  }
+
   /* ─── TRAINERS V2 — full-bleed dark stage layout ─── */
   .trainers{
     position:relative;
@@ -553,8 +560,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .trainers .section-inner{position:relative;z-index:2;}
 
-  /* Section header */
-  .trainers-head{text-align:center;padding-bottom:48px;}
+  /* .trainers-head removed — heading is now above section */
   .trainers-title{
     font-family:var(--font-display);
     font-size:clamp(36px,5vw,64px);
@@ -1479,24 +1485,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<!-- ═══════════ TRAINERS HEADING ═══════════ -->
+<div class="trainers-heading-outer">
+  <h2 class="trainers-title">Who's Guiding<span>Your Breakthrough</span></h2>
+  <p class="trainers-subtitle">World-class trainers. Proven results.</p>
+</div>
+
 <!-- ═══════════ TRAINERS ═══════════ -->
 <section class="trainers">
   <div class="section-inner">
-
-    <!-- Header -->
-    <div class="trainers-head">
-      <h2 class="trainers-title">Who's Guiding<span>Your Breakthrough</span></h2>
-      <p class="trainers-subtitle">World-class trainers. Proven results.</p>
-    </div>
 
     <!-- Two-panel grid -->
     <div class="trainer-grid">
 
       <!-- T. HARV EKER -->
       <div class="trp">
-        <div class="trp-portrait">
-          <img src="assets/people/harv-eker.png" alt="T. Harv Eker" loading="lazy"/>
-        </div>
         <div class="trp-role">Program Creator</div>
         <h3 class="trp-name"><span>T. Harv</span>Eker</h3>
         <div class="trp-stats">
@@ -1524,9 +1527,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <!-- MAC ATTRAM -->
       <div class="trp">
-        <div class="trp-portrait">
-          <img src="assets/people/mac-attram.png" alt="Mac Attram" loading="lazy"/>
-        </div>
         <div class="trp-role">Lead Trainer · Malaga</div>
         <h3 class="trp-name"><span>Mac</span>Attram</h3>
         <div class="trp-stats">
