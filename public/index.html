@@ -549,6 +549,41 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .trainer-body{font-family:var(--font-body);font-size:14px;line-height:1.75;font-weight:400;color:rgba(255,255,255,0.65);}
   .trainer-body p+p{margin-top:12px}
   .trainer-body b{color:var(--mmi-gold-200);font-weight:600}
+  /* Credential chips */
+  .trainer-chips{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0;}
+  .trainer-chip{
+    display:inline-flex;align-items:center;gap:6px;
+    padding:5px 12px;
+    background:rgba(212,175,55,0.08);
+    border:1px solid rgba(212,175,55,0.2);
+    border-radius:4px;
+    font-family:var(--font-ui);font-size:10px;font-weight:600;
+    letter-spacing:0.12em;text-transform:uppercase;
+    color:rgba(255,255,255,0.6);
+  }
+  .trainer-chip.gold{color:var(--mmi-gold-200);border-color:rgba(212,175,55,0.35);background:rgba(212,175,55,0.1);}
+  /* Stage credits line */
+  .trainer-stage{
+    margin-top:18px;
+    padding-top:16px;
+    border-top:1px solid rgba(255,255,255,0.06);
+    font-family:var(--font-body);font-size:12px;
+    color:rgba(255,255,255,0.35);
+    line-height:1.6;
+    letter-spacing:0.01em;
+  }
+  .trainer-stage b{color:rgba(255,255,255,0.55);font-weight:500;}
+  /* Stat row */
+  .trainer-stats{
+    display:flex;gap:24px;flex-wrap:wrap;
+    margin:18px 0;
+    padding:16px 0;
+    border-top:1px solid rgba(255,255,255,0.06);
+    border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  .trainer-stat-item{display:flex;flex-direction:column;gap:2px;}
+  .trainer-stat-num{font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--mmi-gold-200);line-height:1;}
+  .trainer-stat-label{font-family:var(--font-ui);font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:rgba(255,255,255,0.35);}
 
   /* ─── CROWD BAND ─── */
   .crowd-band{position:relative;height:clamp(320px,42vw,540px);background:linear-gradient(180deg,rgba(10,10,10,0.55) 0%,rgba(10,10,10,0.2) 40%,rgba(10,10,10,0.85) 100%),url('https://cch-files.edge.live.ds25.io/cch/v/a4e3489d-6bf3-48c8-affb-c268ba45a538/files/6880bfa944d7e_bg-3-days.jpg') center/cover;display:flex;align-items:center;justify-content:center;overflow:hidden;}
@@ -1350,9 +1385,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="trainer-content">
           <div class="trainer-role">Program Creator</div>
           <h3 class="trainer-name"><span class="foil">T. Harv</span> Eker</h3>
+          <div class="trainer-chips">
+            <span class="trainer-chip gold">#1 NY Times Bestseller</span>
+            <span class="trainer-chip">10M+ Attendees</span>
+            <span class="trainer-chip">30+ Years</span>
+          </div>
           <div class="trainer-body">
-            <p>Author of <i>Secrets of the Millionaire Mind.</i> His work has helped millions rethink the patterns shaping their financial lives.</p>
-            <p>Millionaire Mind Intensive is built on the principles and process that made <b>MMI one of the most recognised personal transformation programs in the world.</b></p>
+            <p>Author of <i>Secrets of the Millionaire Mind</i> — one of the most influential books ever written on the psychology of wealth. T. Harv Eker spent 14 years failing in business before discovering the root cause of his results. Once he changed that, he went from <b>zero to millionaire in less than 3 years.</b></p>
+            <p>He went on to build the Millionaire Mind Intensive into a global programme experienced by <b>over 10 million people across 30+ countries</b> — making it one of the most recognised personal transformation experiences in the world.</p>
           </div>
         </div>
       </div>
@@ -1362,9 +1402,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="trainer-content">
           <div class="trainer-role">Lead Trainer · Malaga</div>
           <h3 class="trainer-name"><span class="foil">Mac</span> Attram</h3>
+          <div class="trainer-chips">
+            <span class="trainer-chip gold">#1 Bestselling Author</span>
+            <span class="trainer-chip">100,000s Trained</span>
+            <span class="trainer-chip">6th Dan Black Belt</span>
+          </div>
+          <div class="trainer-stats">
+            <div class="trainer-stat-item">
+              <span class="trainer-stat-num">100K+</span>
+              <span class="trainer-stat-label">People Trained</span>
+            </div>
+            <div class="trainer-stat-item">
+              <span class="trainer-stat-num">4</span>
+              <span class="trainer-stat-label">Bestselling Books</span>
+            </div>
+            <div class="trainer-stat-item">
+              <span class="trainer-stat-num">20–100%</span>
+              <span class="trainer-stat-label">Client Growth</span>
+            </div>
+          </div>
           <div class="trainer-body">
-            <p>Your Millionaire Mind Intensive experience in Malaga will be guided live by <b>Mac Attram</b>, one of T. Harv Eker's certified lead trainers.</p>
-            <p>He'll lead you through the exercises, challenges, and breakthroughs that make this experience powerful in real time — not just information, a guided process designed to help you recognise what's been shaping your results and shift it in the room.</p>
+            <p>Mac Attram is a <b>#1 International Bestselling Author</b>, Elite Business &amp; Wealth Coach, and one of the world's most recognised voices in entrepreneurial mindset and financial transformation. He has trained and coached hundreds of thousands of business owners across the globe — consistently delivering <b>20–100% business growth within 12 months.</b></p>
+            <p>He has shared the stage with T. Harv Eker, Tony Robbins, Robert Kiyosaki, and Les Brown. His work has been featured on <b>CNBC, Forbes, Sky TV, and The Guardian.</b> A 6th Dan Black Belt in Taekwondo, he brings the same standard of mastery and discipline to the room that has driven every transformation in his career.</p>
+            <p>At Malaga, Mac will guide you through every exercise, challenge, and breakthrough of the MMI weekend — not as a lecturer, but as someone who has personally lived the shift this programme creates.</p>
+          </div>
+          <div class="trainer-stage">
+            <b>Has shared the stage with:</b> T. Harv Eker · Tony Robbins · Robert Kiyosaki · Les Brown · Blair Singer
           </div>
         </div>
       </div>
