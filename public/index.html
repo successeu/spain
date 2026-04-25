@@ -684,6 +684,60 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .urgency-cta{width:100%;justify-content:center;font-size:13px;padding:16px 24px;}
   }
 
+  /* ─── DYNAMIC DESKTOP CTA BAR ─── */
+  .dyn-bar{
+    display:none; /* desktop only — enabled below */
+  }
+  @media(min-width:761px){
+    .dyn-bar{
+      display:flex;
+      position:fixed;bottom:0;left:0;right:0;
+      z-index:88; /* below mobile sticky (z-index 90) */
+      background:rgba(8,8,8,0.96);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+      border-top:1px solid rgba(212,175,55,0.22);
+      transform:translateY(105%);
+      transition:transform 380ms cubic-bezier(0.22,1,0.36,1);
+    }
+    .dyn-bar.dyn-visible{
+      transform:translateY(0);
+    }
+    .dyn-bar-inner{
+      max-width:1200px;margin:0 auto;
+      padding:14px 40px;width:100%;
+      display:flex;align-items:center;
+      justify-content:space-between;gap:24px;
+    }
+    .dyn-text{flex:1;min-width:0;}
+    .dyn-main{
+      font-family:var(--font-display);
+      font-size:19px;font-weight:700;
+      color:#fff;line-height:1.2;
+      letter-spacing:0.01em;
+      opacity:1;transition:opacity 220ms ease;
+    }
+    .dyn-sub{
+      font-family:var(--font-body);
+      font-size:12px;color:rgba(255,255,255,0.42);
+      margin-top:3px;letter-spacing:0.02em;
+      opacity:1;transition:opacity 220ms ease;
+    }
+    .dyn-main.fading,.dyn-sub.fading{opacity:0;}
+    .dyn-btn{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:13px 30px;
+      background:#D4AF37;color:#000;
+      font-family:var(--font-ui);font-weight:700;
+      font-size:12px;letter-spacing:0.18em;
+      text-transform:uppercase;border-radius:6px;
+      text-decoration:none;flex-shrink:0;
+      transition:background 180ms,transform 180ms;
+      white-space:nowrap;
+    }
+    .dyn-btn:hover{background:#e8c44a;transform:translateY(-1px);}
+  }
+
   /* ─── VENUE ─── */
   .venue{background:var(--mmi-paper);color:var(--mmi-ink-900)}
   .venue .section-title{color:var(--mmi-ink-900)}
@@ -1686,6 +1740,113 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </script>
 
 
+
+<!-- ═══════════ DYNAMIC DESKTOP CTA BAR ═══════════ -->
+<div id="dynBar" class="dyn-bar" role="complementary" aria-label="Contextual CTA">
+  <div class="dyn-bar-inner">
+    <div class="dyn-text">
+      <div class="dyn-main" id="dynMain">Join the 3-Day Live Experience</div>
+      <div class="dyn-sub"  id="dynSub">The mindset shift that changes everything.</div>
+    </div>
+    <a class="dyn-btn" id="dynBtn"
+       href="https://buy.stripe.com/eVq8wP65TfoEd5VcTn3No2B"
+       target="_blank" rel="noopener">
+      Join &rarr; &euro;29
+    </a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var bar    = document.getElementById('dynBar');
+  var mainEl = document.getElementById('dynMain');
+  var subEl  = document.getElementById('dynSub');
+  var btnEl  = document.getElementById('dynBtn');
+  if(!bar) return;
+
+  /* ── Stage definitions ───────────────────────── */
+  var STAGES = [
+    /* 0 — Story (20–50%) */
+    {
+      main: "If you're seeing yourself in this —",
+      sub:  "Break the pattern.",
+      btn:  "Break the pattern → €29"
+    },
+    /* 1 — Program / value (50–70%) */
+    {
+      main: "See what you’ll walk away with",
+      sub:  "Three days. A genuinely different financial future.",
+      btn:  "Join the Experience → €29"
+    },
+    /* 2 — Decision (70–85%) */
+    {
+      main: "Secure your seat → €29",
+      sub:  "Save €366 · Early access available",
+      btn:  "Secure My Seat"
+    },
+    /* 3 — Urgency (85–100%) */
+    {
+      main: "This is where it changes.",
+      sub:  "Limited seats · Price increases soon",
+      btn:  "Join Now → €29"
+    }
+  ];
+
+  var current = -1;
+  var pricingInView = false;
+
+  /* ── Watch pricing section ───────────────────── */
+  var pricingEl = document.getElementById('pricing');
+  if(pricingEl && window.IntersectionObserver){
+    var io = new IntersectionObserver(function(entries){
+      pricingInView = entries[0].isIntersecting;
+      update();
+    }, { threshold: 0.08 });
+    io.observe(pricingEl);
+  }
+
+  /* ── Fade-swap text ──────────────────────────── */
+  function swapText(stageIdx){
+    if(stageIdx === current) return;
+    current = stageIdx;
+    if(stageIdx < 0) return;
+    var s = STAGES[stageIdx];
+    mainEl.classList.add('fading');
+    subEl.classList.add('fading');
+    setTimeout(function(){
+      mainEl.textContent = s.main;
+      subEl.textContent  = s.sub;
+      btnEl.textContent  = s.btn;
+      mainEl.classList.remove('fading');
+      subEl.classList.remove('fading');
+    }, 220);
+  }
+
+  /* ── Main update ─────────────────────────────── */
+  function update(){
+    var scrolled = window.scrollY;
+    var total    = document.documentElement.scrollHeight - window.innerHeight;
+    var pct      = total > 0 ? scrolled / total : 0;
+
+    /* Show bar after 20% scroll; hide over pricing */
+    var show = pct >= 0.20 && !pricingInView;
+    bar.classList.toggle('dyn-visible', show);
+
+    /* Pick stage */
+    var stage;
+    if     (pct < 0.50) stage = 0;
+    else if(pct < 0.70) stage = 1;
+    else if(pct < 0.85) stage = 2;
+    else                stage = 3;
+
+    swapText(stage);
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update, { passive: true });
+  update();
+})();
+</script>
 
 </body>
 </html>
