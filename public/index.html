@@ -84,14 +84,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     backdrop-filter:blur(12px);
     border-bottom:1px solid rgba(0,0,0,0.08);
   }
+  /* Date centred absolutely in nav */
+  .nav-date{
+    position:absolute;left:50%;transform:translateX(-50%);
+    font-family:var(--font-ui);font-size:11px;font-weight:500;
+    letter-spacing:0.2em;text-transform:uppercase;color:#555;
+    white-space:nowrap;pointer-events:none;
+  }
+  .nav-date b{color:#111;font-weight:700}
   .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
   .nav-logo img{height:32px;display:block;}
   .nav-logo-text{display:flex;flex-direction:column;gap:1px;border-left:1px solid rgba(0,0,0,0.15);padding-left:12px;}
   .nav-logo-name{font-family:var(--font-display);font-weight:600;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:#111;line-height:1;}
   .nav-logo-sub{font-family:var(--font-ui);font-weight:500;font-size:8px;letter-spacing:0.28em;text-transform:uppercase;color:#888;line-height:1;}
   .nav-meta{display:flex;align-items:center;gap:16px;}
-  .nav-date{font-family:var(--font-ui);font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:#555;}
-  .nav-date b{color:#111;font-weight:700}
   .nav-cta{
     padding:10px 18px;background:#D4AF37;color:#000;
     font-family:var(--font-ui);font-weight:600;font-size:14px;
@@ -213,6 +219,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .nav-date{display:none;}
     .nav-hamburger{display:flex;}
     .hero-v3{padding-top:58px;min-height:100svh;}
+    .hero-v3::before{
+      background:url(assets/hero/mmi-crowd-hero-mobile.jpg) no-repeat center/cover;
+      background-position:center 20%;
+    }
     .hero-v3-inner{padding:48px 20px;justify-content:flex-start;}
     .hero-v3-left{width:100%;max-width:100%;}
     .hero-v3-eyebrow{font-size:11px;margin-bottom:16px;}
@@ -840,11 +850,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <img src="assets/logos/mmi-logo-gold.png" alt="Millionaire Mind Intensive"/>
     <div class="nav-logo-text">
       <div class="nav-logo-name">Millionaire Mind</div>
-      <div class="nav-logo-sub">Intensive · Malaga 2026</div>
+      <div class="nav-logo-sub">Intensive</div>
     </div>
   </a>
+  <div class="nav-date">22–24 MAY 2026 · <b>MALAGA, SPAIN</b></div>
   <div class="nav-meta">
-    <div class="nav-date">22–24 MAY 2026 · <b>MALAGA, SPAIN</b></div>
     <a class="nav-cta" href="#pricing">Secure Seat</a>
     <button class="nav-hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
