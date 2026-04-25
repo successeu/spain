@@ -1645,7 +1645,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="sticky-price-now">€29 <span style="font-size:13px;color:rgba(255,255,255,0.35);text-decoration:line-through;">€395</span></div>
     <div class="sticky-price-label">60-second checkout · Limited seats</div>
   </div>
-  <a class="sticky-cta" href="https://buy.stripe.com/eVq8wP65TfoEd5VcTn3No2B" target="_blank" rel="noopener">Secure My Seat →</a>
+  <a class="sticky-cta" id="mobileStickyBtn" href="https://buy.stripe.com/eVq8wP65TfoEd5VcTn3No2B" target="_blank" rel="noopener">Secure My Seat →</a>
 </div>
 
 <script>
@@ -1845,6 +1845,51 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   window.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', update, { passive: true });
   update();
+})();
+</script>
+
+<script>
+/* ─── MOBILE STICKY BAR — adaptive button text ─── */
+(function(){
+  var btn = document.getElementById('mobileStickyBtn');
+  if(!btn) return;
+
+  /* 3 stages — button text only, price stays visible */
+  var MOB_STAGES = [
+    { pct: 0.40, text: 'Secure My Seat →' },
+    { pct: 0.75, text: 'Break the Pattern → €29' },
+    { pct: 1.00, text: 'Join Now — Price Rises Soon' }
+  ];
+
+  var currentMob = -1;
+
+  function updateMobile(){
+    /* Only run on mobile widths */
+    if(window.innerWidth > 760) return;
+
+    var scrolled = window.scrollY;
+    var total    = document.documentElement.scrollHeight - window.innerHeight;
+    var pct      = total > 0 ? scrolled / total : 0;
+
+    var stage;
+    if     (pct < 0.40) stage = 0;
+    else if(pct < 0.75) stage = 1;
+    else                stage = 2;
+
+    if(stage === currentMob) return;
+    currentMob = stage;
+
+    /* Fade the button text */
+    btn.style.transition = 'opacity 200ms ease';
+    btn.style.opacity    = '0';
+    setTimeout(function(){
+      btn.textContent  = MOB_STAGES[stage].text;
+      btn.style.opacity = '1';
+    }, 200);
+  }
+
+  window.addEventListener('scroll', updateMobile, { passive: true });
+  updateMobile();
 })();
 </script>
 
