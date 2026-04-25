@@ -539,15 +539,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .trainers-heading-outer{
     background:var(--mmi-ink-900);
     text-align:center;
-    padding:64px 24px 48px;
+    padding:56px 24px 32px;
   }
 
   /* ─── TRAINERS V2 — full-bleed dark stage layout ─── */
   .trainers{
     position:relative;
     overflow:hidden;
+    margin-top:0; /* flush with heading */
     background:
-      linear-gradient(180deg,var(--mmi-ink-900) 0%,transparent 8%,transparent 92%,var(--mmi-ink-900) 100%),
+      linear-gradient(180deg,var(--mmi-ink-900) 0%,transparent 15%,transparent 85%,var(--mmi-ink-900) 100%),
       url('assets/hero/trainers-bg.jpg') center/cover no-repeat;
     background-color:#0a0805;
   }
@@ -585,11 +586,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .trainer-divider{
     background:linear-gradient(180deg,transparent,rgba(212,175,55,0.3) 30%,rgba(212,175,55,0.3) 70%,transparent);
     align-self:stretch;
-    margin:0 40px;
+    margin:0 32px;
   }
 
   /* Each trainer panel */
-  .trp{padding:0 8px;}
+  .trp{padding:40px 24px;}
   .trp-portrait{
     position:relative;
     width:100%;
@@ -620,12 +621,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .trp-name{
     font-family:var(--font-display);font-weight:700;
-    font-size:clamp(28px,3.5vw,44px);
-    line-height:0.95;text-transform:uppercase;
-    letter-spacing:0.02em;color:#fff;
+    font-size:clamp(24px,3vw,38px);
+    line-height:1.1;text-transform:uppercase;
+    letter-spacing:0.04em;color:#fff;
     margin-bottom:18px;
   }
-  .trp-name span{display:block;}
+  .trp-name span{color:var(--mmi-gold-200);}  /* gold first name, white last name */
 
   /* Inline stats */
   .trp-stats{
