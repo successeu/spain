@@ -1552,30 +1552,44 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   })();
 </script>
 
-<!-- ═══ STRIPE BUY BUTTON (off-screen, triggered by custom buttons) ═══ -->
-<div style="position:fixed;top:-9999px;left:-9999px;z-index:-1;">
-  <stripe-buy-button
-    id="stripePopupBtn"
-    buy-button-id="buy_btn_1TPidGGY6RiRFzHXxDavnL0k"
-    publishable-key="pk_live_eAEnXts7quS2xtcOY4RHBG8A">
-  </stripe-buy-button>
+<!-- ═══ STRIPE CHECKOUT MODAL ═══ -->
+<!-- Full-screen overlay — shown when any standard ticket button is clicked -->
+<div id="stripeModalOverlay" style="display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,0.75);align-items:center;justify-content:center;">
+  <!-- Close button -->
+  <button onclick="closeStripeModal()" style="position:fixed;top:20px;right:24px;background:none;border:none;color:#fff;font-size:32px;cursor:pointer;z-index:10001;line-height:1;">&times;</button>
+  <!-- Stripe buy button renders here -->
+  <div id="stripeModalInner" style="background:#fff;border-radius:12px;padding:32px 24px;max-width:480px;width:90%;max-height:90vh;overflow-y:auto;position:relative;">
+    <stripe-buy-button
+      id="stripePopupBtn"
+      buy-button-id="buy_btn_1TPidGGY6RiRFzHXxDavnL0k"
+      publishable-key="pk_live_eAEnXts7quS2xtcOY4RHBG8A">
+    </stripe-buy-button>
+  </div>
 </div>
 
 <script>
-  // ─── Open Stripe popup on custom button click ───
+  // ─── Stripe modal open/close ───
   function openStripePopup(e) {
     if (e) e.preventDefault();
-    var el = document.getElementById('stripePopupBtn');
-    if (!el) return;
-    // Try shadow root first (most reliable)
-    if (el.shadowRoot) {
-      var innerBtn = el.shadowRoot.querySelector('button');
-      if (innerBtn) { innerBtn.click(); return; }
-    }
-    // Fallback: click the element directly
-    el.click();
+    var overlay = document.getElementById('stripeModalOverlay');
+    overlay.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
   }
+  function closeStripeModal() {
+    var overlay = document.getElementById('stripeModalOverlay');
+    overlay.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  // Close on overlay background click
+  document.getElementById('stripeModalOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeStripeModal();
+  });
+  // Close on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeStripeModal();
+  });
   window.openStripePopup = openStripePopup;
+  window.closeStripeModal = closeStripeModal;
 </script>
 
 </body>
