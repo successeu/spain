@@ -60,15 +60,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   .cta{
     display:inline-flex;align-items:center;gap:10px;
-    padding:14px 28px;background:var(--mmi-gold-400);color:var(--mmi-ink-900);
-    font-family:var(--font-ui);font-weight:600;font-size:11px;
-    letter-spacing:0.26em;text-transform:uppercase;
-    border-radius:var(--radius-pill);
-    transition:all 240ms var(--ease-brand);
+    padding:16px 36px;background:var(--mmi-gold-400);color:var(--mmi-ink-900);
+    font-family:var(--font-ui);font-weight:700;font-size:14px;
+    letter-spacing:0.16em;text-transform:uppercase;
+    border-radius:8px;
+    transition:all 220ms ease;
   }
-  .cta::after{content:'→';font-size:14px;transition:transform 240ms}
-  .cta:hover{background:var(--mmi-gold-300);transform:translateY(-1px);box-shadow:var(--shadow-glow-gold)}
-  .cta:hover::after{transform:translateX(4px)}
+  .cta:hover{background:#e8c44a;transform:translateY(-2px);box-shadow:0 12px 32px rgba(212,175,55,0.35);}
   .cta.ghost{
     background:transparent;color:rgba(255,255,255,0.85);
     border:1px solid rgba(255,255,255,0.18);
@@ -99,12 +97,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .nav-logo-sub{font-family:var(--font-ui);font-weight:500;font-size:8px;letter-spacing:0.28em;text-transform:uppercase;color:#888;line-height:1;}
   .nav-meta{display:flex;align-items:center;gap:16px;}
   .nav-cta{
-    padding:10px 18px;background:#D4AF37;color:#000;
-    font-family:var(--font-ui);font-weight:600;font-size:14px;
-    letter-spacing:0.06em;text-transform:uppercase;
-    border-radius:6px;transition:background 180ms;text-decoration:none;
+    padding:10px 20px;background:#D4AF37;color:#000;
+    font-family:var(--font-ui);font-weight:700;font-size:12px;
+    letter-spacing:0.16em;text-transform:uppercase;
+    border-radius:8px;transition:all 200ms;text-decoration:none;
   }
-  .nav-cta:hover{background:#c9a028;}
+  .nav-cta:hover{background:#e8c44a;transform:translateY(-1px);box-shadow:0 6px 18px rgba(212,175,55,0.3);}
   .nav-hamburger{display:none;flex-direction:column;justify-content:space-between;width:22px;height:16px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;}
   .nav-hamburger span{display:block;width:100%;height:2px;background:#333;border-radius:2px;}
 
@@ -179,8 +177,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .hero-v3-cta{
     display:inline-flex;align-items:center;gap:8px;
-    padding:16px 28px;background:#D4AF37;color:#000;
-    font-family:var(--font-ui);font-weight:600;font-size:16px;
+    padding:16px 32px;background:#D4AF37;color:#000;
+    font-family:var(--font-ui);font-weight:700;font-size:14px;
+    letter-spacing:0.16em;text-transform:uppercase;
     border-radius:8px;text-decoration:none;
     transition:all 200ms;
     margin-bottom:12px;
@@ -595,8 +594,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .tier.primary li:last-child{border-bottom:none;}
   .tier.primary li::before{content:'';flex-shrink:0;width:14px;height:14px;margin-top:3px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='%23D4AF37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' d='M3 8.5l3 3 7-7'/></svg>") no-repeat center/contain;}
   .tier.primary .tier-price-row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px;}
-  .tier.primary .tier-cta{display:block;width:100%;text-align:center;padding:16px;background:#D4AF37;color:#000;font-family:var(--font-ui);font-weight:700;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;border-radius:var(--radius-pill);transition:all 200ms;text-decoration:none;}
-  .tier.primary .tier-cta:hover{background:#c9a028;box-shadow:0 8px 24px rgba(212,175,55,0.4);}
+  .tier.primary .tier-cta{display:block;width:100%;text-align:center;padding:16px;background:#D4AF37;color:#000;font-family:var(--font-ui);font-weight:700;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;border-radius:8px;transition:all 200ms;text-decoration:none;}
+  .tier.primary .tier-cta:hover{background:#e8c44a;transform:translateY(-1px);box-shadow:0 8px 24px rgba(212,175,55,0.3);}
   .tier.primary .tier-note{margin-top:12px;text-align:center;font-family:var(--font-ui);font-size:9px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:#999;}
 
   /* ── VIP — gold-tinted dark card (secondary) ── */
@@ -616,7 +615,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .tier.featured li:last-child{border-bottom:none;}
   .tier.featured li::before{content:'';flex-shrink:0;width:14px;height:14px;margin-top:3px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='%23dbb04a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' d='M3 8.5l3 3 7-7'/></svg>") no-repeat center/contain;}
   .tier.featured .tier-price-row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px;}
-  .tier.featured .tier-cta{display:block;width:100%;text-align:center;padding:14px;background:transparent;color:var(--mmi-gold-200);border:1px solid rgba(219,176,74,0.5);font-family:var(--font-ui);font-weight:600;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;border-radius:var(--radius-pill);transition:all 200ms;text-decoration:none;}
+  .tier.featured .tier-cta{display:block;width:100%;text-align:center;padding:14px;background:transparent;color:var(--mmi-gold-200);border:1px solid rgba(219,176,74,0.5);font-family:var(--font-ui);font-weight:600;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;border-radius:8px;transition:all 200ms;text-decoration:none;}
   .tier.featured .tier-cta:hover{background:var(--mmi-gold-400);color:var(--mmi-ink-900);border-color:var(--mmi-gold-400);}
   .tier.featured .tier-note{margin-top:12px;text-align:center;font-family:var(--font-ui);font-size:9px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.35);}
 
@@ -782,7 +781,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .final h2{font-family:var(--font-display);font-weight:700;font-size:clamp(32px,4vw,52px);line-height:1.05;letter-spacing:0.015em;text-transform:uppercase;color:#fff;margin-bottom:26px;text-wrap:balance;}
   .final h2 em{font-style:italic;color:var(--mmi-gold-200);font-weight:400;text-transform:none;letter-spacing:0.005em}
   .final p{font-family:var(--font-body);font-size:15px;line-height:1.75;font-weight:400;color:rgba(255,255,255,0.62);margin-bottom:42px;text-wrap:pretty;}
-  .final .cta{padding:16px 36px;font-size:12px;letter-spacing:0.26em}
 
   /* ─── FOOTER ─── */
   footer{background:#000;padding:52px 40px 40px;border-top:1px solid rgba(255,255,255,0.05);text-align:center;}
@@ -986,7 +984,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </a>
   <div class="nav-date">22–24 MAY 2026 · <b>MALAGA, SPAIN</b></div>
   <div class="nav-meta">
-    <a class="nav-cta" href="https://buy.stripe.com/eVq8wP65TfoEd5VcTn3No2B" target="_blank" rel="noopener">Secure Seat</a>
+    <a class="nav-cta" href="https://buy.stripe.com/eVq8wP65TfoEd5VcTn3No2B" target="_blank" rel="noopener">Secure Seat → €29</a>
     <button class="nav-hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -1006,7 +1004,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h1 class="hero-v3-h1">Your Next<br/><span style="color:#D4AF37;">Financial Level</span></h1>
       <h2 class="hero-v3-h2">Requires a different way of thinking, deciding, and acting.</h2>
       <p class="hero-v3-body">Because more effort isn't the answer — and deep down, you already know it. This is the experience trusted by millions worldwide to uncover the patterns shaping your financial results and change them at the root.</p>
-      <a class="hero-v3-cta" href="https://buy.stripe.com/eVq8wP65TfoEd5VcTn3No2B" target="_blank" rel="noopener">Join the 3-Day Live Experience &rarr; &euro;29</a>
+      <a class="hero-v3-cta" href="https://buy.stripe.com/eVq8wP65TfoEd5VcTn3No2B" target="_blank" rel="noopener">Join the 3-Day Experience &rarr; &euro;29</a>
       <span class="hero-v3-micro">Takes less than 60 seconds &middot; Early access pricing available</span>
       <div class="hero-v3-logos">
         <img class="hero-v3-logo-img" src="assets/logos/All-Media-desktop.svg" alt="As featured in Forbes, CNN, CNBC, FOX NEWS, The New York Times" loading="lazy"/>
@@ -1452,7 +1450,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <p class="urgency-sub">Secure your seat now before the price increases.</p>
     <a class="urgency-cta" href="https://buy.stripe.com/eVq8wP65TfoEd5VcTn3No2B" target="_blank" rel="noopener">
-      Join the 3-Day Live Experience &rarr; &euro;29
+      Reserve My Seat &rarr; &euro;29
     </a>
   </div>
 </section>
@@ -1508,7 +1506,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li>Priority check-in</li>
           <li>Speed networking session</li>
         </ul>
-        <a class="tier-cta" href="https://successr.thrivecart.com/spain-may-vip-cart/" target="_blank" rel="noopener">Upgrade to VIP Experience</a>
+        <a class="tier-cta" href="https://successr.thrivecart.com/spain-may-vip-cart/" target="_blank" rel="noopener">Upgrade to VIP</a>
         <div class="tier-note">Fewer seats at this level</div>
       </div>
 
@@ -1622,7 +1620,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="eyebrow">The question isn't "is this for me?"</div>
     <h2>How much longer<br/>am I willing to <em>stay<br/>where I am?</em></h2>
     <p>If you know it's time to change the pattern, this is where it starts. Seats are being taken — and this price won't stay here.</p>
-    <a class="cta" href="https://buy.stripe.com/eVq8wP65TfoEd5VcTn3No2B" target="_blank" rel="noopener">Secure Your Seat Now for €29</a>
+    <a class="cta" href="https://buy.stripe.com/eVq8wP65TfoEd5VcTn3No2B" target="_blank" rel="noopener">Secure Your Seat &rarr; &euro;29</a>
   </div>
 </section>
 
