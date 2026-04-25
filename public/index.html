@@ -535,82 +535,164 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .endorse-person{font-family:var(--font-ui);font-weight:600;font-size:13px;color:var(--mmi-gold-200);letter-spacing:0.06em}
   .endorse-role{font-family:var(--font-body);font-size:11px;color:rgba(255,255,255,0.4);margin-top:5px;letter-spacing:0.08em;text-transform:uppercase}
 
-  /* ─── TRAINERS ─── */
-  .trainers{background:var(--mmi-ink-900)}
-  .trainer-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px;}
-  .trainer{padding:40px 36px;background:linear-gradient(180deg,rgba(255,255,255,0.025) 0%,rgba(255,255,255,0.008) 100%);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius-sm);position:relative;display:grid;grid-template-columns:200px 1fr;gap:32px;align-items:start;}
-  .trainer-portrait{width:200px;height:240px;border-radius:var(--radius-sm);overflow:hidden;margin-bottom:0;position:relative;background:linear-gradient(135deg,#1a1a1a,#0a0a0a);box-shadow:0 0 0 1px rgba(219,176,74,0.55),0 0 0 8px rgba(219,176,74,0.12),0 0 60px -10px rgba(219,176,74,0.22),0 24px 48px -16px rgba(0,0,0,0.7);}
-  .trainer-portrait::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 55%,rgba(10,10,10,0.45) 100%);}
-  .trainer-portrait img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.05) saturate(1.05);}
-  .trainer-content{min-width:0}
-  .trainer-role{font-family:var(--font-ui);font-weight:500;font-size:9px;letter-spacing:0.4em;text-transform:uppercase;color:var(--mmi-gold-300);margin-bottom:14px;}
-  .trainer-name{font-family:var(--font-display);font-weight:700;font-size:28px;line-height:1;letter-spacing:0.02em;text-transform:uppercase;color:#fff;margin-bottom:14px;}
-  .trainer-name .foil{display:block}
-  .trainer-body{font-family:var(--font-body);font-size:14px;line-height:1.75;font-weight:400;color:rgba(255,255,255,0.65);}
-  .trainer-body p+p{margin-top:12px}
-  .trainer-body b{color:var(--mmi-gold-200);font-weight:600}
-  /* ── Credential chips — 3 per row, short labels ── */
-  .trainer-chips{
-    display:grid;
-    grid-template-columns:repeat(3,auto);
-    justify-content:start;
-    gap:6px;
-    margin:16px 0;
+  /* ─── TRAINERS V2 — full-bleed dark stage layout ─── */
+  .trainers{
+    position:relative;
+    overflow:hidden;
+    background:
+      linear-gradient(180deg,var(--mmi-ink-900) 0%,transparent 8%,transparent 92%,var(--mmi-ink-900) 100%),
+      url('assets/hero/trainers-bg.jpg') center/cover no-repeat;
+    background-color:#0a0805;
   }
-  .trainer-chip{
-    padding:4px 10px;
-    background:rgba(212,175,55,0.07);
-    border:1px solid rgba(212,175,55,0.18);
-    border-radius:4px;
-    font-family:var(--font-ui);font-size:9px;font-weight:600;
-    letter-spacing:0.1em;text-transform:uppercase;
-    color:rgba(255,255,255,0.55);
-    white-space:nowrap;
-    text-align:center;
+  /* Dark overlay — keep text readable */
+  .trainers::before{
+    content:'';position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse 60% 80% at 50% 50%,rgba(0,0,0,0.35) 0%,rgba(0,0,0,0.72) 100%);
+    pointer-events:none;
   }
-  .trainer-chip.gold{
-    color:var(--mmi-gold-200);
-    border-color:rgba(212,175,55,0.32);
-    background:rgba(212,175,55,0.1);
-  }
-  /* ── Stats — 3-column grid (guaranteed horizontal) ── */
-  .trainer-stats{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:0;
-    margin:16px 0;
-    padding:14px 0;
-    border-top:1px solid rgba(255,255,255,0.06);
-    border-bottom:1px solid rgba(255,255,255,0.06);
-  }
-  .trainer-stat-item{
-    display:flex;flex-direction:column;gap:3px;
-    padding:0 12px;
-    border-right:1px solid rgba(255,255,255,0.06);
-  }
-  .trainer-stat-item:first-child{padding-left:0;}
-  .trainer-stat-item:last-child{border-right:none;}
-  .trainer-stat-num{
-    font-family:var(--font-display);
-    font-size:20px;font-weight:700;
-    color:var(--mmi-gold-200);line-height:1;
-  }
-  .trainer-stat-label{
-    font-family:var(--font-ui);font-size:8px;
-    letter-spacing:0.2em;text-transform:uppercase;
-    color:rgba(255,255,255,0.3);
-  }
-  /* ── Stage credits ── */
-  .trainer-stage{
-    margin-top:16px;
-    padding-top:14px;
-    border-top:1px solid rgba(255,255,255,0.06);
-    font-family:var(--font-body);font-size:12px;
-    color:rgba(255,255,255,0.32);
-    line-height:1.6;
-  }
-  .trainer-stage b{color:rgba(255,255,255,0.5);font-weight:500;}
+  .trainers .section-inner{position:relative;z-index:2;}
 
+  /* Section header */
+  .trainers-head{text-align:center;padding-bottom:48px;}
+  .trainers-title{
+    font-family:var(--font-display);
+    font-size:clamp(36px,5vw,64px);
+    font-weight:700;line-height:1.0;
+    text-transform:uppercase;letter-spacing:0.02em;
+    color:#fff;margin-bottom:10px;
+  }
+  .trainers-title span{display:block;color:var(--mmi-gold-200);}
+  .trainers-subtitle{
+    font-family:var(--font-ui);font-size:11px;font-weight:600;
+    letter-spacing:0.36em;text-transform:uppercase;
+    color:rgba(255,255,255,0.4);margin-top:12px;
+  }
+
+  /* Two-panel grid */
+  .trainer-grid{
+    display:grid;
+    grid-template-columns:1fr 1px 1fr;
+    gap:0;
+    align-items:start;
+  }
+  .trainer-divider{
+    background:linear-gradient(180deg,transparent,rgba(212,175,55,0.3) 30%,rgba(212,175,55,0.3) 70%,transparent);
+    align-self:stretch;
+    margin:0 40px;
+  }
+
+  /* Each trainer panel */
+  .trp{padding:0 8px;}
+  .trp-portrait{
+    position:relative;
+    width:100%;
+    max-width:320px;
+    aspect-ratio:3/4;
+    margin:0 auto 28px;
+    overflow:hidden;
+    border-radius:var(--radius-sm);
+  }
+  .trp-portrait img{
+    width:100%;height:100%;
+    object-fit:cover;object-position:center top;
+    display:block;
+    filter:contrast(1.06) saturate(0.95);
+  }
+  /* Gold glow frame */
+  .trp-portrait::after{
+    content:'';position:absolute;inset:0;
+    box-shadow:inset 0 0 0 1px rgba(212,175,55,0.4),inset 0 -60px 60px rgba(0,0,0,0.5);
+    pointer-events:none;border-radius:inherit;
+  }
+
+  /* Text content */
+  .trp-role{
+    font-family:var(--font-ui);font-size:10px;font-weight:600;
+    letter-spacing:0.36em;text-transform:uppercase;
+    color:var(--mmi-gold-300);margin-bottom:10px;
+  }
+  .trp-name{
+    font-family:var(--font-display);font-weight:700;
+    font-size:clamp(28px,3.5vw,44px);
+    line-height:0.95;text-transform:uppercase;
+    letter-spacing:0.02em;color:#fff;
+    margin-bottom:18px;
+  }
+  .trp-name span{display:block;}
+
+  /* Inline stats */
+  .trp-stats{
+    display:flex;align-items:center;gap:0;
+    margin-bottom:20px;
+  }
+  .trp-stat{
+    display:flex;align-items:center;gap:8px;
+    padding:10px 16px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    flex:1;
+  }
+  .trp-stat+.trp-stat{border-left:none;}
+  .trp-stat-icon{font-size:16px;flex-shrink:0;}
+  .trp-stat-info{display:flex;flex-direction:column;gap:1px;}
+  .trp-stat-num{font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--mmi-gold-200);line-height:1;}
+  .trp-stat-lbl{font-family:var(--font-ui);font-size:8px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);}
+
+  /* Bio */
+  .trp-bio{
+    font-family:var(--font-body);font-size:14px;
+    line-height:1.75;color:rgba(255,255,255,0.65);
+    margin-bottom:16px;
+  }
+  .trp-bio b{color:var(--mmi-gold-200);font-weight:600;}
+
+  /* Stage credits */
+  .trp-stage{
+    font-family:var(--font-body);font-size:12px;
+    color:rgba(255,255,255,0.32);line-height:1.7;
+  }
+  .trp-stage strong{
+    display:block;
+    font-family:var(--font-ui);font-size:9px;
+    letter-spacing:0.28em;text-transform:uppercase;
+    color:var(--mmi-gold-300);margin-bottom:4px;font-weight:600;
+  }
+
+  /* Bottom bar */
+  .trainers-bar{
+    display:grid;grid-template-columns:1fr 1px 1fr;
+    margin-top:52px;
+    border:1px solid rgba(212,175,55,0.18);
+    border-radius:var(--radius-sm);
+    overflow:hidden;
+    background:rgba(0,0,0,0.4);
+    backdrop-filter:blur(8px);
+  }
+  .trainers-bar-divider{
+    background:rgba(212,175,55,0.2);
+  }
+  .trb-item{
+    display:flex;align-items:center;justify-content:center;
+    gap:12px;padding:18px 24px;
+    font-family:var(--font-ui);font-size:11px;
+    font-weight:700;letter-spacing:0.28em;
+    text-transform:uppercase;color:rgba(255,255,255,0.75);
+  }
+  .trb-item-icon{font-size:20px;}
+
+  /* Mobile */
+  @media(max-width:760px){
+    .trainer-grid{grid-template-columns:1fr;gap:48px;}
+    .trainer-divider{display:none;}
+    .trp-portrait{max-width:240px;}
+    .trp-name{font-size:32px;}
+    .trp-stats{flex-wrap:wrap;}
+    .trp-stat{flex:1 1 calc(50% - 1px);}
+    .trainers-bar{grid-template-columns:1fr;}
+    .trainers-bar-divider{display:none;}
+    .trb-item{padding:14px 20px;font-size:10px;}
+  }
   /* ─── CROWD BAND ─── */
   .crowd-band{position:relative;height:clamp(320px,42vw,540px);background:linear-gradient(180deg,rgba(10,10,10,0.55) 0%,rgba(10,10,10,0.2) 40%,rgba(10,10,10,0.85) 100%),url('https://cch-files.edge.live.ds25.io/cch/v/a4e3489d-6bf3-48c8-affb-c268ba45a538/files/6880bfa944d7e_bg-3-days.jpg') center/cover;display:flex;align-items:center;justify-content:center;overflow:hidden;}
   .crowd-band::before{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,var(--mmi-ink-900) 0%,transparent 12%,transparent 88%,var(--mmi-ink-900) 100%);}
@@ -1400,59 +1482,91 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ═══════════ TRAINERS ═══════════ -->
 <section class="trainers">
   <div class="section-inner">
-    <div class="section-head">
-      <div class="eyebrow">Who's guiding the room</div>
-      <h2 class="section-title">Built on <em>Harv's</em> teachings.<br/>Guided live by certified trainers.</h2>
+
+    <!-- Header -->
+    <div class="trainers-head">
+      <h2 class="trainers-title">Who's Guiding<span>Your Breakthrough</span></h2>
+      <p class="trainers-subtitle">World-class trainers. Proven results.</p>
     </div>
 
-    <div class="trainer-row">
-      <div class="trainer">
-        <div class="trainer-portrait"><img src="assets/people/harv-eker.png" alt="T. Harv Eker" loading="lazy"/></div>
-        <div class="trainer-content">
-          <div class="trainer-role">Program Creator</div>
-          <h3 class="trainer-name"><span class="foil">T. Harv</span> Eker</h3>
-          <div class="trainer-chips">
-            <span class="trainer-chip gold">#1 Bestseller</span>
-            <span class="trainer-chip">10M+ People</span>
-            <span class="trainer-chip">30+ Years</span>
+    <!-- Two-panel grid -->
+    <div class="trainer-grid">
+
+      <!-- T. HARV EKER -->
+      <div class="trp">
+        <div class="trp-portrait">
+          <img src="assets/people/harv-eker.png" alt="T. Harv Eker" loading="lazy"/>
+        </div>
+        <div class="trp-role">Program Creator</div>
+        <h3 class="trp-name"><span>T. Harv</span>Eker</h3>
+        <div class="trp-stats">
+          <div class="trp-stat">
+            <span class="trp-stat-icon">👤</span>
+            <div class="trp-stat-info">
+              <span class="trp-stat-num">10M+</span>
+              <span class="trp-stat-lbl">Attendees</span>
+            </div>
           </div>
-          <div class="trainer-body">
-            <p>Author of <i>Secrets of the Millionaire Mind</i> — one of the most influential books ever written on the psychology of wealth. T. Harv Eker spent 14 years failing in business before discovering the root cause of his results. Once he changed that, he went from <b>zero to millionaire in less than 3 years.</b></p>
-            <p>He went on to build the Millionaire Mind Intensive into a global programme experienced by <b>over 10 million people across 30+ countries</b> — making it one of the most recognised personal transformation experiences in the world.</p>
+          <div class="trp-stat">
+            <span class="trp-stat-icon">📅</span>
+            <div class="trp-stat-info">
+              <span class="trp-stat-num">30+</span>
+              <span class="trp-stat-lbl">Years</span>
+            </div>
           </div>
+        </div>
+        <p class="trp-bio">Creator of Millionaire Mind Intensive. Author of <em>Secrets of the Millionaire Mind</em> — one of the most influential books ever written on the psychology of wealth. He went from <b>zero to millionaire in less than 3 years</b> once he changed the root, not the strategy.</p>
+        <p class="trp-bio">His system has reshaped how <b>over 10 million people</b> across 30+ countries think about money, success, and financial freedom.</p>
+      </div>
+
+      <!-- Divider -->
+      <div class="trainer-divider"></div>
+
+      <!-- MAC ATTRAM -->
+      <div class="trp">
+        <div class="trp-portrait">
+          <img src="assets/people/mac-attram.png" alt="Mac Attram" loading="lazy"/>
+        </div>
+        <div class="trp-role">Lead Trainer · Malaga</div>
+        <h3 class="trp-name"><span>Mac</span>Attram</h3>
+        <div class="trp-stats">
+          <div class="trp-stat">
+            <span class="trp-stat-icon">👥</span>
+            <div class="trp-stat-info">
+              <span class="trp-stat-num">100K+</span>
+              <span class="trp-stat-lbl">Trained</span>
+            </div>
+          </div>
+          <div class="trp-stat">
+            <span class="trp-stat-icon">📈</span>
+            <div class="trp-stat-info">
+              <span class="trp-stat-num">20–100%</span>
+              <span class="trp-stat-lbl">Growth</span>
+            </div>
+          </div>
+        </div>
+        <p class="trp-bio">He guides you through the breakthrough — live. <b>#1 International Bestselling Author</b>, Elite Business &amp; Wealth Coach, and 6th Dan Black Belt. Real people. Real results.</p>
+        <div class="trp-stage">
+          <strong>Shared the stage with:</strong>
+          Tony Robbins · Robert Kiyosaki · Les Brown · Blair Singer
         </div>
       </div>
 
-      <div class="trainer">
-        <div class="trainer-portrait"><img src="assets/people/mac-attram.png" alt="Mac Attram" loading="lazy"/></div>
-        <div class="trainer-content">
-          <div class="trainer-role">Lead Trainer · Malaga</div>
-          <h3 class="trainer-name"><span class="foil">Mac</span> Attram</h3>
-          <div class="trainer-stats">
-            <div class="trainer-stat-item">
-              <span class="trainer-stat-num">100K+</span>
-              <span class="trainer-stat-label">Trained</span>
-            </div>
-            <div class="trainer-stat-item">
-              <span class="trainer-stat-num">4</span>
-              <span class="trainer-stat-label">Books</span>
-            </div>
-            <div class="trainer-stat-item">
-              <span class="trainer-stat-num">20–100%</span>
-              <span class="trainer-stat-label">Growth</span>
-            </div>
-          </div>
-          <div class="trainer-body">
-            <p>Mac Attram is a <b>#1 International Bestselling Author</b>, Elite Business &amp; Wealth Coach, and one of the world's most recognised voices in entrepreneurial mindset and financial transformation. He has trained and coached hundreds of thousands of business owners across the globe — consistently delivering <b>20–100% business growth within 12 months.</b></p>
-            <p>He has shared the stage with T. Harv Eker, Tony Robbins, Robert Kiyosaki, and Les Brown. His work has been featured on <b>CNBC, Forbes, Sky TV, and The Guardian.</b> A 6th Dan Black Belt in Taekwondo, he brings the same standard of mastery and discipline to the room that has driven every transformation in his career.</p>
-            <p>At Malaga, Mac will guide you through every exercise, challenge, and breakthrough of the MMI weekend — not as a lecturer, but as someone who has personally lived the shift this programme creates.</p>
-          </div>
-          <div class="trainer-stage">
-            <b>Has shared the stage with:</b> T. Harv Eker · Tony Robbins · Robert Kiyosaki · Les Brown · Blair Singer
-          </div>
-        </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="trainers-bar">
+      <div class="trb-item">
+        <span class="trb-item-icon">👥</span>
+        Built on Harv's System.
+      </div>
+      <div class="trainers-bar-divider"></div>
+      <div class="trb-item">
+        <span class="trb-item-icon">🎤</span>
+        Guided Live in the Room.
       </div>
     </div>
+
   </div>
 </section>
 
