@@ -123,27 +123,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .nav-cta:hover{background:var(--mmi-gold-300)}
 
   /* ─── INFO BAR (desktop only) ─── */
-  /* Info bar — floating bordered box, positioned top-center over hero */
+  /* Info bar — full-width bar in page flow, pushed below fixed nav */
   .hero-info-bar{
-    position:absolute;
-    top:104px; /* clears fixed nav (80px) + gap */
-    left:0;right:0;
-    z-index:10;
-    padding:0 40px;
-    background:transparent;
-    pointer-events:none;
+    position:relative;
+    z-index:60;
+    margin-top:80px; /* height of fixed nav */
+    background:rgba(6,6,6,0.97);
+    border-bottom:1px solid rgba(219,176,74,0.2);
   }
   .hib-inner{
-    max-width:640px;margin:0 auto;
+    max-width:700px;margin:0 auto;
     display:flex;align-items:stretch;
-    border:1px solid rgba(219,176,74,0.28);
-    background:rgba(6,6,6,0.88);
-    backdrop-filter:blur(10px);
-    pointer-events:auto;
   }
   .hib-item{
     display:flex;align-items:center;gap:14px;
-    padding:14px 32px;flex:1;justify-content:center;
+    padding:15px 36px;flex:1;justify-content:center;
   }
   .hib-icon{color:var(--mmi-gold-300);flex-shrink:0}
   .hib-icon svg{width:26px;height:26px;display:block}
@@ -162,9 +156,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   /* ─── HERO ─── */
   .hero{
     position:relative;
-    min-height:100vh;
+    min-height:calc(100vh - 130px); /* subtract nav + info bar heights */
     display:flex;align-items:stretch;
-    padding-top:80px; /* account for fixed nav */
     background:var(--mmi-ink-900);
     overflow:hidden;
   }
@@ -208,9 +201,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .hero-desktop-right{
     position:absolute;
     right:0;top:0;bottom:0;
-    width:52%;
+    width:50%;
     display:flex;flex-direction:column;justify-content:center;
-    padding:60px 60px 160px 32px;
+    padding:40px 56px 160px 40px;
+    overflow:hidden;
   }
   .hero-desktop-eyebrow{
     font-family:var(--font-ui);font-weight:500;
@@ -225,9 +219,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .hero-desktop-title{
     font-family:var(--font-display);font-weight:700;
-    font-size:clamp(48px,5.2vw,74px);
-    line-height:1.0;letter-spacing:0.01em;text-transform:uppercase;
-    color:#fff;margin-bottom:20px;text-wrap:balance;
+    font-size:clamp(38px,3.8vw,58px);
+    line-height:1.02;letter-spacing:0.01em;text-transform:uppercase;
+    color:#fff;margin-bottom:18px;text-wrap:balance;
   }
   .hero-desktop-title .dt-gold{color:var(--mmi-gold-200)}
   .hero-desktop-sub{
@@ -260,7 +254,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   /* T. Harv Eker signature — bottom left */
   .hero-signature{
     position:absolute;
-    bottom:80px;left:44px;
+    bottom:90px;left:44px;
+    z-index:5;
   }
   .hero-sig-name{
     font-family:'Dancing Script','Brush Script MT',cursive;font-weight:700;
@@ -270,7 +265,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .hero-sig-label{
     font-family:var(--font-ui);font-weight:500;font-size:9px;
     letter-spacing:0.42em;text-transform:uppercase;
-    color:var(--mmi-gold-300);margin-top:9px;
+    color:var(--mmi-gold-300);margin-top:6px;
+    display:block;
   }
 
   /* Benefit pillars — bottom bar */
@@ -1051,6 +1047,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .hero-inner{ display:block !important }
     .hero-desktop-overlay{ display:none !important }
     .hero-info-bar{ display:none !important }
+    #infoBar{ display:none !important }
 
     /* Full-bleed image on mobile */
     .hero-mobile-img{
@@ -1263,47 +1260,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
+<!-- ═══════════ EVENT INFO BAR (desktop only) ═══════════ -->
+<div class="hero-info-bar" id="infoBar">
+  <div class="hib-inner">
+    <div class="hib-item">
+      <span class="hib-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>
+      </span>
+      <div class="hib-texts">
+        <span class="hib-label">Dates</span>
+        <span class="hib-value">22–24 May 2026</span>
+      </div>
+    </div>
+    <div class="hib-divider"></div>
+    <div class="hib-item">
+      <span class="hib-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      </span>
+      <div class="hib-texts">
+        <span class="hib-label">Venue</span>
+        <span class="hib-value">Barceló Málaga</span>
+      </div>
+    </div>
+    <div class="hib-divider"></div>
+    <div class="hib-item">
+      <span class="hib-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M6.3 6.3a8 8 0 0 0 0 11.4M17.7 6.3a8 8 0 0 1 0 11.4M3.5 3.5a12 12 0 0 0 0 17M20.5 3.5a12 12 0 0 1 0 17"/></svg>
+      </span>
+      <div class="hib-texts">
+        <span class="hib-label">Format</span>
+        <span class="hib-value">Live · 3 Days</span>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ═══════════ HERO ═══════════ -->
 <header class="hero" id="top">
   <div class="hero-zen"></div>
 
   <!-- ── DESKTOP OVERLAY (hidden on mobile) ── -->
   <div class="hero-desktop-overlay">
-
-    <!-- Info bar — floating box top center -->
-    <div class="hero-info-bar">
-      <div class="hib-inner">
-        <div class="hib-item">
-          <span class="hib-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>
-          </span>
-          <div class="hib-texts">
-            <span class="hib-label">Dates</span>
-            <span class="hib-value">22–24 May 2026</span>
-          </div>
-        </div>
-        <div class="hib-divider"></div>
-        <div class="hib-item">
-          <span class="hib-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-          </span>
-          <div class="hib-texts">
-            <span class="hib-label">Venue</span>
-            <span class="hib-value">Barceló Málaga</span>
-          </div>
-        </div>
-        <div class="hib-divider"></div>
-        <div class="hib-item">
-          <span class="hib-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M6.3 6.3a8 8 0 0 0 0 11.4M17.7 6.3a8 8 0 0 1 0 11.4M3.5 3.5a12 12 0 0 0 0 17M20.5 3.5a12 12 0 0 1 0 17"/></svg>
-          </span>
-          <div class="hib-texts">
-            <span class="hib-label">Format</span>
-            <span class="hib-value">Live · 3 Days</span>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- Right-side content -->
     <div class="hero-desktop-right">
