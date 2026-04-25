@@ -209,6 +209,71 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   /* Absolute eyebrow for mobile — hidden on desktop */
   .hero-eyebrow-abs{display:none;}
 
+  /* ─── HERO COUNTDOWN — desktop only ─── */
+  .hero-countdown{
+    margin:28px 0 24px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .hero-countdown-label{
+    font-family:var(--font-ui);
+    font-size:10px;
+    font-weight:500;
+    letter-spacing:0.32em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,0.4);
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  .hero-countdown-label::before{
+    content:'';
+    width:32px;height:1px;
+    background:rgba(255,255,255,0.2);
+  }
+  .hero-countdown-blocks{
+    display:flex;
+    align-items:flex-start;
+    gap:0;
+  }
+  .hero-cd-block{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    min-width:80px;
+  }
+  .hero-cd-num{
+    font-family:var(--font-display);
+    font-size:64px;
+    font-weight:700;
+    line-height:1;
+    color:#fff;
+    letter-spacing:-0.02em;
+    font-variant-numeric:tabular-nums;
+    transition:color 0.3s;
+  }
+  .hero-cd-unit{
+    font-family:var(--font-ui);
+    font-size:9px;
+    font-weight:500;
+    letter-spacing:0.3em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,0.35);
+    margin-top:6px;
+  }
+  .hero-cd-sep{
+    font-family:var(--font-display);
+    font-size:48px;
+    font-weight:300;
+    color:#D4AF37;
+    opacity:0.6;
+    line-height:1;
+    padding:0 4px;
+    align-self:flex-start;
+    margin-top:8px;
+  }
+
   /* ─── MOBILE HERO V3 (≤760px) ─── */
   @media(max-width:760px){
 
@@ -278,11 +343,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .hero-v3-h1{font-size:34px;line-height:1.2;margin-bottom:14px;}
     .hero-v3-h2{font-size:17px;margin-bottom:14px;}
     .hero-v3-body{font-size:15px;margin-bottom:0;max-width:100%;}
-    /* Hide CTA, microcopy and logos on mobile */
+    /* Hide CTA, microcopy, countdown and logos on mobile */
     .hero-v3-cta{display:none;}
     .hero-v3-micro{display:none;}
     .hero-v3-logos{display:none;}
     .hero-v3-right{display:none;}
+    .hero-countdown{display:none;}
   }
 
     /* ─── VIDEO REEL ─── */
@@ -881,6 +947,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h1 class="hero-v3-h1">Your Next<br/><span style="color:#D4AF37;">Financial Level</span></h1>
       <h2 class="hero-v3-h2">Requires a different way of thinking, deciding, and acting.</h2>
       <p class="hero-v3-body">Because more effort isn't the answer — and deep down, you already know it. This is the experience trusted by millions worldwide to uncover the patterns shaping your financial results and change them at the root.</p>
+      <!-- Premium countdown — desktop only -->
+      <div class="hero-countdown">
+        <div class="hero-countdown-label">Event begins in</div>
+        <div class="hero-countdown-blocks">
+          <div class="hero-cd-block">
+            <span class="hero-cd-num" id="cd-days">--</span>
+            <span class="hero-cd-unit">Days</span>
+          </div>
+          <div class="hero-cd-sep">:</div>
+          <div class="hero-cd-block">
+            <span class="hero-cd-num" id="cd-hours">--</span>
+            <span class="hero-cd-unit">Hours</span>
+          </div>
+          <div class="hero-cd-sep">:</div>
+          <div class="hero-cd-block">
+            <span class="hero-cd-num" id="cd-mins">--</span>
+            <span class="hero-cd-unit">Minutes</span>
+          </div>
+          <div class="hero-cd-sep">:</div>
+          <div class="hero-cd-block">
+            <span class="hero-cd-num" id="cd-secs">--</span>
+            <span class="hero-cd-unit">Seconds</span>
+          </div>
+        </div>
+      </div>
+
       <a class="hero-v3-cta" href="https://buy.stripe.com/eVq8wP65TfoEd5VcTn3No2B" target="_blank" rel="noopener">Join the 3-Day Live Experience &rarr; &euro;29</a>
       <span class="hero-v3-micro">Takes less than 60 seconds &middot; Early access pricing available</span>
       <div class="hero-v3-logos">
