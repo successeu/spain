@@ -209,34 +209,44 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   /* ─── MOBILE HERO V3 (≤760px) ─── */
   @media(max-width:760px){
-    nav.site{height:58px;padding:0 16px;}
+    /* Nav */
+    nav.site{height:auto;padding:10px 16px;flex-wrap:wrap;gap:6px;}
     .nav-logo img{height:26px;}
     .nav-logo-text{padding-left:10px;}
-    .nav-logo-name{font-size:11px;}
+    .nav-logo-name{font-size:10px;letter-spacing:0.1em;}
     .nav-logo-sub{display:none;}
-    .nav-date{display:none;}
+    /* Hide Secure Seat, show date in nav */
+    .nav-cta{display:none;}
     .nav-hamburger{display:flex;}
-    .hero-v3{padding-top:58px;min-height:100svh;}
+    .nav-date{
+      display:block !important;
+      position:static;transform:none;
+      width:100%;text-align:center;
+      font-size:10px;letter-spacing:0.22em;
+      padding:4px 0 2px;
+      border-top:1px solid rgba(0,0,0,0.08);
+      order:3;
+    }
+    nav.site{align-items:center;}
+
+    /* Hero */
+    .hero-v3{padding-top:72px;min-height:100svh;} /* taller top padding — clears nav + date row */
     .hero-v3::before{
       background:url(assets/hero/mmi-crowd-hero-mobile.jpg) no-repeat center/cover;
       background-position:center 20%;
     }
-    .hero-v3-inner{padding:48px 20px;justify-content:flex-start;}
+    /* Push content down so image top is visible */
+    .hero-v3-inner{padding:52vh 20px 40px;justify-content:flex-start;}
     .hero-v3-left{width:100%;max-width:100%;}
-    .hero-v3-eyebrow{font-size:11px;margin-bottom:16px;}
-    .hero-v3-h1{font-size:34px;line-height:1.2;margin-bottom:16px;}
-    .hero-v3-h2{font-size:17px;margin-bottom:16px;}
-    .hero-v3-body{font-size:15px;margin-bottom:16px;max-width:100%;}
-    .hero-v3-cta{
-      width:100%;justify-content:center;
-      font-size:15px;padding:15px 24px;
-      margin-bottom:12px;margin-top:12px;
-    }
-    .hero-v3-micro{text-align:center;}
+    .hero-v3-eyebrow{font-size:11px;margin-bottom:14px;}
+    .hero-v3-h1{font-size:34px;line-height:1.2;margin-bottom:14px;}
+    .hero-v3-h2{font-size:17px;margin-bottom:14px;}
+    .hero-v3-body{font-size:15px;margin-bottom:0;max-width:100%;}
+    /* Hide CTA, microcopy and logos on mobile */
+    .hero-v3-cta{display:none;}
+    .hero-v3-micro{display:none;}
+    .hero-v3-logos{display:none;}
     .hero-v3-right{display:none;}
-    .hero-v3-logos{margin-top:24px;}
-    .hero-v3-logo-img{display:none;}
-    .hero-v3-logo-img-mobile{display:block;width:100%;max-width:100%;height:auto;filter:brightness(0) invert(1);opacity:0.9;}
   }
 
     /* ─── VIDEO REEL ─── */
@@ -853,7 +863,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a class="nav-logo" href="#top">
     <img src="assets/logos/mmi-logo-gold.png" alt="Millionaire Mind Intensive"/>
     <div class="nav-logo-text">
-      <div class="nav-logo-name">Millionaire Mind</div>
+      <div class="nav-logo-name">Millionaire Mind · Spain</div>
       <div class="nav-logo-sub">Intensive</div>
     </div>
   </a>
