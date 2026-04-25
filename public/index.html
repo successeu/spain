@@ -196,15 +196,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     display:flex;align-items:center;gap:24px;flex-wrap:wrap;
     opacity:0.55;
   }
-  .hero-v3-logo{
-    font-size:14px;font-weight:700;color:#fff;
-    white-space:nowrap;line-height:1;
+  .hero-v3-logo img{
+    height:18px;
+    width:auto;
+    display:block;
+    filter:brightness(0) invert(1); /* white logos on dark background */
+    opacity:0.75;
+    transition:opacity 200ms;
   }
-  .hero-v3-logo.forbes{font-family:Georgia,serif;font-size:18px;font-weight:900;}
-  .hero-v3-logo.cnbc{font-family:Arial,sans-serif;font-size:15px;font-weight:900;letter-spacing:-0.03em;}
-  .hero-v3-logo.cnn{font-family:"Arial Black",Arial,sans-serif;font-size:18px;font-weight:900;letter-spacing:-0.06em;font-style:italic;}
-  .hero-v3-logo.fox{font-family:"Arial Black",Arial,sans-serif;font-size:14px;font-weight:900;}
-  .hero-v3-logo.nyt{font-size:14px;font-family:Georgia,serif;font-weight:700;}
+  .hero-v3-logo img:hover{opacity:1;}
 
   /* RIGHT column removed — image is now the background */
   .hero-v3-right{display:none;}
@@ -358,12 +358,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     width:100%;
   }
   .mlogo{
-    color:rgba(255,255,255,0.7);
-    line-height:1;white-space:nowrap;
-    transition:color .25s ease,opacity .25s ease;
-    opacity:0.9;
+    display:inline-flex;align-items:center;
+    line-height:1;
+    opacity:0.75;
+    transition:opacity .25s ease;
   }
-  .mlogo:hover{color:#fff;opacity:1}
+  .mlogo:hover{opacity:1;}
+  .mlogo img{
+    height:20px;width:auto;display:block;
+    filter:brightness(0) invert(1);
+  }
   .mlogo.forbes{font-family:Georgia,"Times New Roman",serif;font-size:30px;font-weight:900;letter-spacing:-0.01em;}
   .mlogo.cnbc{font-family:Arial,Helvetica,sans-serif;font-size:24px;font-weight:900;letter-spacing:-0.04em;}
   .mlogo.cnn{font-family:"Arial Black",Arial,sans-serif;font-size:32px;font-weight:900;letter-spacing:-0.1em;font-style:italic;}
@@ -875,11 +879,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a class="hero-v3-cta" href="#pricing">Join the 3-Day Live Experience &rarr; &euro;29</a>
       <span class="hero-v3-micro">Takes less than 60 seconds &middot; Early access pricing available</span>
       <div class="hero-v3-logos">
-        <span class="hero-v3-logo forbes">Forbes</span>
-        <span class="hero-v3-logo cnn">CNN</span>
-        <span class="hero-v3-logo cnbc">CNBC</span>
-        <span class="hero-v3-logo fox">FOX NEWS</span>
-        <span class="hero-v3-logo nyt">The New York Times</span>
+        <span class="hero-v3-logo"><img src="assets/logos/Forbes.svg" alt="Forbes" loading="lazy"/></span>
+        <span class="hero-v3-logo"><img src="assets/logos/CNN.svg" alt="CNN" loading="lazy"/></span>
+        <span class="hero-v3-logo"><img src="assets/logos/CNBC.svg" alt="CNBC" loading="lazy"/></span>
+        <span class="hero-v3-logo"><img src="assets/logos/FOX NEWS2.svg" alt="FOX NEWS" loading="lazy"/></span>
+        <span class="hero-v3-logo"><img src="assets/logos/The New York Times2.svg" alt="The New York Times" loading="lazy"/></span>
       </div>
     </div>
 
@@ -908,13 +912,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="media-strip-inner">
     <div class="media-strip-label">As featured in</div>
     <div class="media-logos">
-      <span class="mlogo forbes">Forbes</span>
-      <span class="mlogo cnbc">CNBC</span>
-      <span class="mlogo cnn">CNN</span>
-      <span class="mlogo mens">Men<span class="apos">'</span>sHealth</span>
-      <span class="mlogo fox"><span class="fox-bar">FOX</span><span class="fox-sub">NEWS</span></span>
-      <span class="mlogo usa"><span class="usa-dot"></span>USA TODAY</span>
-      <span class="mlogo nyt">The <span class="nyt-mid">New York</span> Times</span>
+      <span class="mlogo"><img src="assets/logos/Forbes.svg" alt="Forbes" loading="lazy"/></span>
+      <span class="mlogo"><img src="assets/logos/CNN.svg" alt="CNN" loading="lazy"/></span>
+      <span class="mlogo"><img src="assets/logos/CNBC.svg" alt="CNBC" loading="lazy"/></span>
+      <span class="mlogo"><img src="assets/logos/Mens Health.svg" alt="Men's Health" loading="lazy"/></span>
+      <span class="mlogo"><img src="assets/logos/FOX NEWS2.svg" alt="FOX NEWS" loading="lazy"/></span>
+      <span class="mlogo"><img src="assets/logos/The New York Times2.svg" alt="The New York Times" loading="lazy"/></span>
     </div>
   </div>
 </section>
