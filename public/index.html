@@ -250,7 +250,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .hero-v3{padding-top:68px;min-height:100svh;}
     .hero-v3::before{
       background:url(assets/hero/mmi-crowd-hero-mobile.jpg?v=2) no-repeat center/cover;
-      background-position:center 20%;
+      background-position:center center;
     }
     /* Show absolute eyebrow at top of image */
     .hero-eyebrow-abs{
@@ -642,11 +642,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   footer .copy{font-family:var(--font-body);font-size:11px;font-weight:400;color:rgba(255,255,255,0.28);line-height:1.8;letter-spacing:0.01em;}
 
   /* ─── STICKY BAR (mobile only) ─── */
-  .sticky-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:90;padding:12px 16px;background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);border-top:1px solid rgba(219,176,74,0.3);align-items:center;gap:12px;}
+  .sticky-bar{
+    display:none; /* shown on mobile below */
+    position:fixed;bottom:0;left:0;right:0;z-index:90;
+    padding:12px 20px;
+    background:rgba(10,10,10,0.97);
+    backdrop-filter:blur(16px);
+    border-top:1px solid rgba(212,175,55,0.35);
+    align-items:center;gap:12px;
+  }
   .sticky-price{flex:1;min-width:0}
-  .sticky-price-now{font-family:var(--font-display);font-weight:700;font-size:26px;color:var(--mmi-gold-200);line-height:1;}
-  .sticky-price-label{font-family:var(--font-ui);font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:3px;}
-  .sticky-bar .cta{padding:13px 22px;font-size:11px;letter-spacing:0.16em;flex-shrink:0}
+  .sticky-price-now{
+    font-family:var(--font-display);font-weight:700;
+    font-size:24px;color:#D4AF37;line-height:1;
+  }
+  .sticky-price-label{
+    font-family:var(--font-ui);font-size:9px;
+    letter-spacing:0.18em;text-transform:uppercase;
+    color:rgba(255,255,255,0.5);margin-top:3px;
+  }
+  .sticky-bar .sticky-cta{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 22px;background:#D4AF37;color:#000;
+    font-family:var(--font-ui);font-weight:600;font-size:12px;
+    letter-spacing:0.18em;text-transform:uppercase;
+    border-radius:8px;text-decoration:none;
+    transition:background 180ms;flex-shrink:0;
+  }
+  .sticky-bar .sticky-cta:hover{background:#c9a028;}
 
   /* ═══════════ RESPONSIVE ═══════════ */
   @media(max-width:1024px){
@@ -748,7 +771,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .cookie-banner{padding:14px 18px;gap:14px}
     .cookie-text{font-size:12px}
     .cookie-btn{font-size:9px;padding:8px 14px}
-    body{padding-bottom:140px}
+    body{padding-bottom:80px}
+    .sticky-bar{display:flex;}
   }
 </style>
 </head>
@@ -1395,10 +1419,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ═══════════ STICKY BAR (mobile) ═══════════ -->
 <div class="sticky-bar" role="region" aria-label="Book now">
   <div class="sticky-price">
-    <div class="sticky-price-now">€29 <span style="font-size:13px;color:rgba(255,255,255,0.4);text-decoration:line-through;font-family:var(--font-ui)">€395</span></div>
-    <div class="sticky-price-label">Early Access · Malaga</div>
+    <div class="sticky-price-now">€29 <span style="font-size:13px;color:rgba(255,255,255,0.35);text-decoration:line-through;">€395</span></div>
+    <div class="sticky-price-label">Early Access · 22–24 May · Malaga</div>
   </div>
-  <a class="cta" href="#pricing">Secure Seat</a>
+  <a class="sticky-cta" href="https://successr.thrivecart.com/spain-may-standard-cart/">Secure My Seat →</a>
 </div>
 
 <script>
