@@ -271,19 +271,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background:url(assets/hero/mmi-crowd-hero-mobile.jpg?v=2) no-repeat center/100%;
       background-position:center center;
     }
-    /* Show absolute eyebrow at top of image */
+    /* Floating eyebrow over mobile hero image */
     .hero-eyebrow-abs{
-      display:block;
+      display:inline-block;
       position:absolute;
-      top:100px;
-      left:0;right:0;
+      top:80px;
+      left:50%;
+      transform:translateX(-50%);
+      z-index:10;
+      /* Gold pill styling */
+      background:rgba(0,0,0,0.45);
+      backdrop-filter:blur(8px);
+      border:1px solid rgba(212,175,55,0.5);
+      padding:8px 20px;
+      border-radius:40px;
+      white-space:nowrap;
+      /* Text */
+      font-family:var(--font-ui);
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:0.28em;
+      text-transform:uppercase;
+      color:var(--mmi-gold-200);
       text-align:center;
-      font-size:11px;
-      color:rgba(255,255,255,0.75);
-      letter-spacing:0.22em;
-      z-index:5;
-      margin:0;
-      font-family:var(--font-ui);font-weight:500;text-transform:uppercase;
     }
     /* Hide the in-flow eyebrow on mobile */
     .hero-v3-left .hero-v3-eyebrow{display:none;}
