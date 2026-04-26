@@ -270,6 +270,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .hero-v3::before{
       background:url(assets/hero/mmi-crowd-hero-mobile.jpg?v=2) no-repeat center/100%;
       background-position:center center;
+      filter:brightness(1.15) saturate(1.1); /* lift image brightness */
+    }
+    /* Replace heavy desktop side gradient with light top/bottom mobile overlay */
+    .hero-v3::after{
+      background:
+        linear-gradient(180deg,
+          rgba(0,0,0,0.45) 0%,
+          rgba(0,0,0,0.15) 30%,
+          rgba(0,0,0,0.10) 60%,
+          rgba(0,0,0,0.55) 100%
+        );
     }
 
     /* Show in-flow eyebrow on mobile — gold pill just above h1 */
