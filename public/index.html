@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-T79PHNK');</script>
+<!-- Google Tag Manager — deferred after page load for performance -->
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+window.addEventListener('load',function(){
+  var s=document.createElement('script');
+  s.async=true;
+  s.src='https://www.googletagmanager.com/gtm.js?id=GTM-T79PHNK';
+  document.head.appendChild(s);
+},false);
+</script>
 <!-- End Google Tag Manager -->
 <meta charset="UTF-8"/>
 <link rel="dns-prefetch" href="https://www.googletagmanager.com"/>
@@ -14,8 +19,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <!-- Load Google Fonts non-blocking (print trick) -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" media="print" onload="this.media='all'"/>
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap"/></noscript>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Montserrat:wght@400;600;700&display=swap" media="print" onload="this.media='all'"/>
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Montserrat:wght@400;600;700&display=swap"/></noscript>
 <link rel="dns-prefetch" href="https://js.stripe.com"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Millionaire Mind Intensive — Malaga, Spain · 22–24 May 2026</title>
@@ -23,12 +28,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <!-- ─ Preload LCP images ─ -->
 <link rel="preload" as="image" href="assets/hero/mmi-crowd-hero.jpg" media="(min-width:761px)"/>
-<link rel="preload" as="image" href="assets/hero/mmi-crowd-hero-mobile.jpg?v=2" media="(max-width:760px)"/>
+<link rel="preload" as="image" href="assets/hero/mmi-crowd-hero-mobile.jpg?v=2" media="(max-width:760px)" fetchpriority="high"/>
 <!-- ─ Preconnect to third-party origins ─ -->
 <link rel="preconnect" href="https://i.vimeocdn.com" crossorigin/>
 <link rel="preconnect" href="https://player.vimeo.com" crossorigin/>
 <link rel="preconnect" href="https://vumbnail.com"/>
-<link rel="preload" as="font" href="assets/fonts/TrajanPro-Bold.otf" type="font/otf" crossorigin/>
 <link rel="icon" href="assets/logos/mmi-logo-gold.png"/>
 
 <style>
@@ -125,7 +129,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   );
 
   
-  --font-display: "Trajan Pro", "Cormorant Garamond", "Times New Roman", serif;
+  --font-display: "Trajan Pro", Georgia, "Times New Roman", serif;
   --font-body:    "Open Sans", "Helvetica Neue", Arial, sans-serif;
   --font-ui:      "Montserrat", "Open Sans", sans-serif; 
 
