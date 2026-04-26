@@ -10,11 +10,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 <meta charset="UTF-8"/>
 <link rel="dns-prefetch" href="https://www.googletagmanager.com"/>
+<!-- Preconnect to Google Fonts CDN -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<!-- Load Google Fonts non-blocking (print trick) -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" media="print" onload="this.media='all'"/>
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap"/></noscript>
 <link rel="dns-prefetch" href="https://js.stripe.com"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Millionaire Mind Intensive — Malaga, Spain · 22–24 May 2026</title>
 <meta name="description" content="A 3-day live experience with T. Harv Eker's signature work, guided in Malaga by certified lead trainer Mac Attram. Change the patterns shaping your financial results."/>
-<link rel="stylesheet" href="assets/colors_and_type.css"/>
+
 <!-- ─ Preload LCP images ─ -->
 <link rel="preload" as="image" href="assets/hero/mmi-crowd-hero.jpg" media="(min-width:761px)"/>
 <link rel="preload" as="image" href="assets/hero/mmi-crowd-hero-mobile.jpg?v=2" media="(max-width:760px)"/>
@@ -22,9 +28,221 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://i.vimeocdn.com" crossorigin/>
 <link rel="preconnect" href="https://player.vimeo.com" crossorigin/>
 <link rel="preconnect" href="https://vumbnail.com"/>
+<link rel="preload" as="font" href="assets/fonts/TrajanPro-Bold.otf" type="font/otf" crossorigin/>
 <link rel="icon" href="assets/logos/mmi-logo-gold.png"/>
 
 <style>
+/* ── Inlined from colors_and_type.css ── */
+@font-face {
+  font-family: "Trajan Pro";
+  src: url("fonts/TrajanPro-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Trajan Pro";
+  src: url("fonts/TrajanPro-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  
+
+  
+  --mmi-gold-50:  #fbf3d8;
+  --mmi-gold-100: #f4e1a3;
+  --mmi-gold-200: #eacb6c;
+  --mmi-gold-300: #dbb04a;   
+  --mmi-gold-400: #c99a2b;   
+  --mmi-gold-500: #b8841d;   
+  --mmi-gold-600: #8a5f12;
+  --mmi-gold-700: #5c3e08;
+
+  
+  --mmi-ink-900: #0a0a0a;    
+  --mmi-ink-800: #121212;
+  --mmi-ink-700: #1c1c1c;    
+  --mmi-ink-600: #2a2a2a;
+  --mmi-ink-500: #4a4a4a;
+  --mmi-ink-300: #8a8a8a;
+  --mmi-ink-100: #e5e5e5;
+  --mmi-paper:   #f6f2e9;    
+  --mmi-white:   #ffffff;
+
+  
+  --mmi-green-900: #0a1f14;
+  --mmi-green-800: #0f2f1c;
+  --mmi-green-700: #153d26;
+  --mmi-green-600: #1f5a36;
+  --mmi-green-500: #2c7a47;  
+  --mmi-green-400: #4aa066;
+  --mmi-green-300: #7bc48e;
+  --mmi-green-100: #d5ebdb;
+
+  
+  --sr-blue-700:  #0f2c8a;
+  --sr-blue-500:  #1d3ebf;   
+  --sr-blue-300:  #6b7fd8;
+
+  
+  --fg-1:        var(--mmi-ink-900);     
+  --fg-2:        var(--mmi-ink-500);     
+  --fg-3:        var(--mmi-ink-300);     
+  --fg-on-dark:  var(--mmi-white);
+  --fg-accent:   var(--mmi-gold-400);    
+  --fg-accent-bright: var(--mmi-gold-300);
+
+  --bg-1:        var(--mmi-paper);       
+  --bg-2:        var(--mmi-white);       
+  --bg-dark-1:   var(--mmi-green-800);   
+  --bg-dark-2:   var(--mmi-ink-900);     
+
+  --border-1:    rgba(10,10,10,0.12);
+  --border-on-dark: rgba(255,255,255,0.14);
+
+  
+  --bg-stage-wash: radial-gradient(
+    ellipse 120% 80% at 50% 40%,
+    var(--mmi-green-500) 0%,
+    var(--mmi-green-700) 35%,
+    var(--mmi-green-900) 75%,
+    var(--mmi-ink-900) 100%
+  );
+
+  
+  --fg-gold-foil: linear-gradient(
+    180deg,
+    #f4e1a3 0%,
+    #dbb04a 40%,
+    #c99a2b 55%,
+    #8a5f12 100%
+  );
+
+  
+  --font-display: "Trajan Pro", "Cormorant Garamond", "Times New Roman", serif;
+  --font-body:    "Open Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-ui:      "Montserrat", "Open Sans", sans-serif; 
+
+  
+  --fs-display-xl: clamp(3.5rem, 6vw, 5.5rem);  
+  --fs-display:    clamp(2.5rem, 4vw, 4rem);    
+  --fs-h1:         2.375rem;   
+  --fs-h2:         2.1875rem;  
+  --fs-h3:         1.5rem;     
+  --fs-h4:         1.125rem;   
+  --fs-subhead:    1.375rem;   
+  --fs-body:       1rem;       
+  --fs-small:      0.875rem;   
+  --fs-caption:    0.75rem;    
+
+  --lh-tight: 1.05;
+  --lh-snug:  1.2;
+  --lh-body:  1.5;
+  --lh-loose: 1.65;
+
+  --tracking-display: 0.02em;
+  --tracking-eyebrow: 0.22em;  
+  --tracking-body:    0;
+
+  
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --s-9: 96px;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+
+  --shadow-soft: 0 2px 8px rgba(10,10,10,0.08), 0 8px 24px rgba(10,10,10,0.06);
+  --shadow-card: 0 10px 30px rgba(10,10,10,0.14);
+  --shadow-glow-gold: 0 0 40px rgba(201,154,43,0.25);
+  --shadow-stage: 0 30px 80px rgba(0,0,0,0.5);
+
+  
+  --ease-brand: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-fast:   140ms;
+  --dur-base:   240ms;
+  --dur-slow:   480ms;
+}
+
+.mmi-eyebrow {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--fs-small);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--fg-accent);
+}
+
+.mmi-display-xl,
+.mmi-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-display);
+  text-transform: uppercase;
+}
+.mmi-display-xl { font-size: var(--fs-display-xl); }
+.mmi-display    { font-size: var(--fs-display); }
+
+.mmi-h1 { font-family: var(--font-ui); font-weight: 300; font-size: var(--fs-h1); line-height: var(--lh-snug); }
+.mmi-h2 { font-family: var(--font-ui); font-weight: 300; font-size: var(--fs-h2); line-height: var(--lh-snug); }
+.mmi-h3 { font-family: var(--font-ui); font-weight: 500; font-size: var(--fs-h3); line-height: var(--lh-snug); }
+.mmi-h4 { font-family: var(--font-body); font-weight: 400; font-size: var(--fs-h4); line-height: var(--lh-body); }
+
+.mmi-subhead {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--fs-subhead);
+  line-height: var(--lh-snug);
+}
+
+.mmi-p, p.mmi {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--fg-1);
+}
+
+.mmi-testimonial {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: var(--fs-h4);
+  line-height: var(--lh-loose);
+  color: var(--fg-2);
+}
+
+.mmi-headline-gold {
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: var(--fg-accent-bright);
+  line-height: var(--lh-snug);
+}
+.mmi-headline-gold--foil {
+  background: var(--fg-gold-foil);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+.mmi-support-white {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--fg-on-dark);
+  line-height: var(--lh-body);
+}
+
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
