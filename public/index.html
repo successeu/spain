@@ -17,7 +17,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="assets/colors_and_type.css"/>
 <!-- ─ Preload LCP images ─ -->
 <link rel="preload" as="image" href="assets/hero/mmi-crowd-hero.jpg" media="(min-width:761px)"/>
-<link rel="preload" as="image" href="assets/hero/mmi-crowd-hero-mobile.jpg" media="(max-width:760px)"/>
+<link rel="preload" as="image" href="assets/hero/mmi-crowd-hero-mobile.jpg?v=2" media="(max-width:760px)"/>
 <!-- ─ Preconnect to third-party origins ─ -->
 <link rel="preconnect" href="https://i.vimeocdn.com" crossorigin/>
 <link rel="preconnect" href="https://player.vimeo.com" crossorigin/>
@@ -126,9 +126,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .hero-v3::before{
     content:'';
     position:absolute;inset:0;
-    background:url(assets/hero/mmi-crowd-hero.jpg) no-repeat center/cover;
-    background-position:center 20%;
+    background-color:#0a1628; /* fallback while image loads */
     z-index:0;
+  }
+  @media(min-width:761px){
+    .hero-v3::before{
+      background:url(assets/hero/mmi-crowd-hero.jpg) no-repeat center/cover;
+      background-position:center 20%;
+    }
   }
   /* Dark overlay — stronger on RIGHT where text lives */
   .hero-v3::after{
@@ -549,11 +554,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     position:relative;
     overflow:hidden;
     content-visibility:auto;
-    /* Image pushed down: faces appear in the middle-lower zone,
-       top area stays dark for clean heading display */
-    background:
-      url('assets/hero/trainers-bg.jpg') center 60%/cover no-repeat;
+    /* Mobile: plain dark bg — no heavy image download */
     background-color:#0a0805;
+  }
+  /* Desktop only: load trainer background image */
+  @media(min-width:761px){
+    .trainers{
+      background:
+        url('assets/hero/trainers-bg.jpg') center 60%/cover no-repeat;
+      background-color:#0a0805;
+    }
   }
   /* Gradient: very dark at top (heading zone),
      reveal image in middle,
@@ -1189,7 +1199,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="hero-v3-micro">Takes less than 60 seconds &middot; Early access pricing available</span>
       <div class="hero-v3-logos">
         <img class="hero-v3-logo-img" src="assets/logos/All-Media-desktop.svg" alt="As featured in Forbes, CNN, CNBC, FOX NEWS, The New York Times" loading="lazy"/>
-        <img class="hero-v3-logo-img-mobile" src="assets/logos/All-Media-desktop.svg" alt="As featured in Forbes, CNN, CNBC, FOX NEWS, The New York Times" loading="lazy"/>
+        <img class="hero-v3-logo-img-mobile" src="assets/logos/All-Media-desktop.svg" loading="lazy" alt="As featured in Forbes, CNN, CNBC, FOX NEWS, The New York Times" loading="lazy"/>
       </div>
     </div>
 
@@ -1218,7 +1228,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="media-strip-inner">
     <div class="media-strip-label">As featured in</div>
     <div class="media-logos">
-      <img class="media-logo-img" src="assets/logos/All-Media-desktop.svg" alt="As featured in Forbes, CNN, CNBC, FOX NEWS, The New York Times" loading="lazy"/>
+      <img class="media-logo-img" src="assets/logos/All-Media-desktop.svg" loading="lazy" alt="As featured in Forbes, CNN, CNBC, FOX NEWS, The New York Times" loading="lazy"/>
     </div>
   </div>
 </section>
