@@ -266,10 +266,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .nav-meta{display:none;}
 
     /* ── Hero ── */
-    .hero-v3{padding-top:68px;min-height:100svh;}
+    .hero-v3{padding-top:72px;min-height:100svh;} /* match nav height exactly */
     .hero-v3::before{
-      background:url(assets/hero/mmi-crowd-hero-mobile.jpg?v=2) no-repeat center/100%;
-      background-position:center center;
+      background:url(assets/hero/mmi-crowd-hero-mobile.jpg?v=2) no-repeat center top/cover;
       filter:brightness(1.15) saturate(1.1); /* lift image brightness */
     }
     /* Replace heavy desktop side gradient with light top/bottom mobile overlay */
