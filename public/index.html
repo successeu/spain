@@ -9,11 +9,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T79PHNK');</script>
 <!-- End Google Tag Manager -->
 <meta charset="UTF-8"/>
+<link rel="dns-prefetch" href="https://www.googletagmanager.com"/>
+<link rel="dns-prefetch" href="https://js.stripe.com"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Millionaire Mind Intensive — Malaga, Spain · 22–24 May 2026</title>
 <meta name="description" content="A 3-day live experience with T. Harv Eker's signature work, guided in Malaga by certified lead trainer Mac Attram. Change the patterns shaping your financial results."/>
 <link rel="stylesheet" href="assets/colors_and_type.css"/>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet"/>
+<!-- ─ Preload LCP images ─ -->
+<link rel="preload" as="image" href="assets/hero/mmi-crowd-hero.jpg" media="(min-width:761px)"/>
+<link rel="preload" as="image" href="assets/hero/mmi-crowd-hero-mobile.jpg" media="(max-width:760px)"/>
+<!-- ─ Preconnect to third-party origins ─ -->
+<link rel="preconnect" href="https://i.vimeocdn.com" crossorigin/>
+<link rel="preconnect" href="https://player.vimeo.com" crossorigin/>
+<link rel="preconnect" href="https://vumbnail.com"/>
 <link rel="icon" href="assets/logos/mmi-logo-gold.png"/>
 
 <style>
@@ -540,6 +548,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .trainers{
     position:relative;
     overflow:hidden;
+    content-visibility:auto;
     /* Image pushed down: faces appear in the middle-lower zone,
        top area stays dark for clean heading display */
     background:
@@ -856,6 +865,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   /* ─── DYNAMIC DESKTOP CTA BAR ─── */
   .dyn-bar{
+    will-change:opacity;
     display:none; /* desktop only — enabled below */
   }
   @media(min-width:761px){
@@ -1148,7 +1158,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ═══════════ NAV ═══════════ -->
 <nav class="site">
   <a class="nav-logo" href="#top">
-    <img src="assets/logos/mmi-logo-gold.png" alt="Millionaire Mind Intensive"/>
+    <img src="assets/logos/mmi-logo-gold.png" alt="Millionaire Mind Intensive" width="120" height="32" loading="eager" fetchpriority="high"/>
     <div class="nav-logo-text">
       <div class="nav-logo-name">Millionaire Mind Intensive</div>
     </div>
@@ -1527,7 +1537,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <!-- Mobile: regular headshot -->
             <source media="(max-width:760px)" srcset="assets/people/harv-eker.jpg"/>
             <!-- Desktop: cut-out transparent PNG -->
-            <img src="assets/people/Harv-Eker-cutout.png" alt="T. Harv Eker" loading="lazy"/>
+            <img src="assets/people/Harv-Eker-cutout.png" alt="T. Harv Eker" width="340" height="460" loading="lazy"/>
           </picture>
         </div>
         <div class="trp-role">Program Creator</div>
@@ -1558,7 +1568,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- MAC ATTRAM -->
       <div class="trp">
         <div class="trp-portrait">
-          <img src="assets/people/Mac-Attram-cutout.png" alt="Mac Attram" loading="lazy"/>
+          <img src="assets/people/Mac-Attram-cutout.png" alt="Mac Attram" width="340" height="460" loading="lazy"/>
         </div>
         <div class="trp-role">Lead Trainer · Malaga</div>
         <h3 class="trp-name"><span>Mac</span> Attram</h3>
@@ -1857,7 +1867,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- ═══════════ FOOTER ═══════════ -->
 <footer>
-  <img class="footer-logo" src="assets/logos/mmi-logo-gold.png" alt="MMI"/>
+  <img class="footer-logo" src="assets/logos/mmi-logo-gold.png" alt="MMI" loading="lazy"/>
   <nav>
     <a href="https://www.millionairemindworld.com/sr">Contact Us</a>
     <a href="https://successresources.com/privacy-policy/">Privacy Policy</a>
