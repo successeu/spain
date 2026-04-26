@@ -221,6 +221,42 @@ nav{
   font-family:var(--font-body);font-size:13px;
   line-height:1.65;color:var(--muted);
 }
+.steps-grid-4{grid-template-columns:repeat(4,1fr);}
+.step-fb-btn{
+  display:inline-block;margin-top:16px;
+  padding:10px 20px;
+  background:var(--gold);color:var(--ink);
+  font-family:var(--font-ui);font-weight:700;
+  font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+  border-radius:var(--radius);transition:all 180ms;
+}
+.step-fb-btn:hover{background:var(--gold-lt);transform:translateY(-1px);}
+
+/* Video section */
+.video-section{
+  padding:80px 24px;
+  background:var(--ink);
+  text-align:center;
+  border-top:1px solid rgba(212,175,55,0.1);
+}
+.video-inner{max-width:780px;margin:0 auto;}
+.video-facade{
+  position:relative;margin-top:36px;cursor:pointer;
+  border-radius:var(--radius);overflow:hidden;
+  border:1px solid rgba(212,175,55,0.2);
+  background:#000;
+}
+.video-facade .vf-thumb{
+  width:100%;aspect-ratio:16/9;object-fit:cover;
+  display:block;opacity:0.85;transition:opacity 300ms;
+}
+.video-facade:hover .vf-thumb{opacity:0.7;}
+.video-facade .vf-play{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.video-facade .vf-play svg{width:72px;height:72px;transition:transform 250ms;}
+.video-facade:hover .vf-play svg{transform:scale(1.08);}
 
 /* ── VIP UPSELL ── */
 .vip-upsell{
@@ -375,6 +411,7 @@ footer a:hover{color:var(--gold);}
   nav{padding:0 16px;}
   .nav-tagline{display:none;}
   .steps-grid{grid-template-columns:1fr;}
+    .steps-grid-4{grid-template-columns:1fr;}
   .vip-card{grid-template-columns:1fr;}
   .vip-left{border-right:none;border-bottom:1px solid rgba(212,175,55,0.15);}
   .vip-left,.vip-right{padding:32px 24px;}
@@ -439,7 +476,7 @@ footer a:hover{color:var(--gold);}
         <div class="eb-sep"></div>
         <div class="eb-item">
           <span class="eb-label">Location</span>
-          <span class="eb-value">Malaga, Spain 🇪🇸</span>
+          <span class="eb-value">Barceló Málaga 🇪🇸</span>
         </div>
         <div class="eb-sep"></div>
         <div class="eb-item">
@@ -452,13 +489,31 @@ footer a:hover{color:var(--gold);}
   </div>
 </section>
 
+<!-- VIDEO SECTION -->
+<section class="video-section">
+  <div class="video-inner">
+    <span class="section-eyebrow">Before You Do Anything Else</span>
+    <h2 class="section-title">Watch This Short Video</h2>
+    <p class="section-body">Discover why showing up to the Millionaire Mind Intensive could be the moment everything changes for you.</p>
+    <div class="video-facade" onclick="loadThankVideo(this)" role="button" tabindex="0" aria-label="Play video">
+      <img class="vf-thumb" src="https://i.vimeocdn.com/video/2150304619-01fea9b0814bc80ad97058409b1f083b78d0f052563e0d500e8827f15cda6303-d_1280?region=us" alt="Millionaire Mind Intensive" loading="lazy"/>
+      <div class="vf-play">
+        <svg viewBox="0 0 60 60" fill="none">
+          <circle cx="30" cy="30" r="29" stroke="rgba(212,175,55,0.6)" stroke-width="1.5"/>
+          <polygon points="24,18 24,42 46,30" fill="#D4AF37"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- WHAT HAPPENS NEXT -->
 <section class="email-check">
   <div class="email-check-inner">
     <span class="section-eyebrow">What Happens Next</span>
     <h2 class="section-title">Three things to do right now</h2>
     <p class="section-body">Your registration is complete. Here's how to prepare for the weekend.</p>
-    <div class="steps-grid">
+    <div class="steps-grid steps-grid-4">
       <div class="step-card">
         <div class="step-num">01</div>
         <div class="step-title">Check your email</div>
@@ -466,13 +521,21 @@ footer a:hover{color:var(--gold);}
       </div>
       <div class="step-card">
         <div class="step-num">02</div>
-        <div class="step-title">Save the dates</div>
-        <div class="step-desc">Block 22–24 May in your calendar. The event runs 9am–8pm GMT+2 each day. Your login link will be sent closer to the event.</div>
+        <div class="step-title">Save the date</div>
+        <div class="step-desc">22–24 May 2026 · Barceló Málaga. The event runs 9am–8pm GMT+2 each day. Your login link will be sent closer to the event.</div>
       </div>
       <div class="step-card">
         <div class="step-num">03</div>
-        <div class="step-title">Come ready</div>
-        <div class="step-desc">No preparation needed. Just bring an open mind, a notebook, and a willingness to see your financial patterns differently.</div>
+        <div class="step-title">Watch for Pre-Training</div>
+        <div class="step-desc">We'll send you an invite to a Pre-Training session — designed to give you a head start and help you arrive ready to participate with confidence.</div>
+      </div>
+      <div class="step-card step-card-fb">
+        <div class="step-num">04</div>
+        <div class="step-title">Join our community</div>
+        <div class="step-desc">Get the latest updates, connect with other attendees, and stay in the loop. All event news drops here first.</div>
+        <a href="https://www.facebook.com/groups/mmies" target="_blank" rel="noopener" class="step-fb-btn">
+          Join MMI Community →
+        </a>
       </div>
     </div>
   </div>
@@ -572,12 +635,29 @@ footer a:hover{color:var(--gold);}
 <footer>
   <img src="assets/logos/mmi-logo-gold.png" alt="MMI"/>
   <p>© 2026 Success Resources · All Rights Reserved</p>
-  <p style="margin-top:8px">
+  <p style="margin-top:12px;font-size:10px;max-width:700px;margin-left:auto;margin-right:auto;color:rgba(255,255,255,0.18);line-height:1.7;">
+In consideration of participation in the Millionaire Mind Intensive presented by Success Resources ("SR"), its Speaker/Trainer and promoters, participants hereby generally release SR and their agents, representatives, employees, successors, assigns, insurers and affiliated companies for any liability related to participation in the event. The information presented is intended for educational and informational purposes only. Results shown are not typical. Individual results will vary.
+</p>
+<p style="margin-top:8px">
     <a href="/privacy">Privacy Policy</a> ·
     <a href="/terms">Terms & Conditions</a> ·
     <a href="mailto:support@millionairemindworld.com">Need Help?</a>
   </p>
 </footer>
 
+<script>
+function loadThankVideo(el){
+  var iframe = document.createElement('iframe');
+  iframe.src = 'https://player.vimeo.com/video/778765586?autoplay=1&color=D4AF37&title=0&byline=0&portrait=0';
+  iframe.allow = 'autoplay; fullscreen; picture-in-picture';
+  iframe.allowFullscreen = true;
+  iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;';
+  el.style.paddingBottom = '56.25%';
+  el.style.height = '0';
+  el.style.position = 'relative';
+  el.innerHTML = '';
+  el.appendChild(iframe);
+}
+</script>
 </body>
 </html>
