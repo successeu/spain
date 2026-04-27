@@ -267,114 +267,6 @@ nav{
 .video-facade .vf-play svg{width:72px;height:72px;transition:transform 250ms;}
 .video-facade:hover .vf-play svg{transform:scale(1.08);}
 
-/* ── VIP UPSELL ── */
-.vip-upsell{
-  padding:60px 24px;
-  background:
-    radial-gradient(ellipse 70% 50% at 50% 50%, rgba(44,122,71,0.12) 0%, transparent 60%),
-    var(--ink);
-  position:relative;overflow:hidden;
-}
-.vip-upsell::before{
-  content:'';position:absolute;inset:0;
-  background:
-    linear-gradient(180deg,rgba(212,175,55,0.04) 0%,transparent 40%,transparent 60%,rgba(212,175,55,0.04) 100%);
-  pointer-events:none;
-}
-.vip-inner{max-width:900px;margin:0 auto;position:relative;z-index:2;}
-.vip-header{text-align:center;margin-bottom:56px;}
-.vip-header .section-title em{
-  font-style:normal;
-  background:var(--gold-gradient);
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-}
-.vip-card{
-  background:linear-gradient(135deg,rgba(212,175,55,0.07) 0%,rgba(15,47,28,0.3) 100%);
-  border:1px solid rgba(212,175,55,0.35);
-  border-radius:12px;
-  overflow:hidden;
-  display:grid;grid-template-columns:1fr 1fr;
-}
-.vip-left{
-  padding:48px 44px;
-  border-right:1px solid rgba(212,175,55,0.15);
-}
-.vip-ribbon{
-  display:inline-block;
-  background:var(--gold);color:var(--ink);
-  font-family:var(--font-ui);font-size:9px;font-weight:700;
-  letter-spacing:0.3em;text-transform:uppercase;
-  padding:5px 14px;border-radius:30px;
-  margin-bottom:20px;
-}
-.vip-name{
-  font-family:var(--font-display);font-weight:700;
-  font-size:36px;line-height:1;text-transform:uppercase;
-  letter-spacing:0.02em;color:var(--white);margin-bottom:8px;
-}
-.vip-desc{
-  font-family:var(--font-body);font-size:14px;
-  line-height:1.65;color:var(--muted);margin-bottom:28px;
-}
-.vip-price-row{display:flex;align-items:baseline;gap:12px;margin-bottom:8px;}
-.vip-was{font-size:15px;text-decoration:line-through;color:rgba(255,255,255,0.25);}
-.vip-now{
-  font-family:var(--font-display);font-weight:700;
-  font-size:52px;line-height:1;color:var(--gold-lt);
-}
-.vip-save{
-  display:inline-block;
-  font-family:var(--font-ui);font-size:10px;font-weight:600;
-  letter-spacing:0.2em;text-transform:uppercase;
-  color:var(--gold-lt);margin-bottom:28px;
-}
-.vip-cta{
-  display:block;text-align:center;
-  padding:18px 32px;
-  background:var(--gold);color:var(--ink);
-  font-family:var(--font-ui);font-weight:700;
-  font-size:13px;letter-spacing:0.16em;text-transform:uppercase;
-  border-radius:var(--radius);transition:all 220ms;
-}
-.vip-cta:hover{background:#c9a85c;transform:translateY(-2px);box-shadow:0 12px 32px rgba(212,175,55,0.3);}
-.vip-note{
-  margin-top:12px;text-align:center;
-  font-family:var(--font-ui);font-size:9px;
-  color:rgba(255,255,255,0.3);letter-spacing:0.2em;text-transform:uppercase;
-}
-
-.vip-right{padding:48px 44px;}
-.vip-perks-title{
-  font-family:var(--font-ui);font-size:10px;font-weight:600;
-  letter-spacing:0.3em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:24px;
-}
-.vip-perk{
-  display:flex;gap:16px;padding:16px 0;
-  border-bottom:1px solid rgba(255,255,255,0.05);
-  align-items:flex-start;
-}
-.vip-perk:last-child{border-bottom:none;}
-.vip-perk-icon{
-  width:36px;height:36px;flex-shrink:0;
-  background:rgba(212,175,55,0.1);
-  border:1px solid rgba(212,175,55,0.2);
-  border-radius:6px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:16px;
-}
-.vip-perk-text{flex:1;}
-.vip-perk-name{
-  font-family:var(--font-ui);font-weight:600;
-  font-size:13px;color:var(--white);
-  letter-spacing:0.02em;margin-bottom:4px;
-}
-.vip-perk-desc{
-  font-family:var(--font-body);font-size:12px;
-  line-height:1.55;color:var(--muted);
-}
-
-/* ── SHARE ── */
 .share-section{
   padding:48px 24px;
   background:var(--ink2);
@@ -494,7 +386,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="eb-sep"></div>
         <div class="eb-item">
           <span class="eb-label">Ticket</span>
-          <span class="eb-value">Standard · Online</span>
+          <span class="eb-value">Live In Person</span>
         </div>
       </div>
     </div>
@@ -555,71 +447,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- VIP UPSELL -->
-<section class="vip-upsell">
-  <div class="vip-inner">
-    <div class="vip-header">
-      <span class="section-eyebrow">One More Thing</span>
-      <h2 class="section-title">Want the <em>Full Experience</em>?</h2>
-      <p class="section-body" style="max-width:540px;margin:0 auto;">You've secured your online seat. Upgrade to VIP and be in the room — with priority seating, direct access to Mac Attram, and a completely different energy.</p>
-    </div>
-    <div class="vip-card">
-      <!-- Left: price + CTA -->
-      <div class="vip-left">
-        <div class="vip-ribbon">VIP In-Person</div>
-        <div class="vip-name">Priority<br/>Experience</div>
-        <p class="vip-desc">Join us live in Malaga. Feel the room, make the connections, and go through the breakthrough process in person — the way it was designed to be experienced.</p>
-        <div class="vip-price-row">
-          <span class="vip-was">€499</span>
-          <span class="vip-now">€197</span>
-        </div>
-        <div class="vip-save">You save €302 today</div>
-        <a href="https://successr.thrivecart.com/spain-may-vip-cart/" target="_blank" rel="noopener" class="vip-cta">
-          Upgrade to VIP →
-        </a>
-        <p class="vip-note">Secure checkout · Limited seats remaining</p>
-      </div>
-      <!-- Right: perks -->
-      <div class="vip-right">
-        <div class="vip-perks-title">What VIP includes</div>
-        <div class="vip-perk">
-          <div class="vip-perk-icon">🪑</div>
-          <div class="vip-perk-text">
-            <div class="vip-perk-name">Priority front-section seating</div>
-            <div class="vip-perk-desc">Reserved VIP area for all 3 days. No scrambling for spots.</div>
-          </div>
-        </div>
-        <div class="vip-perk">
-          <div class="vip-perk-icon">🎤</div>
-          <div class="vip-perk-text">
-            <div class="vip-perk-name">Live in-person energy</div>
-            <div class="vip-perk-desc">The room, the exercises, the emotional breakthroughs — fully live with Mac Attram.</div>
-          </div>
-        </div>
-        <div class="vip-perk">
-          <div class="vip-perk-icon">🤝</div>
-          <div class="vip-perk-text">
-            <div class="vip-perk-name">Network with 200+ entrepreneurs</div>
-            <div class="vip-perk-desc">The people in the room are often as valuable as the content. Meet them in person.</div>
-          </div>
-        </div>
-        <div class="vip-perk">
-          <div class="vip-perk-icon">📖</div>
-          <div class="vip-perk-text">
-            <div class="vip-perk-name">Physical workbook included</div>
-            <div class="vip-perk-desc">Printed MMI workbook delivered to your seat on Day 1.</div>
-          </div>
-        </div>
-        <div class="vip-perk">
-          <div class="vip-perk-icon">☀️</div>
-          <div class="vip-perk-text">
-            <div class="vip-perk-name">Malaga in May</div>
-            <div class="vip-perk-desc">26°C, the Costa del Sol, and a financial transformation. Hard to beat.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- SHARE -->
 <section class="share-section">
