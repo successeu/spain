@@ -19,7 +19,7 @@ window.addEventListener('load',function(){
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <!-- Load Google Fonts non-blocking (print trick) -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Montserrat:wght@400;600;700&display=swap" media="print" onload="this.media='all'"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;600;700&display=swap"/>
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Montserrat:wght@400;600;700&display=swap"/></noscript>
 <link rel="dns-prefetch" href="https://js.stripe.com"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
@@ -61,14 +61,14 @@ window.addEventListener('load',function(){
   
 
   
-  --mmi-gold-50:  #fbf3d8;
-  --mmi-gold-100: #f4e1a3;
-  --mmi-gold-200: #eacb6c;
-  --mmi-gold-300: #dbb04a;   
-  --mmi-gold-400: #c99a2b;   
-  --mmi-gold-500: #b8841d;   
-  --mmi-gold-600: #8a5f12;
-  --mmi-gold-700: #5c3e08;
+  --mmi-gold-50:  #fdf6e8;
+  --mmi-gold-100: #f0ddb0;
+  --mmi-gold-200: #dabf88;
+  --mmi-gold-300: #c9a85c;   
+  --mmi-gold-400: #a78138;   
+  --mmi-gold-500: #8a6a28;   
+  --mmi-gold-600: #6b5018;
+  --mmi-gold-700: #4a3510;
 
   
   --mmi-ink-900: #0a0a0a;    
@@ -82,14 +82,14 @@ window.addEventListener('load',function(){
   --mmi-white:   #ffffff;
 
   
-  --mmi-green-900: #0a1f14;
-  --mmi-green-800: #0f2f1c;
-  --mmi-green-700: #153d26;
-  --mmi-green-600: #1f5a36;
-  --mmi-green-500: #2c7a47;  
-  --mmi-green-400: #4aa066;
-  --mmi-green-300: #7bc48e;
-  --mmi-green-100: #d5ebdb;
+  --mmi-green-900: #031c02;
+  --mmi-green-800: #054b03;
+  --mmi-green-700: #0a6604;
+  --mmi-green-600: #157a08;
+  --mmi-green-500: #028f02;  
+  --mmi-green-400: #1aaa1a;
+  --mmi-green-300: #5cc85c;
+  --mmi-green-100: #c8f0c8;
 
   
   --sr-blue-700:  #0f2c8a;
@@ -133,7 +133,7 @@ window.addEventListener('load',function(){
   
   --font-display: "Trajan Pro", Georgia, "Times New Roman", serif;
   --font-body:    "Open Sans", "Helvetica Neue", Arial, sans-serif;
-  --font-ui:      "Montserrat", "Open Sans", sans-serif; 
+  --font-ui:      "Montserrat", "Open Sans", "Helvetica Neue", sans-serif; 
 
   
   --fs-display-xl: clamp(3.5rem, 6vw, 5.5rem);  
@@ -289,7 +289,7 @@ window.addEventListener('load',function(){
     -webkit-background-clip:text;background-clip:text;color:transparent;
   }
   .lead{
-    font-family:var(--font-body);font-size:15px;line-height:1.75;font-weight:400;
+    font-family:var(--font-body);font-size:16px;line-height:1.75;font-weight:400;
     color:rgba(255,255,255,0.7);text-wrap:pretty;
   }
 
@@ -332,7 +332,7 @@ window.addEventListener('load',function(){
   .nav-logo-sub{font-family:var(--font-ui);font-weight:500;font-size:8px;letter-spacing:0.28em;text-transform:uppercase;color:#888;line-height:1;}
   .nav-meta{display:flex;align-items:center;gap:16px;}
   .nav-cta{
-    padding:10px 20px;background:#D4AF37;color:#000;
+    padding:10px 20px;background:#dabf88;color:#000;
     font-family:var(--font-ui);font-weight:700;font-size:12px;
     letter-spacing:0.16em;text-transform:uppercase;
     border-radius:8px;transition:all 200ms;text-decoration:none;
@@ -417,7 +417,7 @@ window.addEventListener('load',function(){
   }
   .hero-v3-cta{
     display:inline-flex;align-items:center;gap:8px;
-    padding:16px 32px;background:#D4AF37;color:#000;
+    padding:16px 32px;background:#dabf88;color:#000;
     font-family:var(--font-ui);font-weight:700;font-size:14px;
     letter-spacing:0.16em;text-transform:uppercase;
     border-radius:8px;text-decoration:none;
@@ -723,7 +723,7 @@ window.addEventListener('load',function(){
   .pattern-grid{margin-top:64px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
   .pattern-left h3{font-family:var(--font-display);font-weight:700;font-size:26px;line-height:1.15;letter-spacing:0.015em;text-transform:uppercase;color:var(--mmi-ink-900);margin-bottom:22px;text-wrap:balance;}
   .pattern-left h3 em{font-style:normal;color:var(--mmi-gold-500)}
-  .pattern-left p{font-family:var(--font-body);font-size:15px;line-height:1.75;font-weight:400;color:var(--mmi-ink-500);margin-bottom:16px;text-wrap:pretty;}
+  .pattern-left p{font-family:var(--font-body);font-size:16px;line-height:1.75;font-weight:400;color:var(--mmi-ink-500);margin-bottom:16px;text-wrap:pretty;}
   .pattern-quote{margin:32px 0;padding:22px 26px;border-left:2px solid var(--mmi-gold-400);font-family:var(--font-display);font-weight:400;font-size:19px;line-height:1.45;letter-spacing:0.015em;color:var(--mmi-ink-900);}
   .pattern-quote b{color:var(--mmi-gold-500);font-weight:700;text-transform:uppercase;letter-spacing:0.06em;font-size:16px;display:block;margin-bottom:6px}
   .takeaway{background:#fff;border:1px solid rgba(10,10,10,0.08);border-radius:var(--radius-sm);padding:36px 32px;box-shadow:0 1px 3px rgba(10,10,10,0.05),0 12px 40px rgba(10,10,10,0.06);position:relative;}
@@ -779,7 +779,7 @@ window.addEventListener('load',function(){
   .testi-card{padding:28px 28px;background:rgba(255,255,255,0.018);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius-sm);position:relative;display:flex;flex-direction:column;justify-content:center;}
   .testi-quote-mark{position:absolute;top:20px;right:24px;font-family:var(--font-display);font-weight:400;font-size:54px;color:var(--mmi-gold-400);opacity:0.18;line-height:1;}
   .testi-head{font-family:var(--font-display);font-weight:400;font-size:18px;line-height:1.35;letter-spacing:0.01em;text-transform:none;color:var(--mmi-gold-200);margin-bottom:20px;text-wrap:balance;position:relative;z-index:1;}
-  .testi-body{font-family:var(--font-body);font-size:14px;line-height:1.75;font-weight:400;color:rgba(255,255,255,0.7);margin-bottom:26px;}
+  .testi-body{font-family:var(--font-body);font-size:18px;line-height:1.75;font-weight:400;font-style:italic;color:rgba(255,255,255,0.7);margin-bottom:26px;}
   .testi-body p+p{margin-top:10px}
   .testi-attr{display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.06);}
   .testi-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--mmi-gold-300),var(--mmi-gold-600));background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--font-display);font-weight:700;font-size:13px;color:var(--mmi-ink-900);letter-spacing:0.04em;}
@@ -1027,7 +1027,7 @@ window.addEventListener('load',function(){
   /* ── STANDARD — white card, dark text (primary) ── */
   .tier.primary{
     background:#fff;
-    border:2px solid #D4AF37;
+    border:2px solid #dabf88;
     box-shadow:0 24px 64px rgba(0,0,0,0.5);
   }
   .tier.primary .tier-kicker{font-family:var(--font-ui);font-weight:600;font-size:9px;letter-spacing:0.4em;text-transform:uppercase;color:#888;margin-bottom:8px;}
@@ -1041,7 +1041,7 @@ window.addEventListener('load',function(){
   .tier.primary li:last-child{border-bottom:none;}
   .tier.primary li::before{content:'';flex-shrink:0;width:14px;height:14px;margin-top:3px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='%23D4AF37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' d='M3 8.5l3 3 7-7'/></svg>") no-repeat center/contain;}
   .tier.primary .tier-price-row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px;}
-  .tier.primary .tier-cta{display:block;width:100%;text-align:center;padding:16px;background:#D4AF37;color:#000;font-family:var(--font-ui);font-weight:700;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;border-radius:8px;transition:all 200ms;text-decoration:none;}
+  .tier.primary .tier-cta{display:block;width:100%;text-align:center;padding:16px;background:#dabf88;color:#000;font-family:var(--font-ui);font-weight:700;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;border-radius:8px;transition:all 200ms;text-decoration:none;}
   .tier.primary .tier-cta:hover{background:#e8c44a;transform:translateY(-1px);box-shadow:0 8px 24px rgba(212,175,55,0.3);}
   .tier.primary .tier-note{margin-top:12px;text-align:center;font-family:var(--font-ui);font-size:9px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:#999;}
 
@@ -1106,7 +1106,7 @@ window.addEventListener('load',function(){
   }
   .uc-sep{
     font-family:var(--font-display);font-size:52px;font-weight:300;
-    color:#D4AF37;opacity:0.5;line-height:1;
+    color:#dabf88;opacity:0.5;line-height:1;
     padding:0 2px;align-self:flex-start;margin-top:10px;
   }
   .urgency-sub{
@@ -1115,7 +1115,7 @@ window.addEventListener('load',function(){
   }
   .urgency-cta{
     display:inline-flex;align-items:center;gap:10px;
-    padding:18px 40px;background:#D4AF37;color:#000;
+    padding:18px 40px;background:#dabf88;color:#000;
     font-family:var(--font-ui);font-weight:700;font-size:14px;
     letter-spacing:0.14em;text-transform:uppercase;
     border-radius:8px;text-decoration:none;transition:all 220ms;
@@ -1174,7 +1174,7 @@ window.addEventListener('load',function(){
     .dyn-btn{
       display:inline-flex;align-items:center;gap:8px;
       padding:13px 30px;
-      background:#D4AF37;color:#000;
+      background:#dabf88;color:#000;
       font-family:var(--font-ui);font-weight:700;
       font-size:12px;letter-spacing:0.18em;
       text-transform:uppercase;border-radius:6px;
@@ -1229,7 +1229,7 @@ window.addEventListener('load',function(){
   .final .eyebrow{margin-bottom:26px}
   .final h2{font-family:var(--font-display);font-weight:700;font-size:clamp(32px,4vw,52px);line-height:1.05;letter-spacing:0.015em;text-transform:uppercase;color:#fff;margin-bottom:26px;text-wrap:balance;}
   .final h2 em{font-style:italic;color:var(--mmi-gold-200);font-weight:400;text-transform:none;letter-spacing:0.005em}
-  .final p{font-family:var(--font-body);font-size:15px;line-height:1.75;font-weight:400;color:rgba(255,255,255,0.62);margin-bottom:42px;text-wrap:pretty;}
+  .final p{font-family:var(--font-body);font-size:16px;line-height:1.75;font-weight:400;color:rgba(255,255,255,0.62);margin-bottom:42px;text-wrap:pretty;}
 
   /* ─── FOOTER ─── */
   footer{background:#000;padding:52px 40px 40px;border-top:1px solid rgba(255,255,255,0.05);text-align:center;}
@@ -1252,7 +1252,7 @@ window.addEventListener('load',function(){
   .sticky-price{flex:1;min-width:0}
   .sticky-price-now{
     font-family:var(--font-display);font-weight:700;
-    font-size:24px;color:#D4AF37;line-height:1;
+    font-size:24px;color:#dabf88;line-height:1;
   }
   .sticky-price-label{
     font-family:var(--font-ui);font-size:9px;
@@ -1261,7 +1261,7 @@ window.addEventListener('load',function(){
   }
   .sticky-bar .sticky-cta{
     display:inline-flex;align-items:center;gap:8px;
-    padding:13px 22px;background:#D4AF37;color:#000;
+    padding:13px 22px;background:#dabf88;color:#000;
     font-family:var(--font-ui);font-weight:600;font-size:12px;
     letter-spacing:0.18em;text-transform:uppercase;
     border-radius:8px;text-decoration:none;
@@ -1432,7 +1432,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a class="nav-logo" href="#top">
     <img src="assets/logos/mmi-logo-gold.png" alt="Millionaire Mind Intensive" loading="eager" fetchpriority="high"/>
     <div class="nav-logo-text">
-      <div class="nav-logo-name">Millionaire Mind Intensive</div>
+      <div class="nav-logo-name">Millionaire Mind<sup style="font-size:0.6em;">®</sup> Intensive</div>
     </div>
   </a>
   <div class="nav-date">22–24 MAY 2026 · <b>MALAGA, SPAIN</b></div>
@@ -1451,7 +1451,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- LEFT: Text -->
     <div class="hero-v3-left">
       <p class="hero-v3-eyebrow">Your Next Financial Level</p>
-      <h1 class="hero-v3-h1">Requires a different way of <span style="color:#D4AF37;">thinking, deciding,</span> and acting.</h1>
+      <h1 class="hero-v3-h1">Requires a different way of <span style="color:#dabf88;">thinking, deciding,</span> and acting.</h1>
       <p class="hero-v3-body">Because more effort isn't the answer.<br/>And deep down, you already know it.<br/><br/>Trusted by millions worldwide to uncover the patterns shaping your financial results — and change them.</p>
       <a class="hero-v3-cta" href="#" data-popup >Join the 3-Day Experience &rarr; &euro;29 + VAT</a>
       <span class="hero-v3-micro">Takes less than 60 seconds &middot; €29 + VAT &middot; Total at checkout: €35.09</span>
@@ -1505,7 +1505,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h3>T. Harv Eker calls this your <em>money blueprint.</em></h3>
         <p>The internal patterns that shape how you think, act, and earn.
 Until they change, your results repeat — no matter the effort.</p>
-        <p>That's exactly what Millionaire Mind Intensive is designed to change.</p>
+        <p>That's exactly what Millionaire Mind Intensive<sup style="font-size:0.6em;">®</sup> is designed to change.</p>
         <blockquote class="pattern-quote">
           <b>It is the roots that create the fruits.</b><br/>
           If you want to change the fruits, you first have to change the roots.
@@ -1828,7 +1828,7 @@ Until they change, your results repeat — no matter the effort.</p>
             </div>
           </div>
         </div>
-        <p class="trp-bio">Creator of Millionaire Mind Intensive. Author of <em>Secrets of the Millionaire Mind</em> — one of the most influential books ever written on the psychology of wealth. He went from <b>zero to millionaire in less than 3 years</b> once he changed the root, not the strategy.</p>
+        <p class="trp-bio">Creator of Millionaire Mind Intensive<sup style='font-size:0.6em;'>®</sup>. Author of <em>Secrets of the Millionaire Mind</em> — one of the most influential books ever written on the psychology of wealth. He went from <b>zero to millionaire in less than 3 years</b> once he changed the root, not the strategy.</p>
         <p class="trp-bio">His system has reshaped how <b>over 10 million people</b> across 30+ countries think about money, success, and financial freedom.</p>
       </div>
 
