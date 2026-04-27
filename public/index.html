@@ -540,11 +540,20 @@ window.addEventListener('load',function(){
     .hero-v3-left{width:100%;max-width:100%;}
     .hero-v3-h1{font-size:34px;line-height:1.2;margin-bottom:14px;}
     .hero-v3-h2{font-size:17px;margin-bottom:14px;}
-    .hero-v3-body{font-size:15px;margin-bottom:0;max-width:100%;}
-    /* Hide CTA, microcopy, countdown and logos on mobile */
+    .hero-v3-body{font-size:15px;margin-bottom:24px;max-width:100%;}
+    /* Hide CTA and microcopy on mobile but SHOW logos */
     .hero-v3-cta{display:none;}
     .hero-v3-micro{display:none;}
-    .hero-v3-logos{display:none;}
+    .hero-v3-logos{display:block !important;margin-top:0;}
+    .hero-v3-logo-img{display:none;}
+    .hero-v3-logo-img-mobile{
+      display:block;
+      width:100%;
+      max-width:360px;
+      height:auto;
+      filter:brightness(0) invert(1);
+      opacity:0.75;
+    }
     .hero-v3-right{display:none;}
   }
 
