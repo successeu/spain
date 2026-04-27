@@ -48,22 +48,25 @@ a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 
 /* ── NAV ── */
-nav{
+nav.site{
   position:fixed;top:0;left:0;right:0;z-index:100;
-  height:72px;padding:0 32px;
-  display:flex;align-items:center;justify-content:space-between;
+  display:flex;justify-content:space-between;align-items:center;
+  height:72px;padding:0 24px;
   background:rgba(255,255,255,0.96);
   backdrop-filter:blur(12px);
   border-bottom:1px solid rgba(0,0,0,0.08);
 }
-.nav-logo{display:flex;align-items:center;gap:12px}
-.nav-logo img{height:44px;width:auto}
-.nav-tagline{
-  font-family:var(--font-ui);font-size:10px;
-  font-weight:500;letter-spacing:0.24em;
-  text-transform:uppercase;color:#777;
-  padding-left:14px;border-left:1px solid rgba(0,0,0,0.15);
+.nav-date{
+  position:absolute;left:50%;transform:translateX(-50%);
+  font-family:var(--font-ui);font-size:11px;font-weight:500;
+  letter-spacing:0.2em;text-transform:uppercase;color:#555;
+  white-space:nowrap;pointer-events:none;
 }
+.nav-date b{color:#111;font-weight:700}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.nav-logo img{height:48px;width:auto;display:block;}
+.nav-logo-text{display:flex;flex-direction:column;gap:1px;border-left:1px solid rgba(0,0,0,0.15);padding-left:12px;}
+.nav-logo-name{font-family:var(--font-display);font-weight:600;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:#111;line-height:1;}
 
 /* ── HERO CONFIRM ── */
 .hero-confirm{
@@ -309,8 +312,8 @@ footer a:hover{color:var(--gold);}
 
 /* ── RESPONSIVE ── */
 @media(max-width:760px){
-  nav{padding:0 16px;}
-  .nav-tagline{display:none;}
+  nav.site{padding:0 16px;}
+  .nav-date{display:none;}
   .steps-grid{grid-template-columns:1fr;}
     .steps-grid-4{grid-template-columns:1fr;}
   .vip-card{grid-template-columns:1fr;}
@@ -333,11 +336,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 <!-- NAV -->
-<nav>
-  <div class="nav-logo">
-    <img src="assets/logos/mmi-logo-gold.png" alt="Millionaire Mind Intensive"/>
-    <span class="nav-tagline">Malaga · May 22–24, 2026</span>
-  </div>
+<nav class="site">
+  <a class="nav-logo" href="/">
+    <img src="assets/logos/mmi-logo-gold.png" alt="Millionaire Mind Intensive" loading="eager"/>
+    <div class="nav-logo-text">
+      <div class="nav-logo-name">Millionaire Mind<sup style="font-size:0.6em;">®</sup> Intensive</div>
+    </div>
+  </a>
+  <div class="nav-date">22–24 MAY 2026 · <b>MALAGA, SPAIN</b></div>
 </nav>
 
 <!-- CONFIRMATION HERO -->
