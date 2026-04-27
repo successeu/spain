@@ -440,10 +440,9 @@ window.addEventListener('load',function(){
     height:auto;
     display:block;
     filter:grayscale(100%) brightness(0) invert(1);
-    opacity:0.72 !important;
   }
+  /* Mobile logo — hidden on desktop */
   .hero-v3-logo-img-mobile{ display:none; }
-  /* Mobile logo grid — hidden on desktop */
   .hero-v3-logo-grid{ display:none; }
 
   /* RIGHT column removed — image is now the background */
@@ -547,25 +546,15 @@ window.addEventListener('load',function(){
     /* Hide CTA and microcopy on mobile but SHOW logos */
     .hero-v3-cta{display:none;}
     .hero-v3-micro{display:none;}
-    .hero-v3-logos{display:block !important;margin-top:0;opacity:0.72 !important;}
+    .hero-v3-logos{display:block !important;margin-top:24px;opacity:0.72 !important;}
     .hero-v3-logo-img{display:none !important;}
-    .hero-v3-logo-img-mobile{display:none !important;}
-    /* Show individual logo grid on mobile */
-    .hero-v3-logo-grid{
-      display:grid !important;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px 20px;
-      align-items:center;
-      justify-items:center;
-      max-width:340px;
-    }
-    .hero-v3-logo-grid img{
+    .hero-v3-logo-grid{display:none !important;}
+    .hero-v3-logo-img-mobile{
+      display:block !important;
       width:100%;
-      max-width:90px;
-      height:28px;
-      object-fit:contain;
+      max-width:100%;
+      height:auto;
       filter:grayscale(100%) brightness(0) invert(1);
-      opacity:0.72;
     }
     .hero-v3-right{display:none;}
   }
@@ -1463,17 +1452,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a class="hero-v3-cta" href="https://buy.stripe.com/eVq8wP65TfoEd5VcTn3No2B" target="_blank" rel="noopener">Join the 3-Day Experience &rarr; &euro;29</a>
       <span class="hero-v3-micro">Takes less than 60 seconds &middot; Early access pricing available</span>
       <div class="hero-v3-logos">
-        <!-- Desktop: single wide strip -->
-        <img class="hero-v3-logo-img" src="assets/logos/All-Media-desktop.svg" alt="As featured in Forbes, CNN, CNBC, FOX NEWS, The New York Times" loading="lazy" style="opacity:0.72;filter:grayscale(100%) brightness(0) invert(1);"/>
-        <!-- Mobile: individual logos in a grid for clarity -->
-        <div class="hero-v3-logo-grid">
-          <img src="assets/logos/Forbes.svg" alt="Forbes" loading="lazy"/>
-          <img src="assets/logos/CNN.svg" alt="CNN" loading="lazy"/>
-          <img src="assets/logos/CNBC.svg" alt="CNBC" loading="lazy"/>
-          <img src="assets/logos/FOX NEWS2.svg" alt="Fox News" loading="lazy"/>
-          <img src="assets/logos/The New York Times1.svg" alt="The New York Times" loading="lazy"/>
-          <img src="assets/logos/Mens Health.svg" alt="Men's Health" loading="lazy"/>
-        </div>
+        <!-- Desktop -->
+        <img class="hero-v3-logo-img" src="assets/logos/All-Media-desktop.svg" alt="As featured in Forbes, CNN, CNBC, FOX NEWS, The New York Times" loading="lazy"/>
+        <!-- Mobile — compact version -->
+        <img class="hero-v3-logo-img-mobile" src="assets/logos/All-Media.svg" alt="As featured in Forbes, CNN, CNBC, FOX NEWS, The New York Times" loading="lazy"/>
       </div>
     </div>
 
