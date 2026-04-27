@@ -1419,6 +1419,130 @@ window.addEventListener('load',function(){
   /* ═══════════ PRICING POPUP MODAL ═══════════ */
   }
 
+
+  /* ═══════════ VIBRANCY LAYER ═══════════ */
+
+  /* 1. Gold glow on CTA buttons */
+  .cta, .hero-v3-cta, .urgency-cta, .tier-cta {
+    box-shadow: 0 0 0 0 rgba(201,168,76,0);
+    animation: ctaPulse 2.8s ease-in-out infinite;
+  }
+  @keyframes ctaPulse {
+    0%,100% { box-shadow: 0 4px 24px rgba(167,129,56,0.25); }
+    50%      { box-shadow: 0 4px 40px rgba(167,129,56,0.55), 0 0 80px rgba(167,129,56,0.15); }
+  }
+  .cta:hover, .hero-v3-cta:hover, .urgency-cta:hover, .tier-cta:hover {
+    animation: none;
+    box-shadow: 0 6px 48px rgba(167,129,56,0.7) !important;
+    transform: translateY(-2px);
+  }
+
+  /* 2. Gold text glow on hero headline */
+  .hero-v3-h1 em {
+    text-shadow: 0 0 40px rgba(218,191,136,0.45), 0 0 80px rgba(218,191,136,0.15);
+  }
+
+  /* 3. Section rhythm — rich green for alternating sections */
+  .pattern-section {
+    background: radial-gradient(ellipse 120% 80% at 20% 50%,
+      rgba(5,75,3,0.55) 0%,
+      rgba(3,28,2,0.8) 40%,
+      #060806 100%) !important;
+  }
+  .experience-section {
+    background: radial-gradient(ellipse 100% 70% at 80% 30%,
+      rgba(2,143,2,0.18) 0%,
+      rgba(5,75,3,0.25) 30%,
+      #060806 65%) !important;
+  }
+  .crowd-band {
+    background: linear-gradient(135deg,
+      #054b03 0%,
+      #031c02 50%,
+      #054b03 100%) !important;
+  }
+
+  /* 4. Stat numbers — gold shimmer */
+  .stat-num, .hero-v3-stat-num {
+    background: linear-gradient(135deg, #f4e1a3 0%, #dabf88 40%, #a78138 70%, #c9a85c 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 12px rgba(218,191,136,0.4));
+  }
+
+  /* 5. Green radiance bloom behind hero content */
+  .hero-v3-inner::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px; height: 500px;
+    background: radial-gradient(ellipse,
+      rgba(2,143,2,0.22) 0%,
+      rgba(5,75,3,0.12) 40%,
+      transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    animation: bloomPulse 5s ease-in-out infinite;
+  }
+  @keyframes bloomPulse {
+    0%,100% { opacity: 0.6; transform: translate(-50%,-50%) scale(1); }
+    50%      { opacity: 1;   transform: translate(-50%,-50%) scale(1.08); }
+  }
+
+  /* 6. Section eyebrow tags — glowing green dot */
+  .section-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: #028f02;
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+    box-shadow: 0 0 8px #028f02, 0 0 16px rgba(2,143,2,0.6);
+    animation: dotPulse 2s ease-in-out infinite;
+  }
+  @keyframes dotPulse {
+    0%,100% { box-shadow: 0 0 6px #028f02, 0 0 12px rgba(2,143,2,0.5); }
+    50%      { box-shadow: 0 0 12px #028f02, 0 0 28px rgba(2,143,2,0.8); }
+  }
+
+  /* 7. Testimonial cards — green left border glow */
+  .testi-card {
+    border-left: 3px solid #028f02 !important;
+    box-shadow: -2px 0 20px rgba(2,143,2,0.2), 0 4px 24px rgba(0,0,0,0.4) !important;
+    transition: box-shadow 300ms, transform 300ms;
+  }
+  .testi-card:hover {
+    box-shadow: -3px 0 32px rgba(2,143,2,0.45), 0 8px 40px rgba(0,0,0,0.5) !important;
+    transform: translateY(-3px);
+  }
+
+  /* 8. Curriculum day tabs — active tab green glow */
+  .day-tab.active {
+    background: linear-gradient(135deg, #054b03, #028f02) !important;
+    color: #fff !important;
+    box-shadow: 0 4px 20px rgba(2,143,2,0.5) !important;
+  }
+
+  /* 9. Endorsement/trainer cards hover lift */
+  .endorse-card, .pattern-card {
+    transition: transform 280ms ease, box-shadow 280ms ease;
+  }
+  .endorse-card:hover, .pattern-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(218,191,136,0.2) !important;
+  }
+
+  /* 10. Floating particles canvas */
+  #mmi-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.65;
+  }
 </style>
 </head>
 <body>
@@ -1447,6 +1571,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ═══════════ HERO V3 ═══════════ -->
 <section class="hero-v3" id="top">
   <div class="hero-v3-inner">
+  <canvas id="mmi-particles" aria-hidden="true"></canvas>
 
     <!-- LEFT: Text -->
     <div class="hero-v3-left">
@@ -2562,6 +2687,66 @@ Until they change, your results repeat — no matter the effort.</p>
     }
   }, true); /* true = capture phase, fires before anything else */
 
+})();
+</script>
+
+
+<script>
+/* ═══ MMI HERO PARTICLES ═══ */
+(function(){
+  var canvas = document.getElementById('mmi-particles');
+  if(!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var particles = [];
+  var W, H;
+
+  function resize(){
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  var COLORS = [
+    'rgba(218,191,136,', // brand light gold
+    'rgba(167,129,56,',  // brand dark gold
+    'rgba(2,143,2,',     // brand bright green
+    'rgba(5,75,3,',      // brand dark green
+    'rgba(255,255,255,'  // white sparkle
+  ];
+
+  for(var i = 0; i < 55; i++){
+    particles.push({
+      x: Math.random() * 1200,
+      y: Math.random() * 800,
+      r: Math.random() * 2.2 + 0.4,
+      dx: (Math.random() - 0.5) * 0.35,
+      dy: -(Math.random() * 0.5 + 0.15),
+      alpha: Math.random() * 0.7 + 0.15,
+      dalpha: (Math.random() - 0.5) * 0.008,
+      color: COLORS[Math.floor(Math.random() * COLORS.length)]
+    });
+  }
+
+  function draw(){
+    ctx.clearRect(0, 0, W, H);
+    var now = Date.now() / 1000;
+    particles.forEach(function(p){
+      p.x += p.dx;
+      p.y += p.dy;
+      p.alpha += p.dalpha;
+      if(p.alpha <= 0.05 || p.alpha >= 0.85){ p.dalpha *= -1; }
+      if(p.y < -10){ p.y = H + 10; p.x = Math.random() * W; }
+      if(p.x < -10 || p.x > W + 10){ p.x = Math.random() * W; }
+
+      ctx.beginPath();
+      ctx.arc(p.x % W, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = p.color + p.alpha.toFixed(2) + ')';
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
 })();
 </script>
 
