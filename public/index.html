@@ -432,14 +432,15 @@ window.addEventListener('load',function(){
   }
   .hero-v3-logos{
     margin-top:32px;
+    opacity:0.72;
   }
   .hero-v3-logo-img{
     width:100%;
     max-width:480px;
     height:auto;
     display:block;
-    filter:brightness(0) invert(1);
-    opacity:0.7;
+    filter:grayscale(100%) brightness(0) invert(1);
+    opacity:0.72 !important;
   }
   .hero-v3-logo-img-mobile{ display:none; }
 
@@ -544,15 +545,15 @@ window.addEventListener('load',function(){
     /* Hide CTA and microcopy on mobile but SHOW logos */
     .hero-v3-cta{display:none;}
     .hero-v3-micro{display:none;}
-    .hero-v3-logos{display:block !important;margin-top:0;}
+    .hero-v3-logos{display:block !important;margin-top:0;opacity:0.72 !important;}
     .hero-v3-logo-img{display:none;}
     .hero-v3-logo-img-mobile{
       display:block;
       width:100%;
       max-width:360px;
       height:auto;
-      filter:brightness(0) invert(1);
-      opacity:0.7;
+      filter:grayscale(100%) brightness(0) invert(1);
+      opacity:0.72 !important;
     }
     .hero-v3-right{display:none;}
   }
@@ -1450,8 +1451,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a class="hero-v3-cta" href="https://buy.stripe.com/eVq8wP65TfoEd5VcTn3No2B" target="_blank" rel="noopener">Join the 3-Day Experience &rarr; &euro;29</a>
       <span class="hero-v3-micro">Takes less than 60 seconds &middot; Early access pricing available</span>
       <div class="hero-v3-logos">
-        <img class="hero-v3-logo-img" src="assets/logos/All-Media-desktop.svg" alt="As featured in Forbes, CNN, CNBC, FOX NEWS, The New York Times" loading="lazy"/>
-        <img class="hero-v3-logo-img-mobile" src="assets/logos/All-Media-desktop.svg" loading="lazy" alt="As featured in Forbes, CNN, CNBC, FOX NEWS, The New York Times"/>
+        <img class="hero-v3-logo-img" src="assets/logos/All-Media-desktop.svg" alt="As featured in Forbes, CNN, CNBC, FOX NEWS, The New York Times" loading="lazy" style="opacity:0.72;filter:grayscale(100%) brightness(0) invert(1);"/>
+        <img class="hero-v3-logo-img-mobile" src="assets/logos/All-Media-desktop.svg" loading="lazy" alt="As featured in Forbes, CNN, CNBC, FOX NEWS, The New York Times" style="opacity:0.72;filter:grayscale(100%) brightness(0) invert(1);"/>
       </div>
     </div>
 
