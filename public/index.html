@@ -1983,10 +1983,10 @@ Until they change, your results repeat — no matter the effort.</p>
             </div>
           </div>
         </div>
-        <p class="trp-bio">He guides you through the breakthrough — live. <b>#1 International Bestselling Author</b>, Elite Business &amp; Wealth Coach, and 6th Dan Black Belt. Real people. Real results.</p>
-        <div class="trp-stage">
-          <strong>Shared the stage with:</strong>
-          Tony Robbins · Robert Kiyosaki · Les Brown · Blair Singer
+        <p class="trp-bio" id="mmi-trainer-bio2">He guides you through the breakthrough — live. <b>#1 International Bestselling Author</b>, Elite Business &amp; Wealth Coach, and 6th Dan Black Belt. Real people. Real results.</p>
+        <div class="trp-stage" id="mmi-trainer-stage">
+          <strong id="mmi-trainer-stage-label">Shared the stage with:</strong>
+          <span id="mmi-trainer-stage-names">Tony Robbins · Robert Kiyosaki · Les Brown · Blair Singer</span>
         </div>
       </div>
 
@@ -2825,6 +2825,28 @@ const EVENT_CODE  = (function(){
 
   /* Trainer image alt */
   attr('mmi-trainer-img', 'alt', ev.trainerName);
+
+  /* Trainer image — slug-based filename convention */
+  var imgSlug = ev.trainerName.toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9-]/g, '');
+  attr('mmi-trainer-img', 'src', 'assets/people/' + imgSlug + '-cutout.png');
+
+  /* Trainer title / stage credentials */
+  var titleLine = ev.trainerTitle || '';
+  /* Split on first colon to get label vs names */
+  var colonIdx = titleLine.indexOf(':');
+  if(colonIdx !== -1){
+    set('mmi-trainer-stage-label', titleLine.slice(0, colonIdx + 1).trim());
+    set('mmi-trainer-stage-names', titleLine.slice(colonIdx + 1).trim());
+  } else {
+    /* No colon — show full title as names, hide label */
+    set('mmi-trainer-stage-label', '');
+    set('mmi-trainer-stage-names', titleLine);
+  }
+
+  /* Sync both bio elements if they exist */
+  set('mmi-trainer-bio2', ev.trainerDesc);
 
   /* Cart URLs */
   attr('mmi-std-cta', 'href', ev.standardUrl);
