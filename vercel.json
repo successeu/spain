@@ -5,11 +5,11 @@
   "rewrites": [
     {
       "source": "/(frankfurt|malaga|brussels|warsaw|utrecht|london|berlin|singapore|bangkok)",
-      "destination": "/index.html"
+      "destination": "/index"
     },
     {
       "source": "/thank-you",
-      "destination": "/thank-you.html"
+      "destination": "/thank-you"
     }
   ]
 }
