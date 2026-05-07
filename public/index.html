@@ -2544,6 +2544,7 @@ Until they change, your results repeat — no matter the effort.</p>
   var popup    = null;
 
   function buildPopup(){
+    var ev = (typeof EVENT_CODE !== 'undefined' && MMI_EVENTS && MMI_EVENTS[EVENT_CODE]) ? MMI_EVENTS[EVENT_CODE] : null;
     var el = document.createElement('div');
     el.id = 'mmi-seat-popup';
     el.style.cssText = [
@@ -2574,7 +2575,7 @@ Until they change, your results repeat — no matter the effort.</p>
       '<div style="padding:24px 28px 6px;text-align:center;">',
       '<div style="font-size:10px;letter-spacing:.38em;text-transform:uppercase;color:#c9a84c;margin-bottom:8px;">Choose your seat</div>',
       '<div style="font-size:clamp(20px,3vw,26px);font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:#fff;margin-bottom:4px;">Join the 3-Day Experience</div>',
-      '<div style="font-size:13px;color:rgba(255,255,255,.45);">Malaga &middot; 22&ndash;24 May 2026 &middot; Barcel&oacute; M&aacute;laga</div>',
+      '<div style="font-size:13px;color:rgba(255,255,255,.45);">' + (ev ? ev.city : 'Malaga') + ' &middot; ' + (ev ? ev.date : '22–24 May 2026') + ' &middot; ' + (ev ? ev.venue : 'Barceló Málaga') + '</div>',
       '</div>',
 
       '<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:20px 24px 24px;">',
@@ -2587,9 +2588,7 @@ Until they change, your results repeat — no matter the effort.</p>
       '<div style="font-size:9px;letter-spacing:.34em;text-transform:uppercase;color:#c9a84c;margin-bottom:4px;">Standard Pass</div>',
       '<div style="font-size:20px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:#fff;margin-bottom:12px;line-height:1.2;">3-Day Live<br/>Experience</div>',
       '<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:2px;">',
-      '<span style="font-size:13px;text-decoration:line-through;color:rgba(255,255,255,.3);">&euro;395</span>',
-      '<span style="font-size:38px;font-weight:700;color:#c9a84c;line-height:1;">&euro;29</span>',
-      '<span style="font-size:11px;color:rgba(255,255,255,.45);">+ VAT</span>',
+      '<span style="font-size:38px;font-weight:700;color:#c9a84c;line-height:1;">' + (ev ? ev.priceVAT : '€35.09') + '</span>',
       '</div>',
       '<div style="font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#c9a84c;margin-bottom:14px;">Save &euro;366 &middot; Early Access</div>',
       '<ul style="list-style:none;padding:0;margin:0 0 18px;flex:1;">',
@@ -2605,8 +2604,8 @@ Until they change, your results repeat — no matter the effort.</p>
       '<a href="' + getStandard() + '" target="_blank" rel="noopener" ',
       'style="display:block;width:100%;text-align:center;padding:12px;background:#c9a84c;color:#0a0a0a;',
       'font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;border-radius:99px;',
-      'text-decoration:none;box-sizing:border-box;">Join &rarr; &euro;29 + VAT</a>',
-      '<div style="text-align:center;font-size:9px;color:rgba(255,255,255,.3);margin-top:8px;letter-spacing:.14em;">Total at checkout: &euro;35.09 incl. VAT</div>',
+      'text-decoration:none;box-sizing:border-box;">Join &rarr; ' + (ev ? ev.priceVAT : '') + '</a>',
+      '<div style="text-align:center;font-size:9px;color:rgba(255,255,255,.3);margin-top:8px;letter-spacing:.14em;">All-in price: ' + (ev ? ev.priceVAT : '') + ' (incl. taxes)</div>',
       '</div>',
 
       /* === VIP CARD === */
