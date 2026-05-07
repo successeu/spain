@@ -1,10 +1,15 @@
 {
   "outputDirectory": "public",
+  "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
     {
       "source": "/(frankfurt|malaga|brussels|warsaw|utrecht|london|berlin|singapore|bangkok)",
       "destination": "/index.html"
+    },
+    {
+      "source": "/thank-you",
+      "destination": "/thank-you.html"
     }
   ]
 }
