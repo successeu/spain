@@ -1200,9 +1200,9 @@ window.addEventListener('load',function(){
   .venue-day-label{font-family:var(--font-ui);font-weight:500;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:var(--mmi-ink-900);}
   .venue-day-date{font-family:var(--font-body);font-size:11px;color:var(--mmi-ink-500);margin-top:4px;letter-spacing:0.04em;}
   .venue-day-hours{font-family:var(--font-ui);font-size:12px;font-weight:500;color:var(--mmi-ink-900);letter-spacing:0.06em;}
-  .venue-visual{position:relative;aspect-ratio:4/5;border-radius:var(--radius-sm);overflow:hidden;background:linear-gradient(180deg,rgba(10,10,10,0.1) 0%,rgba(10,10,10,0.35) 60%,rgba(10,10,10,0.82) 100%),url('assets/illustrations/malaga-beach.svg') center/cover,linear-gradient(135deg,rgba(44,122,71,0.88) 0%,rgba(15,47,28,0.94) 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 20px 50px rgba(10,10,10,0.15);}
-  .venue-visual::before{content:'';position:absolute;inset:0;background:url(assets/motifs/zen-brush-light.png) no-repeat center/contain;background-size:78%;opacity:0.16;filter:brightness(1.5) sepia(0.4) saturate(1.4);}
-  .venue-visual-text{position:relative;z-index:2;text-align:center;padding:40px;}
+  .venue-visual{position:relative;aspect-ratio:4/5;border-radius:var(--radius-sm);overflow:hidden;background:#0a1a0a;}
+  .venue-visual::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.55) 100%);pointer-events:none;z-index:1;}
+  .venue-visual-text{position:absolute;inset:0;z-index:3;text-align:center;padding:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
   .venue-visual-text .label{font-family:var(--font-ui);font-weight:500;font-size:10px;letter-spacing:0.42em;text-transform:uppercase;color:var(--mmi-gold-200);margin-bottom:22px;}
   .venue-visual-text .city{font-family:var(--font-display);font-weight:700;font-size:52px;line-height:0.95;letter-spacing:0.02em;text-transform:uppercase;color:#fff;margin-bottom:14px;}
   .venue-visual-text .country{font-family:var(--font-display);font-weight:400;font-size:14px;letter-spacing:0.52em;text-transform:uppercase;color:var(--mmi-gold-200);}
@@ -2190,13 +2190,20 @@ Until they change, your results repeat — no matter the effort.</p>
         </div>
       </div>
 
-      <div class="venue-visual">
-        <div class="venue-visual-text">
+      <div class="venue-visual" id="mmi-venue-visual">
+        <!-- Google Map embed — dynamically updated via JS -->
+        <iframe id="mmi-venue-map"
+          src="https://maps.google.com/maps?q=Barcel%C3%B3+M%C3%A1laga%2C+C.+H%C3%A9roe+de+Sostoa+2%2C+M%C3%A1laga&output=embed&z=15"
+          style="position:absolute;inset:0;width:100%;height:100%;border:none;filter:saturate(0.7) brightness(0.6);"
+          loading="lazy" allowfullscreen
+          title="Venue location map"></iframe>
+        <!-- Text overlay on top of map -->
+        <div class="venue-visual-text" style="position:relative;z-index:2;">
           <div class="label">3 Days · One Room</div>
-          <div class="city">Malaga</div>
-          <div class="country">España</div>
+          <div class="city" id="mmi-visual-city">Malaga</div>
+          <div class="country" id="mmi-visual-country">España</div>
           <div class="hr"></div>
-          <div class="dates">22 · 23 · 24 May 2026</div>
+          <div class="dates" id="mmi-visual-dates">22 · 23 · 24 May 2026</div>
         </div>
       </div>
     </div>
@@ -2857,6 +2864,17 @@ const EVENT_CODE  = (function(){
 
   /* Venue */
   set('mmi-venue-name', ev.venue);
+
+  /* Location visual card */
+  set('mmi-visual-city', ev.city);
+  set('mmi-visual-country', ev.country);
+  set('mmi-visual-dates', ev.date);
+
+  /* Google Maps embed — encode venue + city for search query */
+  var mapQuery = encodeURIComponent(ev.venue + ', ' + ev.city);
+  var mapSrc = 'https://maps.google.com/maps?q=' + mapQuery + '&output=embed&z=15';
+  var mapEl = document.getElementById('mmi-venue-map');
+  if(mapEl) mapEl.src = mapSrc;
   /* Format address: replace newlines with <br/> */
   var addr = ev.address.replace(/\n/g, '<br/>');
   set('mmi-venue-addr', addr);
