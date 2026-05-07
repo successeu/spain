@@ -2,5 +2,43 @@
   "public": true,
   "outputDirectory": "public",
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/frankfurt",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/malaga",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/brussels",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/warsaw",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/utrecht",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/london",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/berlin",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/singapore",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/bangkok",
+      "destination": "/index.html"
+    }
+  ]
 }
