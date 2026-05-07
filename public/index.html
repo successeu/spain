@@ -829,11 +829,11 @@ window.addEventListener('load',function(){
     content:'';position:absolute;inset:0;
     background:
       linear-gradient(180deg,
-        rgba(0,0,0,0.96) 0%,
-        rgba(0,0,0,0.96) 30%,
-        rgba(0,0,0,0.40) 55%,
-        rgba(0,0,0,0.40) 70%,
-        rgba(0,0,0,0.92) 100%
+        rgba(0,0,0,0.82) 0%,
+        rgba(0,0,0,0.65) 25%,
+        rgba(0,0,0,0.22) 50%,
+        rgba(0,0,0,0.22) 70%,
+        rgba(0,0,0,0.78) 100%
       );
     pointer-events:none;
   }
@@ -1954,7 +1954,6 @@ Until they change, your results repeat — no matter the effort.</p>
           </div>
         </div>
         <p class="trp-bio">Creator of Millionaire Mind Intensive<sup style='font-size:0.6em;'>®</sup>. Author of <em>Secrets of the Millionaire Mind</em> — one of the most influential books ever written on the psychology of wealth. He went from <b>zero to millionaire in less than 3 years</b> once he changed the root, not the strategy.</p>
-        <p class="trp-bio" id="mmi-trainer-bio">His system has reshaped how <b>over 10 million people</b> across 30+ countries think about money, success, and financial freedom.</p>
       </div>
 
       <!-- Divider -->
@@ -1983,7 +1982,7 @@ Until they change, your results repeat — no matter the effort.</p>
             </div>
           </div>
         </div>
-        <p class="trp-bio" id="mmi-trainer-bio2">He guides you through the breakthrough — live. <b>#1 International Bestselling Author</b>, Elite Business &amp; Wealth Coach, and 6th Dan Black Belt. Real people. Real results.</p>
+        <p class="trp-bio" id="mmi-trainer-bio">He guides you through the breakthrough — live. <b>#1 International Bestselling Author</b>, Elite Business &amp; Wealth Coach, and 6th Dan Black Belt. Real people. Real results.</p>
         <div class="trp-stage" id="mmi-trainer-stage">
           <strong id="mmi-trainer-stage-label">Shared the stage with:</strong>
           <span id="mmi-trainer-stage-names">Tony Robbins · Robert Kiyosaki · Les Brown · Blair Singer</span>
@@ -2827,7 +2826,7 @@ const EVENT_CODE  = (function(){
   /* Trainer role */
   set('mmi-trainer-role', 'Lead Trainer · ' + ev.city);
 
-  /* Trainer bio */
+  /* Trainer bio — right column only */
   set('mmi-trainer-bio', ev.trainerDesc);
 
   /* Trainer image alt */
@@ -2852,8 +2851,8 @@ const EVENT_CODE  = (function(){
     set('mmi-trainer-stage-names', titleLine);
   }
 
-  /* Sync both bio elements if they exist */
-  set('mmi-trainer-bio2', ev.trainerDesc);
+  /* Trainer bio — right column only */
+  set('mmi-trainer-bio', ev.trainerDesc);
 
   /* Cart URLs */
   attr('mmi-std-cta', 'href', ev.standardUrl);
