@@ -2769,7 +2769,9 @@ const MMI_EVENTS = {"MMI2505FRA":{"details":"15–17 MAY 2026 · FRANKFURT, GERM
 /* ── Active event: read from URL ?EVENT_CODE=XXX, fallback to MMI2505MAL ── */
 const _urlParams  = new URLSearchParams(window.location.search);
 const EVENT_CODE  = (function(){
-  var code = _urlParams.get('EVENT_CODE') || 'MMI2505MAL';
+  /* Normalise to uppercase so ?event_code=mmi2505mal works too */
+  var raw  = _urlParams.get('EVENT_CODE') || _urlParams.get('event_code') || '';
+  var code = raw.toUpperCase() || 'MMI2505MAL';
   /* Validate — must exist in data, otherwise fall back */
   return MMI_EVENTS[code] ? code : 'MMI2505MAL';
 })();
