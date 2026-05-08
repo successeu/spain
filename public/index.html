@@ -2869,7 +2869,7 @@ const EVENT_CODE = (function(){
 
   /* ── Urgency section ── */
   set('mmi-urgency-sub',
-    'If you know it's time to change the pattern,<br/>' + ev.timerCTA);
+    'If you know it\'s time to change the pattern,<br/>' + ev.timerCTA);
   set('mmi-ends-in', ev.endsIn);
 
   /* ── Trainer ── */
@@ -2953,7 +2953,7 @@ const EVENT_CODE = (function(){
   });
 
   /* ── Title and final CTA ── */
-  set('finalTitle', 'Join Us in <strong>' + ev.city + '</strong>');
+  var fEl=document.getElementById('finalTitle');if(fEl)fEl.innerHTML='Join Us in <strong>'+ev.city+'</strong>';
 
   /* ── Countdown ── */
   if(window._mmiCountdownDate !== undefined){
