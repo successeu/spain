@@ -1657,7 +1657,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </p>
       <div style="margin-top:28px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.07);text-align:center;">
         <p style="font-family:var(--font-body);font-size:15px;color:rgba(255,255,255,0.6);margin-bottom:16px;font-style:italic;">If you're starting to see it,</p>
-        <a href="#" class="cta" data-popup>Join the 3-Day Experience &rarr; &euro;29 + VAT</a>
+        <a href="#" class="cta" id="mmi-cta-story" data-popup>Join the 3-Day Experience &rarr; &euro;29 + VAT</a>
       </div>
     </div>
 
@@ -2254,7 +2254,7 @@ Until they change, your results repeat — no matter the effort.</p>
       At some point, the real cost<br/>isn't the event.<br/><br/>
       It's staying where you are.
     </div>
-    <a class="cta" href="#" data-popup >Join the 3-Day Experience &rarr; &euro;29 + VAT</a>
+    <a class="cta" id="mmi-cta-exp" href="#" data-popup >Join the 3-Day Experience &rarr; &euro;29 + VAT</a>
   </div>
 </section>
 
@@ -2934,6 +2934,25 @@ const EVENT_CODE = (function(){
   /* ── Sticky bar ── */
   set('mmi-sticky-now',   ev.stdNow);
   set('mmi-sticky-price', ev.stickyPrice + ' · Total: ' + ev.stdCheckout);
+
+  /* CTA button text — Timer column, strip emoji prefix */
+  var timerRaw = ev.timerCTA || '';
+  /* Remove leading emoji and whitespace */
+  var btnTxt = timerRaw.replace(/^[\s\S]*?secure/i, 'Secure');
+  if(!btnTxt || btnTxt === timerRaw) btnTxt = timerRaw.replace(/^[^a-zA-Z]+/, '');
+  btnTxt = btnTxt.charAt(0).toUpperCase() + btnTxt.slice(1);
+
+  /* Update all popup-trigger CTAs */
+  ['mmi-hero-cta','mmi-cta-story','mmi-cta-exp','mmi-cta-final'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) el.textContent = btnTxt;
+  });
+  var urgEl = document.querySelector('.urgency-cta');
+  if(urgEl) urgEl.textContent = btnTxt;
+  var stickyEl = document.getElementById('mobileStickyBtn');
+  if(stickyEl) stickyEl.textContent = btnTxt;
+  var dynBtnEl = document.getElementById('dynBtn');
+  if(dynBtnEl) dynBtnEl.textContent = btnTxt;
 
   /* ── Venue ── */
   set('mmi-venue-name', ev.venue);
