@@ -1,6 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+/* Advanced matching — reads em/ph from URL params if passed by ad system */
+(function(){
+  var p = new URLSearchParams(window.location.search);
+  var am = {};
+  if(p.get('em')) am.em = p.get('em');
+  if(p.get('ph')) am.ph = p.get('ph');
+  if(p.get('fn')) am.fn = p.get('fn');
+  if(p.get('ln')) am.ln = p.get('ln');
+  fbq('init', '912757713033028', am);
+  fbq('track', 'PageView');
+})();
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=912757713033028&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<!-- Hyros Tracking -->
+<script>
+var head=document.head;
+var script=document.createElement('script');
+script.type='text/javascript';
+script.src='https://211646.t.hyros.com/v1/lst/universal-script?ph=3a21a1bd7eee3bd600484ae6ffbe4baac3f2bc86d01ffae69a4e90b9a146cf56&tag=!clicked&ref_url='+encodeURI(document.URL);
+head.appendChild(script);
+</script>
+<!-- End Hyros Tracking -->
+
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -330,6 +366,18 @@ footer a:hover{color:var(--gold);}
 </style>
 </head>
 <body>
+<!-- Meta Pixel Purchase Event -->
+<script>
+if(typeof fbq!=='undefined'){
+  fbq('track','Purchase',{
+    value:0, currency:'EUR',
+    content_type:'product',
+    content_name:'Millionaire Mind Intensive'
+  });
+}
+</script>
+<!-- End Meta Pixel Purchase -->
+
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T79PHNK"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
