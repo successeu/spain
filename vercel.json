@@ -8,12 +8,12 @@
       "destination": "/index"
     },
     {
-      "source": "/thank-you-soi",
-      "destination": "/thank-you-soi"
+      "source": "/thank-you",
+      "destination": "/thank-you-purchase"
     },
     {
-      "source": "/thank-you-soi/(frankfurt|malaga|brussels|warsaw|utrecht|london|berlin|singapore|bangkok)",
-      "destination": "/thank-you-soi"
+      "source": "/thank-you/(frankfurt|malaga|brussels|warsaw|utrecht|london|berlin|singapore|bangkok)",
+      "destination": "/thank-you-purchase"
     }
   ]
 }
