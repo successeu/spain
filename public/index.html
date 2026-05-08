@@ -2587,6 +2587,15 @@ Until they change, your results repeat — no matter the effort.</p>
 
   function buildPopup(){
     var ev = (typeof EVENT_CODE !== 'undefined' && MMI_EVENTS && MMI_EVENTS[EVENT_CODE]) ? MMI_EVENTS[EVENT_CODE] : null;
+    var stdNow      = ev ? ev.stdNow      : '€29';
+    var stdFull     = ev ? ev.stdFull     : '€395';
+    var stdSave     = ev ? ev.stdSave     : '€366';
+    var stdCheckout = ev ? ev.stdCheckout : '€35.09 (incl. VAT)';
+    var btnPrice    = ev ? ev.buttonPrice : '€29 + VAT';
+    var vipFull     = ev ? ev.vipFull     : '€1,295';
+    var vipNow      = ev ? ev.vipNow      : '€156';
+    var vipSave     = ev ? ev.vipSave     : '€1,139';
+    var vipCheckout = ev ? ev.vipCheckout : '€188.76 (incl. VAT)';
     var el = document.createElement('div');
     el.id = 'mmi-seat-popup';
     el.style.cssText = [
@@ -2630,9 +2639,10 @@ Until they change, your results repeat — no matter the effort.</p>
       '<div style="font-size:9px;letter-spacing:.34em;text-transform:uppercase;color:#c9a84c;margin-bottom:4px;">Standard Pass</div>',
       '<div style="font-size:20px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:#fff;margin-bottom:12px;line-height:1.2;">3-Day Live<br/>Experience</div>',
       '<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:2px;">',
-      '<span style="font-size:38px;font-weight:700;color:#c9a84c;line-height:1;">' + (ev ? ev.priceVAT : '€35.09') + '</span>',
+      '<span style="font-size:13px;text-decoration:line-through;color:rgba(255,255,255,.3);">' + stdFull + '</span>',
+      '<span style="font-size:38px;font-weight:700;color:#c9a84c;line-height:1;">' + stdNow + '</span>',
       '</div>',
-      '<div style="font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#c9a84c;margin-bottom:14px;">Save &euro;366 &middot; Early Access</div>',
+      '<div style="font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#c9a84c;margin-bottom:14px;">Save ' + stdSave + ' &middot; Early Access</div>',
       '<ul style="list-style:none;padding:0;margin:0 0 18px;flex:1;">',
       '<li style="font-size:12px;color:rgba(255,255,255,.72);padding:7px 0 7px 18px;position:relative;border-bottom:1px solid rgba(255,255,255,.05);">',
       '<span style="position:absolute;left:0;color:#c9a84c;font-size:10px;">&#10003;</span>Full 3-day live experience</li>',
@@ -2646,8 +2656,8 @@ Until they change, your results repeat — no matter the effort.</p>
       '<a href="' + getStandard() + '" target="_blank" rel="noopener" ',
       'style="display:block;width:100%;text-align:center;padding:12px;background:#c9a84c;color:#0a0a0a;',
       'font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;border-radius:99px;',
-      'text-decoration:none;box-sizing:border-box;">Join &rarr; ' + (ev ? ev.priceVAT : '') + '</a>',
-      '<div style="text-align:center;font-size:9px;color:rgba(255,255,255,.3);margin-top:8px;letter-spacing:.14em;">All-in price: ' + (ev ? ev.priceVAT : '') + ' (incl. taxes)</div>',
+      'text-decoration:none;box-sizing:border-box;">Join &rarr; ' + btnPrice + '</a>',
+      '<div style="text-align:center;font-size:9px;color:rgba(255,255,255,.3);margin-top:8px;letter-spacing:.14em;">Total at checkout: ' + stdCheckout + '</div>',
       '</div>',
 
       /* === VIP CARD === */
@@ -2659,10 +2669,10 @@ Until they change, your results repeat — no matter the effort.</p>
       '<div style="font-size:9px;letter-spacing:.34em;text-transform:uppercase;color:#c9a84c;margin-bottom:4px;">VIP Pass</div>',
       '<div style="font-size:20px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:#fff;margin-bottom:12px;line-height:1.2;">VIP<br/>Experience</div>',
       '<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:2px;">',
-      '<span style="font-size:13px;text-decoration:line-through;color:rgba(255,255,255,.3);">&euro;1,295</span>',
-      '<span style="font-size:38px;font-weight:700;color:#c9a84c;line-height:1;">&euro;156</span>',
+      '<span style="font-size:13px;text-decoration:line-through;color:rgba(255,255,255,.3);">' + vipFull + '</span>',
+      '<span style="font-size:38px;font-weight:700;color:#c9a84c;line-height:1;">' + vipNow + '</span>',
       '</div>',
-      '<div style="font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#c9a84c;margin-bottom:14px;">Save &euro;1,139</div>',
+      '<div style="font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#c9a84c;margin-bottom:14px;">Save ' + vipSave + '</div>',
       '<ul style="list-style:none;padding:0;margin:0 0 18px;flex:1;">',
       '<li style="font-size:12px;color:rgba(255,255,255,.72);padding:7px 0 7px 18px;position:relative;border-bottom:1px solid rgba(255,255,255,.05);">',
       '<span style="position:absolute;left:0;color:#c9a84c;font-size:10px;">&#10003;</span>Everything in Standard</li>',
@@ -2676,8 +2686,8 @@ Until they change, your results repeat — no matter the effort.</p>
       '<a href="' + getVIP() + '" target="_blank" rel="noopener" ',
       'style="display:block;width:100%;text-align:center;padding:12px;background:transparent;color:rgba(255,255,255,.9);',
       'font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;border-radius:99px;',
-      'border:1px solid rgba(255,255,255,.2);text-decoration:none;box-sizing:border-box;">Upgrade to VIP &rarr; &euro;156</a>',
-      '<div style="text-align:center;font-size:9px;color:rgba(255,255,255,.3);margin-top:8px;letter-spacing:.14em;">Fewer seats at this level</div>',
+      'border:1px solid rgba(255,255,255,.2);text-decoration:none;box-sizing:border-box;">Upgrade to VIP &rarr; ' + vipNow + '</a>',
+      '<div style="text-align:center;font-size:9px;color:rgba(255,255,255,.3);margin-top:8px;letter-spacing:.14em;">Total at checkout: ' + vipCheckout + '</div>',
       '</div>',
 
       '</div>', /* end grid */
