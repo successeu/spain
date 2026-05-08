@@ -1576,9 +1576,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- LEFT: Text -->
     <div class="hero-v3-left">
       <p class="hero-v3-eyebrow">Your Next Financial Level</p>
-      <h1 class="hero-v3-h1">Requires a different way of <span style="color:#dabf88;">thinking, deciding,</span> and acting.</h1>
-      <p class="hero-v3-body">Because more effort isn't the answer.<br/>And deep down, you already know it.<br/><br/>Trusted by millions worldwide to uncover the patterns shaping your financial results — and change them.</p>
-      <a class="hero-v3-cta" href="#" data-popup >Join the 3-Day Experience &rarr; &euro;29 + VAT</a>
+      <h1 class="hero-v3-h1" id="mmi-hero-h1">Requires a different way of <span style="color:#dabf88;">thinking, deciding,</span> and acting.</h1>
+      <p class="hero-v3-body" id="mmi-hero-sub">Because more effort isn't the answer.<br/>And deep down, you already know it.<br/><br/>Trusted by millions worldwide to uncover the patterns shaping your financial results — and change them.</p>
+      <a class="hero-v3-cta" id="mmi-hero-cta" href="#" data-popup >Join the 3-Day Experience &rarr; &euro;29 + VAT</a>
       <span class="hero-v3-micro" id="mmi-hero-micro">Takes less than 60 seconds &middot; €29 + VAT &middot; Total at checkout: €35.09</span>
       <div class="hero-v3-logos">
         <!-- Desktop -->
@@ -2952,5 +2952,39 @@ const EVENT_CODE = (function(){
 })();
 </script>
 
+
+<script>
+/* ═══ MMI HEADLINE VARIANTS ═══ */
+const MMI_HEADLINES = {"1":{"h":"WORKING HARD BUT STILL NOT GETTING AHEAD FINANCIALLY?","s":"Over 3 transformational days, you will uncover why your effort isn’t translating into real financial progress","cta":"SECURE MY SEAT FOR $19"},"2":{"h":"YOU ARE DOING EVERYTHING RIGHT, SO WHY ARE YOU STILL STUCK?","s":"Across this immersive 3-day journey, you’ll discover the hidden patterns keeping you stuck despite doing your best","cta":"JOIN THE 3 DAY EXPERIENCE"},"3":{"h":"YOUR INCOME GREW, BUT YOUR LIFE DID NOT CHANGE","s":"During this intensive 3-day experience, you’ll learn how to turn income growth into real-life transformation","cta":"START MY BREAKTHROUGH"},"4":{"h":"STUCK IN THE SAME FINANCIAL CYCLE YEAR AFTER YEAR?","s":"In just 3 powerful days, you’ll unlock the tools to finally break free from repetitive financial patterns","cta":"BREAK THE CYCLE TODAY"},"5":{"h":"HARD WORK IS NOT THE PROBLEM. YOU HAVE BEEN PLAYING THE WRONG GAME","s":"Through this 3-day breakthrough experience, you will see the rules of the game you were never taught","cta":"SHOW ME HOW TO CHANGE"},"6":{"h":"MONEY STRESS IS NOT GOING AWAY, AND DEEP DOWN, YOU KNOW IT","s":"In this life-changing 3-day immersion, you’ll uncover what’s truly driving your financial pressure","cta":"I AM READY TO CHANGE"},"7":{"h":"TIRED OF WORRYING ABOUT MONEY EVERY MONTH?","s":"Over 3 transformational days, you will gain clarity and control over your monthly financial stress","cta":"TAKE BACK CONTROL NOW"},"8":{"h":"NO MATTER HOW HARD YOU TRY, IT STILL FEELS LIKE IT’S NOT ENOUGH","s":"Across this immersive 3-day journey, you’ll discover why effort alone hasn’t been enough and what needs to change","cta":"FIND THE REAL SOLUTION"},"9":{"h":"YOU ARE NOT BAD WITH MONEY. YOU WERE JUST NEVER TAUGHT THE RIGHT WAY","s":"During this intensive 3-day experience, you’ll learn the financial principles most people were never taught","cta":"RESET MY FINANCIAL LIFE"},"10":{"h":"FINANCIAL PRESSURE KEEPS RISING, BUT NOTHING IS CHANGING","s":"In just 3 powerful days, you’ll unlock a new way to respond to rising financial demands","cta":"CHANGE MY APPROACH"},"11":{"h":"TURN WHAT YOU LOVE INTO A REAL INCOME STREAM","s":"Through this 3-day breakthrough experience, you will learn how to turn your passion into a structured income stream","cta":"START BUILDING MY INCOME"},"12":{"h":"YOU DO NOT NEED ANOTHER IDEA. YOU NEED A PROVEN SYSTEM","s":"In this life-changing 3-day immersion, you’ll discover the system that turns ideas into results","cta":"GIVE ME THE SYSTEM"},"13":{"h":"STOP TRADING TIME FOR MONEY. START BUILDING TRUE LEVERAGE","s":"Over 3 transformational days, you will understand how to build income beyond your time","cta":"BUILD MY INCOME STREAMS"},"14":{"h":"YOUR SIDE HUSTLE IS NOT GROWING BECAUSE THE FOUNDATION IS MISSING","s":"Across this immersive 3-day journey, you’ll discover the missing foundation behind sustainable growth","cta":"FIX MY FOUNDATION"},"15":{"h":"YOU HAVE THE POTENTIAL BUT NOT THE FINANCIAL DIRECTION","s":"During this intensive 3-day experience, you’ll learn how to align your potential with a clear financial path","cta":"SHOW ME THE PATH"},"16":{"h":"YOUR FINANCIAL LIFE CHANGES WHEN YOUR MONEY MINDSET CHANGES","s":"In just 3 powerful days, you’ll unlock the mindset shift that drives financial change","cta":"UPGRADE MY MINDSET"},"17":{"h":"YOU HAVE GROWN AS A PERSON, BUT YOUR FINANCES DID NOT FOLLOW","s":"Through this 3-day breakthrough experience, you will connect your personal growth with financial results","cta":"REWIRE MY MONEY THINKING"},"18":{"h":"SUCCESS STARTS IN THE MIND, AND SO DOES WEALTH","s":"In this life-changing 3-day immersion, you’ll understand how your thinking shapes your wealth","cta":"CHANGE HOW I THINK"},"19":{"h":"YOU CANNOT BUILD WEALTH WHILE THINKING FROM SCARCITY","s":"Over 3 transformational days, you will rewire the thinking that limits your financial expansion","cta":"SHIFT MY MINDSET NOW"},"20":{"h":"YOUR NEXT BREAKTHROUGH COMES FROM WHO YOU BECOME","s":"Across this immersive 3-day journey, you’ll discover how your identity drives your next financial level","cta":"STEP INTO MY NEXT LEVEL"},"21":{"h":"YOU KNOW YOU ARE MEANT FOR MORE, BUT YOU ARE NOT LIVING IT YET","s":"During this intensive 3-day experience, you’ll learn how to bridge the gap between your potential and reality","cta":"HELP ME LEVEL UP"},"22":{"h":"YOU HAVE THE DRIVE BUT NO CLEAR DIRECTION","s":"In just 3 powerful days, you’ll unlock clarity on where to focus your energy for real progress","cta":"SHOW ME THE ROADMAP"},"23":{"h":"YOU ARE CAPABLE OF MORE, BUT YOUR RESULTS DO NOT REFLECT IT","s":"Through this 3-day breakthrough experience, you will align your capabilities with measurable results","cta":"UNLOCK MY POTENTIAL"},"24":{"h":"YOU ARE NOT LOST. YOU JUST NEED THE RIGHT PATH","s":"In this life-changing 3-day immersion, you’ll uncover the path that fits your strengths and goals","cta":"RESET MY PATH"},"25":{"h":"YOU HAVE BEEN PLAYING SMALL WITHOUT REALIZING IT","s":"Over 3 transformational days, you will recognize and break free from self-imposed limitations","cta":"PLAY A BIGGER GAME"}};
+
+(function(){
+  var params = new URLSearchParams(window.location.search);
+  var opt    = params.get('h') || params.get('H') || '';
+  var hl     = opt ? MMI_HEADLINES[opt] : null;
+  if(!hl) return; /* no param or invalid — keep default copy */
+
+  /* H1 — bold styling kept, text replaced */
+  var h1 = document.getElementById('mmi-hero-h1');
+  if(h1){
+    /* Title-case for readability — CSV is ALL CAPS */
+    var txt = hl.h.charAt(0).toUpperCase() + hl.h.slice(1).toLowerCase();
+    /* Capitalise first letter of each sentence */
+    txt = txt.replace(/([.?!]\s+)(\w)/g, function(m,p,c){ return p+c.toUpperCase(); });
+    h1.textContent = txt;
+  }
+
+  /* Sub-headline */
+  var sub = document.getElementById('mmi-hero-sub');
+  if(sub) sub.textContent = hl.s;
+
+  /* CTA button text */
+  var cta = document.getElementById('mmi-hero-cta');
+  if(cta && hl.cta){
+    var ctaTxt = hl.cta.charAt(0).toUpperCase() + hl.cta.slice(1).toLowerCase();
+    ctaTxt = ctaTxt.replace(/([.?!]\s+)(\w)/g, function(m,p,c){ return p+c.toUpperCase(); });
+    cta.innerHTML = ctaTxt + ' &rarr; &euro;29 + VAT';
+  }
+})();
+</script>
 </body>
 </html>
