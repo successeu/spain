@@ -2992,8 +2992,158 @@ const EVENT_CODE = (function(){
 
 <script>
 /* ═══ MMI HEADLINE VARIANTS ═══ */
-const MMI_HEADLINES = {"1":{"h":"WORKING HARD BUT STILL NOT GETTING AHEAD FINANCIALLY?","s":"Over 3 transformational days, you will uncover why your effort isn’t translating into real financial progress","cta":"SECURE MY SEAT FOR $19"},"2":{"h":"YOU ARE DOING EVERYTHING RIGHT, SO WHY ARE YOU STILL STUCK?","s":"Across this immersive 3-day journey, you’ll discover the hidden patterns keeping you stuck despite doing your best","cta":"JOIN THE 3 DAY EXPERIENCE"},"3":{"h":"YOUR INCOME GREW, BUT YOUR LIFE DID NOT CHANGE","s":"During this intensive 3-day experience, you’ll learn how to turn income growth into real-life transformation","cta":"START MY BREAKTHROUGH"},"4":{"h":"STUCK IN THE SAME FINANCIAL CYCLE YEAR AFTER YEAR?","s":"In just 3 powerful days, you’ll unlock the tools to finally break free from repetitive financial patterns","cta":"BREAK THE CYCLE TODAY"},"5":{"h":"HARD WORK IS NOT THE PROBLEM. YOU HAVE BEEN PLAYING THE WRONG GAME","s":"Through this 3-day breakthrough experience, you will see the rules of the game you were never taught","cta":"SHOW ME HOW TO CHANGE"},"6":{"h":"MONEY STRESS IS NOT GOING AWAY, AND DEEP DOWN, YOU KNOW IT","s":"In this life-changing 3-day immersion, you’ll uncover what’s truly driving your financial pressure","cta":"I AM READY TO CHANGE"},"7":{"h":"TIRED OF WORRYING ABOUT MONEY EVERY MONTH?","s":"Over 3 transformational days, you will gain clarity and control over your monthly financial stress","cta":"TAKE BACK CONTROL NOW"},"8":{"h":"NO MATTER HOW HARD YOU TRY, IT STILL FEELS LIKE IT’S NOT ENOUGH","s":"Across this immersive 3-day journey, you’ll discover why effort alone hasn’t been enough and what needs to change","cta":"FIND THE REAL SOLUTION"},"9":{"h":"YOU ARE NOT BAD WITH MONEY. YOU WERE JUST NEVER TAUGHT THE RIGHT WAY","s":"During this intensive 3-day experience, you’ll learn the financial principles most people were never taught","cta":"RESET MY FINANCIAL LIFE"},"10":{"h":"FINANCIAL PRESSURE KEEPS RISING, BUT NOTHING IS CHANGING","s":"In just 3 powerful days, you’ll unlock a new way to respond to rising financial demands","cta":"CHANGE MY APPROACH"},"11":{"h":"TURN WHAT YOU LOVE INTO A REAL INCOME STREAM","s":"Through this 3-day breakthrough experience, you will learn how to turn your passion into a structured income stream","cta":"START BUILDING MY INCOME"},"12":{"h":"YOU DO NOT NEED ANOTHER IDEA. YOU NEED A PROVEN SYSTEM","s":"In this life-changing 3-day immersion, you’ll discover the system that turns ideas into results","cta":"GIVE ME THE SYSTEM"},"13":{"h":"STOP TRADING TIME FOR MONEY. START BUILDING TRUE LEVERAGE","s":"Over 3 transformational days, you will understand how to build income beyond your time","cta":"BUILD MY INCOME STREAMS"},"14":{"h":"YOUR SIDE HUSTLE IS NOT GROWING BECAUSE THE FOUNDATION IS MISSING","s":"Across this immersive 3-day journey, you’ll discover the missing foundation behind sustainable growth","cta":"FIX MY FOUNDATION"},"15":{"h":"YOU HAVE THE POTENTIAL BUT NOT THE FINANCIAL DIRECTION","s":"During this intensive 3-day experience, you’ll learn how to align your potential with a clear financial path","cta":"SHOW ME THE PATH"},"16":{"h":"YOUR FINANCIAL LIFE CHANGES WHEN YOUR MONEY MINDSET CHANGES","s":"In just 3 powerful days, you’ll unlock the mindset shift that drives financial change","cta":"UPGRADE MY MINDSET"},"17":{"h":"YOU HAVE GROWN AS A PERSON, BUT YOUR FINANCES DID NOT FOLLOW","s":"Through this 3-day breakthrough experience, you will connect your personal growth with financial results","cta":"REWIRE MY MONEY THINKING"},"18":{"h":"SUCCESS STARTS IN THE MIND, AND SO DOES WEALTH","s":"In this life-changing 3-day immersion, you’ll understand how your thinking shapes your wealth","cta":"CHANGE HOW I THINK"},"19":{"h":"YOU CANNOT BUILD WEALTH WHILE THINKING FROM SCARCITY","s":"Over 3 transformational days, you will rewire the thinking that limits your financial expansion","cta":"SHIFT MY MINDSET NOW"},"20":{"h":"YOUR NEXT BREAKTHROUGH COMES FROM WHO YOU BECOME","s":"Across this immersive 3-day journey, you’ll discover how your identity drives your next financial level","cta":"STEP INTO MY NEXT LEVEL"},"21":{"h":"YOU KNOW YOU ARE MEANT FOR MORE, BUT YOU ARE NOT LIVING IT YET","s":"During this intensive 3-day experience, you’ll learn how to bridge the gap between your potential and reality","cta":"HELP ME LEVEL UP"},"22":{"h":"YOU HAVE THE DRIVE BUT NO CLEAR DIRECTION","s":"In just 3 powerful days, you’ll unlock clarity on where to focus your energy for real progress","cta":"SHOW ME THE ROADMAP"},"23":{"h":"YOU ARE CAPABLE OF MORE, BUT YOUR RESULTS DO NOT REFLECT IT","s":"Through this 3-day breakthrough experience, you will align your capabilities with measurable results","cta":"UNLOCK MY POTENTIAL"},"24":{"h":"YOU ARE NOT LOST. YOU JUST NEED THE RIGHT PATH","s":"In this life-changing 3-day immersion, you’ll uncover the path that fits your strengths and goals","cta":"RESET MY PATH"},"25":{"h":"YOU HAVE BEEN PLAYING SMALL WITHOUT REALIZING IT","s":"Over 3 transformational days, you will recognize and break free from self-imposed limitations","cta":"PLAY A BIGGER GAME"}};
-
+const MMI_HEADLINES = {
+  "1": {
+    "h": "YOU EARN WELL. BUT ARE YOU REALLY GETTING AHEAD?",
+    "s": "Discover the system used by over 5 million people and join the 3-day Millionaire Mind Intensive to break the earn-and-spend cycle.",
+    "cta": "SECURE MY SEAT"
+  },
+  "2": {
+    "h": "YOU HAVE WORKED HARD FOR YEARS. WHY DOES IT NOT FEEL LIKE FREEDOM YET?",
+    "s": "Join the 3-day Millionaire Mind Intensive and learn how to reset your financial direction and build long-term wealth.",
+    "cta": "RESERVE MY SEAT NOW"
+  },
+  "3": {
+    "h": "YOUR BUSINESS IS GROWING. IS YOUR WEALTH GROWING TOO?",
+    "s": "Join the 3-day Millionaire Mind Intensive to learn how to turn income into lasting financial freedom.",
+    "cta": "JOIN THE EXPERIENCE"
+  },
+  "4": {
+    "h": "STOP GUESSING ABOUT MONEY. START UNDERSTANDING HOW IT REALLY WORKS",
+    "s": "Join the 3-day Millionaire Mind Intensive and learn a structured system for building financial security.",
+    "cta": "LEARN THE SYSTEM"
+  },
+  "5": {
+    "h": "HIGH INCOME DOES NOT GUARANTEE FINANCIAL FREEDOM",
+    "s": "Join the 3-day Millionaire Mind Intensive and discover what actually creates sustainable wealth.",
+    "cta": "SECURE MY SEAT"
+  },
+  "6": {
+    "h": "WORKING HARDER WILL NOT SOLVE YOUR MONEY PROBLEM",
+    "s": "Join the 3-day Millionaire Mind Intensive and learn a smarter approach to financial growth.",
+    "cta": "I NEED THIS"
+  },
+  "7": {
+    "h": "BUILD A FINANCIAL FUTURE YOUR FAMILY CAN RELY ON",
+    "s": "Join the 3-day Millionaire Mind Intensive to create clarity, stability, and long-term wealth for your family.",
+    "cta": "PROTECT MY FUTURE"
+  },
+  "8": {
+    "h": "DO NOT WAIT 20 YEARS TO UNDERSTAND MONEY",
+    "s": "Join the 3-day Millionaire Mind Intensive and build your financial foundation early.",
+    "cta": "START EARLY"
+  },
+  "9": {
+    "h": "ARE YOU FINANCIALLY PREPARED FOR THE FUTURE?",
+    "s": "Join the 3-day Millionaire Mind Intensive and learn practical wealth strategies for long-term financial growth.",
+    "cta": "JOIN THE EXPERIENCE"
+  },
+  "10": {
+    "h": "IF YOU ARE SERIOUS ABOUT WEALTH YOU NEED A SYSTEM",
+    "s": "Join the 3-day Millionaire Mind Intensive and understand how to grow and protect your money.",
+    "cta": "UPGRADE MY STRATEGY"
+  },
+  "11": {
+    "h": "INFLATION, TAXES, AND UNCERTAINTY. ARE YOU PREPARED?",
+    "s": "Join the 3-day Millionaire Mind Intensive to build a strategy that protects and grows your wealth.",
+    "cta": "GET PREPARED"
+  },
+  "12": {
+    "h": "YOU KNOW YOU WANT MORE BUT YOU DO NOT KNOW WHAT TO DO NEXT",
+    "s": "Join the 3-day Millionaire Mind Intensive to gain clarity and a clear financial roadmap.",
+    "cta": "SHOW ME HOW"
+  },
+  "13": {
+    "h": "YOUR RESULTS REFLECT YOUR MONEY MINDSET",
+    "s": "Join the 3-day Millionaire Mind Intensive and upgrade how you think about money.",
+    "cta": "TRANSFORM MY THINKING"
+  },
+  "14": {
+    "h": "SAVING MONEY ALONE WILL NOT MAKE YOU FINANCIALLY FREE",
+    "s": "Join the 3-day Millionaire Mind Intensive and learn what actually builds wealth.",
+    "cta": "LEARN MORE"
+  },
+  "15": {
+    "h": "YOU ARE DOING EVERYTHING RIGHT. SO WHY IS IT NOT WORKING?",
+    "s": "Join the 3-day Millionaire Mind Intensive to identify and fix what is holding you back.",
+    "cta": "FIX MY STRATEGY"
+  },
+  "16": {
+    "h": "SAME INCOME. SAME PROBLEMS. DIFFERENT YEAR.",
+    "s": "Join the 3-day Millionaire Mind Intensive and break the cycle permanently.",
+    "cta": "BREAK THE CYCLE"
+  },
+  "17": {
+    "h": "FINANCIAL FREEDOM IS NOT LUCK. IT IS UNDERSTANDING.",
+    "s": "Join the 3-day Millionaire Mind Intensive and learn the system used by millions.",
+    "cta": "I WANT FREEDOM"
+  },
+  "18": {
+    "h": "YOUR CAREER IS STRONG BUT YOUR FINANCIAL SYSTEM IS WEAK",
+    "s": "Join the 3-day Millionaire Mind Intensive to build a complete wealth strategy.",
+    "cta": "BUILD MY SYSTEM"
+  },
+  "19": {
+    "h": "A PROVEN SYSTEM TO BUILD AND MANAGE YOUR MONEY",
+    "s": "Join the 3-day Millionaire Mind Intensive and apply practical financial strategies.",
+    "cta": "SEE HOW IT WORKS"
+  },
+  "20": {
+    "h": "FINANCIAL SECURITY DOES NOT HAPPEN BY ACCIDENT",
+    "s": "Join the 3-day Millionaire Mind Intensive to create long-term stability.",
+    "cta": "SECURE MY FUTURE"
+  },
+  "21": {
+    "h": "IF YOU WANT MORE, YOU MUST THINK DIFFERENTLY ABOUT MONEY",
+    "s": "Join the 3-day Millionaire Mind Intensive and unlock new financial possibilities.",
+    "cta": "EXPAND MY THINKING"
+  },
+  "22": {
+    "h": "NO TIME TO LEARN ABOUT MONEY CAN COST YOU YEARS",
+    "s": "Join the 3-day Millionaire Mind Intensive and accelerate your financial learning.",
+    "cta": "SAVE ME TIME"
+  },
+  "23": {
+    "h": "WHAT DO THE WEALTHY UNDERSTAND THAT MOST PEOPLE DO NOT?",
+    "s": "Join the 3-day Millionaire Mind Intensive and discover the difference.",
+    "cta": "FIND OUT"
+  },
+  "24": {
+    "h": "STOP RELYING ONLY ON YOUR SALARY",
+    "s": "Join the 3-day Millionaire Mind Intensive to build additional financial strength.",
+    "cta": "STRENGTHEN MY INCOME"
+  },
+  "25": {
+    "h": "IF YOU DO NOT CHANGE YOUR MONEY STRATEGY, NOTHING WILL CHANGE",
+    "s": "Join the 3-day Millionaire Mind Intensive and take control now.",
+    "cta": "TAKE ACTION"
+  },
+  "26": {
+    "h": "3 DAYS THAT CAN CHANGE HOW YOU THINK ABOUT MONEY",
+    "s": "Join the 3-day Millionaire Mind Intensive and learn the system used by over 5 million people worldwide.",
+    "cta": "JOIN NOW"
+  },
+  "27": {
+    "h": "STOP WORKING FOR MONEY. START MAKING MONEY WORK FOR YOU.",
+    "s": "Join the 3-day Millionaire Mind Intensive and discover practical financial strategies.",
+    "cta": "GET STARTED"
+  },
+  "28": {
+    "h": "THE MISSING LINK BETWEEN INCOME AND TRUE WEALTH",
+    "s": "Join the 3-day Millionaire Mind Intensive and unlock your financial potential.",
+    "cta": "LEARN MORE"
+  },
+  "29": {
+    "h": "MOST PEOPLE WORK FOR MONEY THEIR WHOLE LIFE",
+    "s": "Join the 3-day Millionaire Mind Intensive and learn how to change that.",
+    "cta": "CHANGE MY FUTURE"
+  },
+  "30": {
+    "h": "LEARN THE SYSTEM BEHIND REAL FINANCIAL FREEDOM",
+    "s": "Join the 3-day Millionaire Mind Intensive and apply what you learn immediately.",
+    "cta": "RESERVE MY SEAT"
+  }
+};
 (function(){
   var params = new URLSearchParams(window.location.search);
   var opt    = params.get('h') || params.get('H') || '';
