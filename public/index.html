@@ -1232,7 +1232,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .venue-day-date{font-family:var(--font-body);font-size:11px;color:var(--mmi-ink-500);margin-top:4px;letter-spacing:0.04em;}
   .venue-day-hours{font-family:var(--font-ui);font-size:12px;font-weight:500;color:var(--mmi-ink-900);letter-spacing:0.06em;}
   .venue-visual{position:relative;aspect-ratio:4/5;border-radius:var(--radius-sm);overflow:hidden;background:#0a1a0a;}
-  .venue-visual::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.55) 100%);pointer-events:none;z-index:1;}
+  .venue-visual::before{display:none;}
   .venue-visual-text{position:absolute;inset:0;z-index:3;text-align:center;padding:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
   .venue-visual-text .label{font-family:var(--font-ui);font-weight:500;font-size:10px;letter-spacing:0.42em;text-transform:uppercase;color:var(--mmi-gold-200);margin-bottom:22px;}
   .venue-visual-text .city{font-family:var(--font-display);font-weight:700;font-size:52px;line-height:0.95;letter-spacing:0.02em;text-transform:uppercase;color:#fff;margin-bottom:14px;}
@@ -1280,25 +1280,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     border-top:1px solid rgba(212,175,55,0.35);
     align-items:center;gap:12px;
   }
-  .sticky-price{flex:1;min-width:0}
+  .sticky-price{flex:1;min-width:0;}
   .sticky-price-now{
     font-family:var(--font-display);font-weight:700;
-    font-size:24px;color:#dabf88;line-height:1;
+    font-size:20px;color:#dabf88;line-height:1;
+    white-space:nowrap;
   }
   .sticky-price-label{
     font-family:var(--font-ui);font-size:9px;
-    letter-spacing:0.18em;text-transform:uppercase;
-    color:rgba(255,255,255,0.5);margin-top:3px;
+    letter-spacing:0.08em;text-transform:uppercase;
+    color:rgba(255,255,255,0.5);margin-top:4px;
+    line-height:1.4;word-break:break-word;
   }
   .sticky-bar .sticky-cta{
-    display:inline-flex;align-items:center;gap:8px;
-    padding:13px 22px;background:#dabf88;color:#000;
-    font-family:var(--font-ui);font-weight:600;font-size:12px;
-    letter-spacing:0.18em;text-transform:uppercase;
+    display:inline-flex;align-items:center;justify-content:center;
+    padding:13px 18px;background:#dabf88;color:#000;
+    font-family:var(--font-ui);font-weight:600;font-size:11px;
+    letter-spacing:0.14em;text-transform:uppercase;
     border-radius:8px;text-decoration:none;
     transition:background 180ms;flex-shrink:0;
+    text-align:center;
   }
   .sticky-bar .sticky-cta:hover{background:#c9a028;}
+  .sticky-cta-full{display:none;}
+  .sticky-cta-short{display:inline;}
 
   /* ═══════════ RESPONSIVE ═══════════ */
   @media(max-width:1024px){
@@ -1445,6 +1450,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .cookie-btn{font-size:9px;padding:8px 14px}
     body{padding-bottom:80px}
     .sticky-bar{display:flex;}
+    .sticky-cta-full{display:none!important;}
+    .sticky-cta-short{display:inline!important;}
   }
 
   /* ═══════════ PRICING POPUP MODAL ═══════════ */
@@ -2091,25 +2098,25 @@ Until they change, your results repeat — no matter the effort.</p>
 <!-- ═══════════ URGENCY BAND ═══════════ -->
 <section class="urgency-band">
   <div class="urgency-inner">
-    <div class="urgency-label"><span id="mmi-ends-in">Early access price (€29 + VAT) ends in</span></div>
+    <div class="urgency-label"><span id="mmi-ends-in">Your reserved price expires in</span></div>
     <div class="urgency-cd">
-      <div class="uc-block">
-        <span class="uc-num" id="ea-days">--</span>
+      <div class="uc-block" id="ea-days-block">
+        <span class="uc-num" id="ea-days">00</span>
         <span class="uc-unit">Days</span>
       </div>
-      <div class="uc-sep">:</div>
-      <div class="uc-block">
-        <span class="uc-num" id="ea-hours">--</span>
+      <div class="uc-sep" id="ea-days-sep">:</div>
+      <div class="uc-block" id="ea-hours-block">
+        <span class="uc-num" id="ea-hours">00</span>
         <span class="uc-unit">Hours</span>
       </div>
-      <div class="uc-sep">:</div>
+      <div class="uc-sep" id="ea-hours-sep">:</div>
       <div class="uc-block">
-        <span class="uc-num" id="ea-mins">--</span>
+        <span class="uc-num" id="ea-mins">15</span>
         <span class="uc-unit">Minutes</span>
       </div>
       <div class="uc-sep">:</div>
       <div class="uc-block">
-        <span class="uc-num" id="ea-secs">--</span>
+        <span class="uc-num" id="ea-secs">00</span>
         <span class="uc-unit">Seconds</span>
       </div>
     </div>
@@ -2143,11 +2150,11 @@ Until they change, your results repeat — no matter the effort.</p>
         </div>
         <span class="tier-save" id="mmi-std-save">Save €366 · Early Access</span>
         <ul>
-          <li>Full 3-day live experience</li>
-          <li>MMI Lite Workbook</li>
-          <li>"Secret Psychology of Wealth" content pack</li>
-          <li>Private community access</li>
-          <li>Weekly review sessions</li>
+          <li>Standard Admission Pass for full 3 days experiences</li>
+          <li>Millionaire Mind Intensive Lite Workbook</li>
+          <li>⭐ BONUS: Pre-Training &amp; Intention Sheet</li>
+          <li>⭐ BONUS: Private Community Group</li>
+          <li>⭐ BONUS: Weekly Review &amp; Relearn Class (Every Tuesday)</li>
         </ul>
         <a class="tier-cta" id="mmi-std-cta" href="https://successr.thrivecart.com/spain-may-standard-cart/" target="_blank" rel="noopener">Join the 3-Day Experience &rarr; &euro;29 + VAT</a>
         <div class="tier-note" id="mmi-tier-note">Total at checkout: €35.09 (incl. 21% VAT)</div>
@@ -2166,10 +2173,15 @@ Until they change, your results repeat — no matter the effort.</p>
         <span class="tier-save" id="mmi-vip-save">Save €1,139</span>
         <ul>
           <li>Everything in Standard</li>
-          <li>Full Workbook</li>
-          <li>Front-row seating</li>
-          <li>Priority check-in</li>
-          <li>Speed networking session</li>
+          <li>Millionaire Mind Intensive Full Workbook</li>
+          <li>Priority Check In and Front Row Seating</li>
+          <li>Speed Networking Session</li>
+          <li>"The Secret Psychology of Wealth" Content Pack e-copy <span style="font-size:12px;opacity:0.65;">(Over 8 hours audio &amp; 3 hours video content)</span></li>
+          <li>"Success Belief" Worksheet</li>
+          <li>"Secrets of The Millionaire Mind" eBook</li>
+          <li>⭐ BONUS: Pre-Training &amp; Intention Sheet</li>
+          <li>⭐ BONUS: Private Community Group</li>
+          <li>⭐ BONUS: Weekly Review &amp; Relearn Class (Every Tuesday)</li>
         </ul>
         <a class="tier-cta" id="mmi-vip-cta" href="https://successr.thrivecart.com/spain-may-vip-cart/" target="_blank" rel="noopener">Upgrade to VIP</a>
         <div class="tier-note" id="mmi-vip-note">Fewer seats at this level</div>
@@ -2184,7 +2196,7 @@ Until they change, your results repeat — no matter the effort.</p>
   <div class="section-inner">
     <div class="section-head">
       <div class="eyebrow">Venue</div>
-      <h2 class="section-title">This is happening in <em>Malaga.</em></h2>
+      <h2 class="section-title">This is happening in <em id="mmi-venue-city">Malaga.</em></h2>
       <p class="pattern-lead">3 days. One room. One decision that changes everything.</p>
     </div>
 
@@ -2194,26 +2206,26 @@ Until they change, your results repeat — no matter the effort.</p>
         <p class="venue-addr" id="mmi-venue-addr">Estación Vialia Maria Zambrano<br/>C. Héroe de Sostoa, 2, Distrito Centro<br/>29002 Málaga, Spain</p>
         <div class="venue-days">
           <div class="venue-day">
-            <div class="venue-day-num">01</div>
+            <div class="venue-day-num">22</div>
             <div>
               <div class="venue-day-label">Friday</div>
-              <div class="venue-day-date">22 May 2026</div>
+              <div class="venue-day-date venue-day-mon">May 2026</div>
             </div>
             <div class="venue-day-hours">9:00 AM – 9:00 PM</div>
           </div>
           <div class="venue-day">
-            <div class="venue-day-num">02</div>
+            <div class="venue-day-num">23</div>
             <div>
               <div class="venue-day-label">Saturday</div>
-              <div class="venue-day-date">23 May 2026</div>
+              <div class="venue-day-date venue-day-mon">May 2026</div>
             </div>
             <div class="venue-day-hours">9:00 AM – 8:00 PM</div>
           </div>
           <div class="venue-day">
-            <div class="venue-day-num">03</div>
+            <div class="venue-day-num">24</div>
             <div>
               <div class="venue-day-label">Sunday</div>
-              <div class="venue-day-date">24 May 2026</div>
+              <div class="venue-day-date venue-day-mon">May 2026</div>
             </div>
             <div class="venue-day-hours">8:00 AM – 7:00 PM</div>
           </div>
@@ -2224,17 +2236,9 @@ Until they change, your results repeat — no matter the effort.</p>
         <!-- Google Map embed — dynamically updated via JS -->
         <iframe id="mmi-venue-map"
           src="https://maps.google.com/maps?q=Barcel%C3%B3+M%C3%A1laga%2C+C.+H%C3%A9roe+de+Sostoa+2%2C+M%C3%A1laga&output=embed&z=15"
-          style="position:absolute;inset:0;width:100%;height:100%;border:none;filter:saturate(0.7) brightness(0.6);"
+          style="position:absolute;inset:0;width:100%;height:100%;border:none;"
           loading="lazy" allowfullscreen
           title="Venue location map"></iframe>
-        <!-- Text overlay on top of map -->
-        <div class="venue-visual-text" style="position:relative;z-index:2;">
-          <div class="label">3 Days · One Room</div>
-          <div class="city" id="mmi-visual-city">Malaga</div>
-          <div class="country" id="mmi-visual-country">España</div>
-          <div class="hr"></div>
-          <div class="dates" id="mmi-visual-dates">22 · 23 · 24 May 2026</div>
-        </div>
       </div>
     </div>
   </div>
@@ -2315,35 +2319,72 @@ Until they change, your results repeat — no matter the effort.</p>
 <!-- ═══════════ STICKY BAR (mobile) ═══════════ -->
 <div class="sticky-bar" role="region" aria-label="Book now">
   <div class="sticky-price">
-    <div class="sticky-price-now" id="mmi-sticky-now">€29 <span id="mmi-sticky-was" style="font-size:13px;color:rgba(255,255,255,0.35);text-decoration:line-through;">€395</span></div>
-    <div class="sticky-price-label" id="mmi-sticky-price">€29 + VAT · Total: €35.09 all-in</div>
+    <div class="sticky-price-now" id="mmi-sticky-now"></div>
+    <div class="sticky-price-label" id="mmi-sticky-price"></div>
   </div>
-  <a class="sticky-cta" id="mobileStickyBtn" href="#" data-popup >Join the 3-Day Experience → €29 + VAT</a>
+  <a class="sticky-cta" id="mobileStickyBtn" href="#" data-popup><span class="sticky-cta-short">Get My Seat → €29</span><span class="sticky-cta-full">Join the 3-Day Experience → €29 + VAT</span></a>
 </div>
 
 <script>
-  // ─── Countdown to 22 May 2026 09:00 local ───
-  const target = new Date('2026-05-22T09:00:00+02:00').getTime();
-  function tick(){
-    const now = Date.now();
-    let d = Math.max(0, target - now);
-    const days = Math.floor(d/86400000); d -= days*86400000;
-    const hours = Math.floor(d/3600000); d -= hours*3600000;
-    const mins = Math.floor(d/60000); d -= mins*60000;
-    const secs = Math.floor(d/1000);
-    const pad = n => String(n).padStart(2,'0');
-    // Urgency band countdown (Days : Hours : Minutes : Seconds)
-    var eaD=document.getElementById('ea-days');
-    var eaH=document.getElementById('ea-hours');
-    var eaM=document.getElementById('ea-mins');
-    var eaS=document.getElementById('ea-secs');
-    if(eaD) eaD.textContent=pad(days);
-    if(eaH) eaH.textContent=pad(hours);
-    if(eaM) eaM.textContent=pad(mins);
-    if(eaS) eaS.textContent=pad(secs);
+  // ─── 18-hour price-lock countdown (persists across visits via localStorage) ───
+  // Rule: continue from stored expiry UNLESS < 1 hour remains → reset to fresh 18h
+  (function(){
+    var DURATION   = 18 * 60 * 60 * 1000; // 18 hours
+    var RESET_THRESHOLD = 60 * 60 * 1000;  // reset if < 1 hour left on return
+    var KEY = 'mmi_timer_expiry';
+    var pad = function(n){ return String(n).padStart(2,'0'); };
 
-  }
-  tick(); setInterval(tick, 1000);
+    var stored = localStorage.getItem(KEY);
+    var expiry  = stored ? parseInt(stored, 10) : 0;
+    var remaining = expiry - Date.now();
+
+    // Fresh start: no expiry, already expired, or < 1 hour left on return
+    if (!expiry || remaining <= 0 || remaining < RESET_THRESHOLD) {
+      expiry = Date.now() + DURATION;
+      localStorage.setItem(KEY, String(expiry));
+    }
+
+    var eaD = document.getElementById('ea-days');
+    var eaH = document.getElementById('ea-hours');
+    var eaM = document.getElementById('ea-mins');
+    var eaS = document.getElementById('ea-secs');
+
+    function tick(){
+      var rem = Math.max(0, expiry - Date.now());
+      var d = rem;
+      var days  = Math.floor(d/86400000); d -= days*86400000;
+      var hours = Math.floor(d/3600000);  d -= hours*3600000;
+      var mins  = Math.floor(d/60000);    d -= mins*60000;
+      var secs  = Math.floor(d/1000);
+      if(eaD) eaD.textContent = pad(days);
+      if(eaH) eaH.textContent = pad(hours);
+      if(eaM) eaM.textContent = pad(mins);
+      if(eaS) eaS.textContent = pad(secs);
+      if(rem === 0){ clearInterval(timerInterval); onTimerExpired(); }
+    }
+
+    function onTimerExpired(){
+      var modal = document.getElementById('mmi-expired-modal');
+      if(modal) modal.style.display = 'flex';
+      var label = document.getElementById('mmi-ends-in');
+      if(label) label.textContent = 'Early access price has expired';
+    }
+
+    // Reset to a fresh 18h window (called from expired modal)
+    window.mmiResetTimer = function(){
+      expiry = Date.now() + DURATION;
+      localStorage.setItem(KEY, String(expiry));
+      var modal = document.getElementById('mmi-expired-modal');
+      if(modal) modal.style.display = 'none';
+      var label = document.getElementById('mmi-ends-in');
+      if(label) label.textContent = 'Your reserved price expires in';
+      timerInterval = setInterval(tick, 1000);
+      tick();
+    };
+
+    var timerInterval = setInterval(tick, 1000);
+    tick();
+  })();
 
   // ─── FAQ accordion ───
   document.querySelectorAll('.faq-q').forEach(q => {
@@ -2528,9 +2569,10 @@ Until they change, your results repeat — no matter the effort.</p>
   if(!btn) return;
 
   /* 3 stages — button text only, price stays visible */
+  var _evPrice = (typeof MMI_EVENTS !== 'undefined' && typeof EVENT_CODE !== 'undefined' && MMI_EVENTS[EVENT_CODE]) ? MMI_EVENTS[EVENT_CODE].stdNow : '€29';
   var MOB_STAGES = [
-    { pct: 0.40, text: 'Join the 3-Day Experience → €29 + VAT' },
-    { pct: 0.75, text: 'Break the Pattern → €29 + VAT' },
+    { pct: 0.40, text: 'Get My Seat → ' + _evPrice },
+    { pct: 0.75, text: 'Claim My Spot → ' + _evPrice },
     { pct: 1.00, text: 'Join Now — Price Rises Soon' }
   ];
 
@@ -2556,7 +2598,9 @@ Until they change, your results repeat — no matter the effort.</p>
     btn.style.transition = 'opacity 200ms ease';
     btn.style.opacity    = '0';
     setTimeout(function(){
-      btn.textContent  = MOB_STAGES[stage].text;
+      var shortEl = btn.querySelector('.sticky-cta-short');
+      if(shortEl) shortEl.textContent = MOB_STAGES[stage].text;
+      else btn.textContent = MOB_STAGES[stage].text;
       btn.style.opacity = '1';
     }, 200);
   }
@@ -2640,13 +2684,15 @@ Until they change, your results repeat — no matter the effort.</p>
       '<div style="font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#c9a84c;margin-bottom:14px;">Save ' + stdSave + ' &middot; Early Access</div>',
       '<ul style="list-style:none;padding:0;margin:0 0 18px;flex:1;">',
       '<li style="font-size:12px;color:rgba(255,255,255,.72);padding:7px 0 7px 18px;position:relative;border-bottom:1px solid rgba(255,255,255,.05);">',
-      '<span style="position:absolute;left:0;color:#c9a84c;font-size:10px;">&#10003;</span>Full 3-day live experience</li>',
+      '<span style="position:absolute;left:0;color:#c9a84c;font-size:10px;">&#10003;</span>Standard Admission Pass for full 3 days</li>',
       '<li style="font-size:12px;color:rgba(255,255,255,.72);padding:7px 0 7px 18px;position:relative;border-bottom:1px solid rgba(255,255,255,.05);">',
-      '<span style="position:absolute;left:0;color:#c9a84c;font-size:10px;">&#10003;</span>MMI Lite Workbook</li>',
+      '<span style="position:absolute;left:0;color:#c9a84c;font-size:10px;">&#10003;</span>Millionaire Mind Intensive Lite Workbook</li>',
       '<li style="font-size:12px;color:rgba(255,255,255,.72);padding:7px 0 7px 18px;position:relative;border-bottom:1px solid rgba(255,255,255,.05);">',
-      '<span style="position:absolute;left:0;color:#c9a84c;font-size:10px;">&#10003;</span>Secret Psychology of Wealth pack</li>',
+      '<span style="position:absolute;left:0;color:#c9a84c;font-size:10px;">&#10003;</span>&#11088; BONUS: Pre-Training &amp; Intention Sheet</li>',
+      '<li style="font-size:12px;color:rgba(255,255,255,.72);padding:7px 0 7px 18px;position:relative;border-bottom:1px solid rgba(255,255,255,.05);">',
+      '<span style="position:absolute;left:0;color:#c9a84c;font-size:10px;">&#10003;</span>&#11088; BONUS: Private Community Group</li>',
       '<li style="font-size:12px;color:rgba(255,255,255,.72);padding:7px 0 7px 18px;position:relative;">',
-      '<span style="position:absolute;left:0;color:#c9a84c;font-size:10px;">&#10003;</span>Private community + weekly sessions</li>',
+      '<span style="position:absolute;left:0;color:#c9a84c;font-size:10px;">&#10003;</span>&#11088; BONUS: Weekly Review &amp; Relearn Class (Every Tuesday)</li>',
       '</ul>',
       '<a href="' + getStandard() + '" target="_blank" rel="noopener" ',
       'style="display:block;width:100%;text-align:center;padding:12px;background:#c9a84c;color:#0a0a0a;',
@@ -2672,11 +2718,23 @@ Until they change, your results repeat — no matter the effort.</p>
       '<li style="font-size:12px;color:rgba(255,255,255,.72);padding:7px 0 7px 18px;position:relative;border-bottom:1px solid rgba(255,255,255,.05);">',
       '<span style="position:absolute;left:0;color:#c9a84c;font-size:10px;">&#10003;</span>Everything in Standard</li>',
       '<li style="font-size:12px;color:rgba(255,255,255,.72);padding:7px 0 7px 18px;position:relative;border-bottom:1px solid rgba(255,255,255,.05);">',
-      '<span style="position:absolute;left:0;color:#c9a84c;font-size:10px;">&#10003;</span>Full Workbook</li>',
+      '<span style="position:absolute;left:0;color:#c9a84c;font-size:10px;">&#10003;</span>Millionaire Mind Intensive Full Workbook</li>',
       '<li style="font-size:12px;color:rgba(255,255,255,.72);padding:7px 0 7px 18px;position:relative;border-bottom:1px solid rgba(255,255,255,.05);">',
-      '<span style="position:absolute;left:0;color:#c9a84c;font-size:10px;">&#10003;</span>Front-row seating + priority check-in</li>',
+      '<span style="position:absolute;left:0;color:#c9a84c;font-size:10px;">&#10003;</span>Priority Check In and Front Row Seating</li>',
+      '<li style="font-size:12px;color:rgba(255,255,255,.72);padding:7px 0 7px 18px;position:relative;border-bottom:1px solid rgba(255,255,255,.05);">',
+      '<span style="position:absolute;left:0;color:#c9a84c;font-size:10px;">&#10003;</span>Speed Networking Session</li>',
+      '<li style="font-size:12px;color:rgba(255,255,255,.72);padding:7px 0 7px 18px;position:relative;border-bottom:1px solid rgba(255,255,255,.05);">',
+      '<span style="position:absolute;left:0;color:#c9a84c;font-size:10px;">&#10003;</span>"The Secret Psychology of Wealth" Content Pack e-copy</li>',
+      '<li style="font-size:12px;color:rgba(255,255,255,.72);padding:7px 0 7px 18px;position:relative;border-bottom:1px solid rgba(255,255,255,.05);">',
+      '<span style="position:absolute;left:0;color:#c9a84c;font-size:10px;">&#10003;</span>"Success Belief" Worksheet</li>',
+      '<li style="font-size:12px;color:rgba(255,255,255,.72);padding:7px 0 7px 18px;position:relative;border-bottom:1px solid rgba(255,255,255,.05);">',
+      '<span style="position:absolute;left:0;color:#c9a84c;font-size:10px;">&#10003;</span>"Secrets of The Millionaire Mind" eBook</li>',
+      '<li style="font-size:12px;color:rgba(255,255,255,.72);padding:7px 0 7px 18px;position:relative;border-bottom:1px solid rgba(255,255,255,.05);">',
+      '<span style="position:absolute;left:0;color:#c9a84c;font-size:10px;">&#10003;</span>&#11088; BONUS: Pre-Training &amp; Intention Sheet</li>',
+      '<li style="font-size:12px;color:rgba(255,255,255,.72);padding:7px 0 7px 18px;position:relative;border-bottom:1px solid rgba(255,255,255,.05);">',
+      '<span style="position:absolute;left:0;color:#c9a84c;font-size:10px;">&#10003;</span>&#11088; BONUS: Private Community Group</li>',
       '<li style="font-size:12px;color:rgba(255,255,255,.72);padding:7px 0 7px 18px;position:relative;">',
-      '<span style="position:absolute;left:0;color:#c9a84c;font-size:10px;">&#10003;</span>Speed networking session</li>',
+      '<span style="position:absolute;left:0;color:#c9a84c;font-size:10px;">&#10003;</span>&#11088; BONUS: Weekly Review &amp; Relearn Class (Every Tuesday)</li>',
       '</ul>',
       '<a href="' + getVIP() + '" target="_blank" rel="noopener" ',
       'style="display:block;width:100%;text-align:center;padding:12px;background:transparent;color:rgba(255,255,255,.9);',
@@ -2927,8 +2985,8 @@ const EVENT_CODE = (function(){
   attr('mmi-vip-cta', 'href', ev.vipUrl);
 
   /* ── Sticky bar ── */
-  set('mmi-sticky-now',   ev.stdNow);
-  set('mmi-sticky-price', ev.stickyPrice + ' · Total: ' + ev.stdCheckout);
+  set('mmi-sticky-now',   ev.stdNow + ' <span id="mmi-sticky-was" style="font-size:13px;color:rgba(255,255,255,0.35);text-decoration:line-through;">' + ev.stdFull + '</span>');
+  set('mmi-sticky-price', ev.stickyPrice + '<br>Total: ' + ev.stdCheckout);
 
   /* CTA button text — Timer column, strip emoji prefix */
   var timerRaw = ev.timerCTA || '';
@@ -2952,6 +3010,7 @@ const EVENT_CODE = (function(){
   /* ── Venue ── */
   set('mmi-venue-name', ev.venue);
   set('mmi-venue-addr', ev.address.replace(/\n/g,'<br/>'));
+  set('mmi-venue-city', (ev.happeningIn || ev.city) + '.');
 
   /* ── Venue visual card (city/country/dates) ── */
   set('mmi-visual-city',    ev.happeningIn || ev.city);
@@ -3202,5 +3261,25 @@ vgo('setTrackByDefault', true);
 vgo('process');
 </script>
 <!-- End ActiveCampaign Site Tracking -->
+
+<!-- ═══════════ TIMER EXPIRED MODAL ═══════════ -->
+<div id="mmi-expired-modal" style="display:none;position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center;background:rgba(0,0,0,0.82);backdrop-filter:blur(6px);padding:20px;">
+  <div style="background:#111;border:1px solid rgba(219,176,74,0.4);border-radius:16px;max-width:480px;width:100%;padding:40px 36px;text-align:center;position:relative;box-shadow:0 24px 64px rgba(0,0,0,0.7);">
+    <!-- Gold top bar -->
+    <div style="position:absolute;top:0;left:36px;right:36px;height:2px;background:linear-gradient(90deg,transparent,#dabf88,transparent);border-radius:2px;"></div>
+    <!-- Icon -->
+    <div style="font-size:36px;margin-bottom:16px;">📈</div>
+    <!-- Heading -->
+    <div style="font-family:'Trajan Pro',Georgia,serif;font-weight:700;font-size:22px;letter-spacing:0.03em;text-transform:uppercase;color:#fff;margin-bottom:12px;line-height:1.2;">The price just<br/>went up</div>
+    <!-- Body -->
+    <p style="font-family:'Open Sans',Arial,sans-serif;font-size:14px;line-height:1.75;color:rgba(255,255,255,0.6);margin-bottom:20px;">Your 18-hour early access window has closed. The €29 price is no longer available at the standard rate.</p>
+    <p style="font-family:'Open Sans',Arial,sans-serif;font-size:13px;line-height:1.6;color:rgba(255,255,255,0.4);margin-bottom:28px;">We can hold the original price for you — one time — if you secure your seat right now.</p>
+    <!-- Primary CTA — reclaim & popup -->
+    <a href="#" data-popup onclick="mmiResetTimer()" style="display:block;padding:16px;background:#dabf88;color:#000;font-family:'Montserrat',Arial,sans-serif;font-weight:700;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;border-radius:8px;text-decoration:none;margin-bottom:12px;">Lock In My Price Now → €29 + VAT</a>
+    <!-- Secondary — reset timer only -->
+    <button onclick="mmiResetTimer()" style="background:none;border:none;color:rgba(255,255,255,0.28);font-family:'Open Sans',Arial,sans-serif;font-size:11px;cursor:pointer;letter-spacing:0.04em;padding:4px 0;">No thanks, I'll pay the higher price</button>
+  </div>
+</div>
+
 </body>
 </html>
