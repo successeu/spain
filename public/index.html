@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2320,8 +2319,8 @@ Until they change, your results repeat — no matter the effort.</p>
 <!-- ═══════════ STICKY BAR (mobile) ═══════════ -->
 <div class="sticky-bar" role="region" aria-label="Book now">
   <div class="sticky-price">
-    <div class="sticky-price-now" id="mmi-sticky-now">€29 <span id="mmi-sticky-was" style="font-size:13px;color:rgba(255,255,255,0.35);text-decoration:line-through;">€395</span></div>
-    <div class="sticky-price-label" id="mmi-sticky-price">€29 + VAT<br>Total: €35.09 all-in</div>
+    <div class="sticky-price-now" id="mmi-sticky-now"></div>
+    <div class="sticky-price-label" id="mmi-sticky-price"></div>
   </div>
   <a class="sticky-cta" id="mobileStickyBtn" href="#" data-popup><span class="sticky-cta-short">Get My Seat → €29</span><span class="sticky-cta-full">Join the 3-Day Experience → €29 + VAT</span></a>
 </div>
@@ -2570,9 +2569,10 @@ Until they change, your results repeat — no matter the effort.</p>
   if(!btn) return;
 
   /* 3 stages — button text only, price stays visible */
+  var _evPrice = (typeof MMI_EVENTS !== 'undefined' && typeof EVENT_CODE !== 'undefined' && MMI_EVENTS[EVENT_CODE]) ? MMI_EVENTS[EVENT_CODE].stdNow : '€29';
   var MOB_STAGES = [
-    { pct: 0.40, text: 'Get My Seat → €29' },
-    { pct: 0.75, text: 'Claim My Spot → €29' },
+    { pct: 0.40, text: 'Get My Seat → ' + _evPrice },
+    { pct: 0.75, text: 'Claim My Spot → ' + _evPrice },
     { pct: 1.00, text: 'Join Now — Price Rises Soon' }
   ];
 
@@ -2985,7 +2985,7 @@ const EVENT_CODE = (function(){
   attr('mmi-vip-cta', 'href', ev.vipUrl);
 
   /* ── Sticky bar ── */
-  set('mmi-sticky-now',   ev.stdNow);
+  set('mmi-sticky-now',   ev.stdNow + ' <span id="mmi-sticky-was" style="font-size:13px;color:rgba(255,255,255,0.35);text-decoration:line-through;">' + ev.stdFull + '</span>');
   set('mmi-sticky-price', ev.stickyPrice + '<br>Total: ' + ev.stdCheckout);
 
   /* CTA button text — Timer column, strip emoji prefix */
