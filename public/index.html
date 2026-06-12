@@ -2479,39 +2479,23 @@ Until they change, your results repeat — no matter the effort.</p>
   var btnEl  = document.getElementById('dynBtn');
   if(!bar) return;
 
-  /* ── Stage definitions ───────────────────────── */
-  var _ev = (typeof MMI_EVENTS !== ‘undefined’ && typeof EVENT_CODE !== ‘undefined’) ? MMI_EVENTS[EVENT_CODE] : null;
-  var _p  = _ev ? _ev.stdNow       : ‘€29’;
-  var _bp = _ev ? _ev.buttonPrice  : ‘€29 + VAT’;
-  var _sp = _ev ? _ev.stickyPrice  : ‘€29 + VAT’;
-  var _sc = _ev ? _ev.stdCheckout  : ‘€35.09 (incl. VAT)’;
-
-  var STAGES = [
-    /* 0 — Story (20–50%) */
-    {
-      main: "If you’re seeing yourself in this —",
-      sub:  _sp + ‘ · Total at checkout: ‘ + _sc,
-      btn:  "Join the 3-Day Experience → " + _p
-    },
-    /* 1 — Program / value (50–70%) */
-    {
-      main: "See what you’ll walk away with",
-      sub:  "Three days. A genuinely different financial future.",
-      btn:  "Join the Experience → " + _p
-    },
-    /* 2 — Decision (70–85%) */
-    {
-      main: "Secure your seat → " + _bp,
-      sub:  _sp + ‘ · Total: ‘ + _sc,
-      btn:  "Join the 3-Day Experience → " + _p
-    },
-    /* 3 — Urgency (85–100%) */
-    {
-      main: "This is where it changes.",
-      sub:  "Limited seats · Price increases soon",
-      btn:  "Join Now → " + _p
-    }
-  ];
+  /* ── Stage definitions (built lazily so MMI_EVENTS is available) ── */
+  var STAGES = null;
+  function getStages(){
+    if(STAGES) return STAGES;
+    var _ev = (typeof MMI_EVENTS !== ‘undefined’ && typeof EVENT_CODE !== ‘undefined’) ? MMI_EVENTS[EVENT_CODE] : null;
+    var _p  = _ev ? _ev.stdNow      : ‘€29’;
+    var _bp = _ev ? _ev.buttonPrice : ‘€29 + VAT’;
+    var _sp = _ev ? _ev.stickyPrice : ‘€29 + VAT’;
+    var _sc = _ev ? _ev.stdCheckout : ‘€35.09 (incl. VAT)’;
+    STAGES = [
+      { main: "If you’re seeing yourself in this —",  sub: _sp + ‘ · Total at checkout: ‘ + _sc,   btn: "Join the 3-Day Experience → " + _p },
+      { main: "See what you’ll walk away with",        sub: "Three days. A genuinely different financial future.", btn: "Join the Experience → " + _p },
+      { main: "Secure your seat → " + _bp,            sub: _sp + ‘ · Total: ‘ + _sc,               btn: "Join the 3-Day Experience → " + _p },
+      { main: "This is where it changes.",             sub: "Limited seats · Price increases soon",  btn: "Join Now → " + _p }
+    ];
+    return STAGES;
+  }
 
   var current = -1;
   var pricingInView = false;
@@ -2531,7 +2515,7 @@ Until they change, your results repeat — no matter the effort.</p>
     if(stageIdx === current) return;
     current = stageIdx;
     if(stageIdx < 0) return;
-    var s = STAGES[stageIdx];
+    var s = getStages()[stageIdx];
     mainEl.classList.add('fading');
     subEl.classList.add('fading');
     setTimeout(function(){
@@ -2576,12 +2560,17 @@ Until they change, your results repeat — no matter the effort.</p>
   if(!btn) return;
 
   /* 3 stages — button text only, price stays visible */
-  var _evPrice = (typeof MMI_EVENTS !== 'undefined' && typeof EVENT_CODE !== 'undefined' && MMI_EVENTS[EVENT_CODE]) ? MMI_EVENTS[EVENT_CODE].stdNow : '€29';
-  var MOB_STAGES = [
-    { pct: 0.40, text: 'Get My Seat → ' + _evPrice },
-    { pct: 0.75, text: 'Claim My Spot → ' + _evPrice },
-    { pct: 1.00, text: 'Join Now — Price Rises Soon' }
-  ];
+  var MOB_STAGES = null;
+  function getMobStages(){
+    if(MOB_STAGES) return MOB_STAGES;
+    var _p = (typeof MMI_EVENTS !== 'undefined' && typeof EVENT_CODE !== 'undefined' && MMI_EVENTS[EVENT_CODE]) ? MMI_EVENTS[EVENT_CODE].stdNow : '€29';
+    MOB_STAGES = [
+      { pct: 0.40, text: 'Get My Seat → ' + _p },
+      { pct: 0.75, text: 'Claim My Spot → ' + _p },
+      { pct: 1.00, text: 'Join Now — Price Rises Soon' }
+    ];
+    return MOB_STAGES;
+  }
 
   var currentMob = -1;
 
@@ -2606,8 +2595,8 @@ Until they change, your results repeat — no matter the effort.</p>
     btn.style.opacity    = '0';
     setTimeout(function(){
       var shortEl = btn.querySelector('.sticky-cta-short');
-      if(shortEl) shortEl.textContent = MOB_STAGES[stage].text;
-      else btn.textContent = MOB_STAGES[stage].text;
+      if(shortEl) shortEl.textContent = getMobStages()[stage].text;
+      else btn.textContent = getMobStages()[stage].text;
       btn.style.opacity = '1';
     }, 200);
   }
