@@ -2993,7 +2993,7 @@ const EVENT_CODE = (function(){
     var arrow = txt.indexOf('→');
     el.textContent = (arrow !== -1 ? txt.substring(0, arrow).trim() : txt) + ' → ' + price;
   }
-  ['mmi-hero-cta','mmi-cta-story','mmi-cta-exp','mmi-cta-final'].forEach(function(id){
+  ['mmi-hero-cta','mmi-cta-story','mmi-std-cta','mmi-cta-exp','mmi-cta-final'].forEach(function(id){
     updateCtaPrice(document.getElementById(id));
   });
   updateCtaPrice(document.querySelector('.urgency-cta'));
