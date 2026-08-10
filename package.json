@@ -1,0 +1,13 @@
+{
+  "name": "spain",
+  "version": "1.0.0",
+  "description": "Millionaire Mind Intensive - Malaga, Spain",
+  "private": true,
+  "scripts": {
+    "build": "echo 'Static site - no build needed'",
+    "lint": "echo 'No linter configured'"
+  },
+  "dependencies": {
+    "@vercel/speed-insights": "^1.0.0"
+  }
+}
